@@ -1,0 +1,30 @@
+[
+  {
+    "nev": "Egyedi telefontartó",
+    "leiras": "Asztali vagy autós tartó, a telefonod és a tokja pontos méretére szabva.",
+    "ar": "4 900 Ft-tól",
+    "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/Prusa_i3_-_RepRap_3D_printer_printing.jpg?width=1200",
+    "alt": "FDM nyomtató nyomtatás közben"
+  },
+  {
+    "nev": "Gyantás miniatűr figura",
+    "leiras": "Részletgazdag figura SLA-nyomtatással, festésre előkészítve.",
+    "ar": "6 500 Ft-tól",
+    "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/3D_print_in_process_%289437659715%29.jpg?width=1200",
+    "alt": "Készülő 3D nyomtatott darab a tálcán"
+  },
+  {
+    "nev": "Pótalkatrész",
+    "leiras": "Eltört műanyag alkatrész újragyártása mintadarab vagy rajz alapján.",
+    "ar": "Egyedi ajánlat",
+    "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/Felix_3D_Printer_-_Printing_Head_Cropped.JPG?width=1200",
+    "alt": "3D nyomtató nyomtatófeje közelről"
+  },
+  {
+    "nev": "Névtábla, kulcstartó",
+    "leiras": "Felirattal vagy logóval, kétszínű nyomtatással, akár sorozatban.",
+    "ar": "1 500 Ft-tól",
+    "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/3D_Printing_Filament.jpg?width=1200",
+    "alt": "Filamenttekercsek"
+  }
+]

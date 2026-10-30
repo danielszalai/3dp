@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D műhely: FDM- és SLA-nyomtatás, tervezés, prototípus</title>
+<meta name="description" content="FDM- és SLA-nyomtatás, egyedi 3D tervezés és prototípusgyártás. Küldd el az STL- vagy STEP-fájlt, és ajánlattal válaszolunk.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@200;400&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS (CDN). A színek, betűk és térközök a :root tokenekre mutatnak, így egy helyen állíthatók. -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    corePlugins: { preflight: false, container: false },
+    theme: {
+      screens: { sm: '40rem', md: '60rem', lg: '80rem' },
+      spacing: {
+        0: '0', '3xs': 'var(--space-3xs)', '2xs': 'var(--space-2xs)', xs: 'var(--space-xs)', sm: 'var(--space-sm)',
+        md: 'var(--space-md)', lg: 'var(--space-lg)', xl: 'var(--space-xl)', '2xl': 'var(--space-2xl)',
+        '3xl': 'var(--space-3xl)', '4xl': 'var(--space-4xl)', col: 'var(--gap-columns)'
+      },
+      colors: {
+        transparent: 'transparent', current: 'currentColor',
+        paper: 'var(--color-paper)', 'paper-2': 'var(--color-paper-2)', 'paper-3': 'var(--color-paper-3)',
+        ink: 'var(--color-ink)', 'ink-2': 'var(--color-ink-2)', muted: 'var(--color-muted)',
+        rule: 'var(--color-rule)', accent: 'var(--color-accent)'
+      },
+      fontFamily: { display: 'var(--font-display)', body: 'var(--font-body)' }
+    }
+  };
+</script>
+
+<style>
+/* Hallmark · shape: Catalogue (draw 229f1d; products as the catalogue, section order per the brief) · genre: atmospheric · theme: Darkroom (deal 1/3, seed printing-studio-dark-anthracite-873d·891de7de·2026-10-30·r0) · job: hire · draw: 229f1d
+ * hero: Ledge · nav: floating pill (zero radius) · footer: letter close · imagery: photographs, Wikimedia Commons 9 (stand-ins, mono) · signature: a print in progress filling the first screen; the Érdekel button writes the product into the enquiry · darkroom: amber
+ * axes: dark/display-condensed/chromatic-amber · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S3 R4 V4 · weakest: S, the photos are stand-ins and the catalogue is sample data; carried specificity in the copy (tálca, STL, STEP) and the file drop at the close */
+/* Hallmark · dismissed 29 · the floating nav bar on a backdrop blur is the atmospheric genre's one glass licence, nothing else is translucent */
+/* Hallmark · dismissed 42 · four section links in a floating bar with no CTA and no hairline under it, stamped nav: floating pill */
+/* Hallmark · answered F4 · two filled primaries, the hero's and the form's submit, are the same enquiry action at its start and its end */
+
+/* ===== Tokens (Darkroom, amber) ===== */
+:root {
+  color-scheme: dark;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2.25rem, 2.5vw + 1.25rem, 3.75rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --text-hero: clamp(3rem, 5.5vw + 1rem, 6.5rem); --text-numeral: clamp(5rem, 7vw + 1rem, 8.5rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(72% 0.15 27); --color-success: oklch(76% 0.13 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(12.5% 0.008 55); --color-paper-2: oklch(16% 0.009 55); --color-paper-3: oklch(20.5% 0.01 55);
+  --color-ink: oklch(92% 0.012 78); --color-ink-2: oklch(80% 0.012 75); --color-muted: oklch(64% 0.012 65);
+  --color-rule: oklch(29% 0.01 55);
+  --color-accent: oklch(73% 0.15 58); --color-accent-hover: oklch(79% 0.13 62); --color-accent-deep: oklch(50% 0.11 52); --color-accent-ink: oklch(12.5% 0.008 55); --color-focus: oklch(73% 0.15 58);
+  --color-nav: oklch(12.5% 0.008 55 / 0.82);
+  --font-display: "Sofia Sans Extra Condensed", ui-sans-serif, sans-serif; --font-body: "Barlow", ui-sans-serif, sans-serif;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.005em; --display-weight: 200; --grain: 0.07;
+}
+
+/* ===== Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.02; text-transform: uppercase; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 20ch; font-size: var(--text-display); }
+h2 { max-width: 30ch; font-size: var(--text-section); }
+h3 { max-width: 40ch; font-size: var(--text-title); font-weight: 400; line-height: 1.05; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 44ch; color: var(--color-ink-2); }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Slots: every picture the owner replaces with their own */
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2), var(--color-paper-3)); }
+[data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+[data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
+/* Darkroom treatment: black and white, printed deep. Delete this line for colour photos. */
+[data-slot] > img { filter: grayscale(1) contrast(1.18) brightness(0.97); }
+
+/* ===== Controls ===== */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 48px; padding: 0 var(--space-lg); border: var(--rule-hair) solid var(--color-ink); border-radius: 0; background: transparent; color: var(--color-ink); font: 400 var(--text-lg)/1 var(--font-display); text-transform: uppercase; white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-paper-3); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy="true"] { cursor: progress; }
+.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+.link { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); }
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); }
+.skip:focus-visible { top: var(--space-md); }
+
+/* ===== Nav: a floating bar ===== */
+.nav { position: fixed; inset-inline: 0; top: var(--space-md); z-index: var(--z-sticky-nav); }
+.nav__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-xl); min-height: 56px; padding-inline: var(--space-lg); background: var(--color-nav); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); outline: 1px solid var(--color-rule); outline-offset: -1px; }
+.wordmark { font: 400 var(--text-xl)/1 var(--font-display); text-transform: uppercase; text-decoration: none; color: var(--color-ink); white-space: nowrap; }
+.wordmark:hover { color: var(--color-ink-2); }
+.nav__links { display: flex; gap: var(--space-lg); list-style: none; }
+.nav__links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9375rem; color: var(--color-ink-2); text-decoration: none; white-space: nowrap; transition: color var(--dur-short) var(--ease-out); }
+.nav__links a:hover { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent); }
+.nav__toggle { display: none; min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); background: transparent; color: var(--color-ink); font-size: 0.9375rem; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.nav__toggle:hover { background: var(--color-paper-3); }
+.nav__toggle:active { transform: translateY(1px); }
+.nav__toggle:disabled { opacity: 0.55; cursor: not-allowed; }
+@media (max-width: 60rem) {
+  .nav__bar { flex-wrap: wrap; padding-inline: var(--space-md); }
+  .js .nav__toggle { display: inline-flex; align-items: center; }
+  .nav__links { flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); }
+  .js .nav__links { display: none; width: 100%; flex-direction: column; gap: 0; padding-bottom: var(--space-sm); }
+  .js .nav.is-open .nav__links { display: flex; }
+  .js .nav__links a { width: 100%; font-size: var(--text-md); border-top: 1px solid var(--color-rule); }
+}
+
+/* ===== Sections ===== */
+.sec { padding-block: var(--section-gap); }
+.sec-l { padding-block: var(--section-gap-l) var(--section-gap); }
+.band { padding-block: var(--section-gap-s); background: var(--color-paper-2); color: var(--color-ink); }
+.grained { position: relative; isolation: isolate; }
+.grained::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--grain); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / 200px 200px; }
+
+/* Hero: Ledge, the print fills the field, the head rests at its base */
+.hero { min-height: 100svh; display: flex; flex-direction: column; padding-block: var(--space-3xl) var(--space-xl); }
+.hero > .container { flex: 1; display: flex; flex-direction: column; gap: var(--space-xl); }
+.hero__photo { flex: 1; min-height: 280px; }
+.hero h1 { font-size: var(--text-hero); max-width: 18ch; }
+@media (max-width: 60rem) {
+  .hero { min-height: auto; padding-top: calc(var(--space-3xl) + var(--space-lg)); }
+  .hero__photo { flex: none; aspect-ratio: 4 / 3; min-height: 0; }
+}
+
+/* Technology: a collector's sheet */
+.sheet { border-bottom: 1px solid var(--color-rule); }
+.sheet > div { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: baseline; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
+.sheet dt { font: 200 var(--text-2xl)/1.02 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); }
+.sheet dd { color: var(--color-ink-2); max-width: 52ch; }
+@media (max-width: 40rem) { .sheet > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); padding-block: var(--space-lg); } }
+
+/* Works: plates in mixed spans */
+.works { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); }
+.works figure { grid-column: span 12; }
+.works .plate { height: clamp(280px, 34vw, 520px); }
+.works .plate--low { height: clamp(260px, 28vw, 420px); }
+.works figcaption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
+@media (min-width: 60rem) {
+  .works .w-7 { grid-column: span 7; }
+  .works .w-5 { grid-column: span 5; }
+}
+
+/* Process: a contact strip of numerals */
+.steps { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); counter-reset: step; }
+.steps li { counter-increment: step; padding-inline: var(--space-xl); border-left: 1px solid var(--color-rule); }
+.steps li:first-child { padding-left: 0; border-left: 0; }
+.steps li:last-child { padding-right: 0; }
+.steps li::before { content: counter(step); display: block; margin-bottom: var(--space-lg); font: 200 var(--text-numeral)/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--color-ink); }
+.steps h3 { margin-bottom: var(--space-sm); }
+.steps p { color: var(--color-ink-2); max-width: 34ch; }
+@media (max-width: 60rem) {
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .steps li, .steps li:first-child, .steps li:last-child { padding: var(--space-xl) 0; border-left: 0; border-top: 1px solid var(--color-rule); }
+  .steps li:first-child { border-top: 0; padding-top: 0; }
+  .steps li::before { margin-bottom: var(--space-sm); }
+}
+
+/* Products: the catalogue, rendered from JSON */
+.catalogue { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2xl) var(--gap-columns); list-style: none; }
+@media (min-width: 40rem) { .catalogue { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 80rem) { .catalogue { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.product { display: flex; flex-direction: column; height: 100%; background: var(--color-paper-2); }
+.product__photo { aspect-ratio: 4 / 3; }
+.product__body { flex: 1; display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg); }
+.product__body p { color: var(--color-ink-2); }
+.product__price { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); }
+.product__price span { font-size: var(--text-sm); color: var(--color-muted); }
+.product__price strong { font: 400 var(--text-xl)/1 var(--font-display); text-transform: uppercase; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.product .btn { width: 100%; }
+.catalogue__empty { color: var(--color-muted); }
+
+/* Contact: the form */
+.form { display: grid; gap: var(--space-lg); }
+.field label, .field .label { display: block; margin-bottom: var(--space-xs); font-size: var(--text-sm); color: var(--color-ink-2); }
+.input { width: 100%; min-height: 48px; padding: 0 var(--space-md); border: 1px solid var(--color-muted); border-radius: 0; background: var(--color-paper); color: var(--color-ink); font-size: var(--text-md); outline: 2px solid transparent; outline-offset: -3px; }
+textarea.input { min-height: 160px; padding-block: var(--space-sm); line-height: 1.55; resize: vertical; }
+.input:focus-visible { outline-color: var(--color-focus); }
+.input[aria-invalid] { border-color: var(--color-error); }
+.input:disabled { opacity: 0.55; cursor: not-allowed; }
+.help { min-height: 1lh; margin-top: var(--space-2xs); font-size: var(--text-sm); color: var(--color-muted); }
+.help.is-error { color: var(--color-error); }
+.drop { position: relative; display: flex; align-items: flex-start; gap: var(--space-md); padding: var(--space-xl) var(--space-lg); border: 1px dashed var(--color-muted); background: var(--color-paper); cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+.drop:hover, .drop.is-over { background: var(--color-paper-2); border-color: var(--color-accent); }
+.drop:focus-within { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.drop input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.drop svg { flex-shrink: 0; color: var(--color-ink-2); }
+.drop strong { display: block; font-weight: 400; color: var(--color-ink); }
+.drop small { font-size: var(--text-sm); color: var(--color-muted); }
+.files { list-style: none; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
+.files li { padding-block: var(--space-2xs); }
+.contacts { display: grid; gap: var(--space-lg); margin-top: var(--space-2xl); }
+.contacts > div { padding-top: var(--space-md); border-top: 1px solid var(--color-rule); }
+.contacts dt { font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-2xs); }
+.contacts dd { font-size: var(--text-lead); }
+.fill { padding: 0 0.25em; border: 1px dashed color-mix(in oklch, var(--color-muted) 70%, transparent); border-radius: 3px; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* Footer: a letter close */
+.footer { padding-block: var(--section-gap-s) var(--space-xl); border-top: 1px solid var(--color-rule); }
+.footer__line { font: 200 var(--text-section)/1.02 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); max-width: 20ch; text-wrap: balance; }
+.footer__sign { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-md) var(--space-xl); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); }
+.footer__credits { margin-top: var(--space-lg); font-size: var(--text-xs); color: var(--color-muted); max-width: 110ch; }
+.footer__credits a { color: var(--color-muted); }
+
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } .btn:active, .nav__toggle:active { transform: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
+<!-- ===== Fejléc ===== -->
+<header class="nav" data-nav>
+  <div class="container">
+    <nav class="nav__bar" aria-label="Fő navigáció">
+      <a class="wordmark" href="#top" aria-label="3D műhely, vissza az oldal tetejére">3D műhely</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menü</button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#rolunk">Rólunk</a></li>
+        <li><a href="#munkaink">Munkáink</a></li>
+        <li><a href="#termekek">Termékek</a></li>
+        <li><a href="#kapcsolat">Kapcsolat</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="container">
+      <figure class="hero__photo" data-slot="hero" data-alt="Saját fotó: egy darab nyomtatás közben, közelről">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/3D_printing_in_progress.jpg?width=1920"
+             srcset="https://commons.wikimedia.org/wiki/Special:FilePath/3D_printing_in_progress.jpg?width=1280 1280w, https://commons.wikimedia.org/wiki/Special:FilePath/3D_printing_in_progress.jpg?width=1920 1920w, https://commons.wikimedia.org/wiki/Special:FilePath/3D_printing_in_progress.jpg?width=2560 2560w"
+             sizes="(min-width: 90rem) 1312px, 100vw" width="2560" height="1440"
+             alt="Egy darab 3D nyomtatás közben, rétegről rétegre" style="object-position: 50% 50%" fetchpriority="high">
+      </figure>
+      <div class="grid grid-cols-12 gap-col items-end">
+        <h1 id="hero-title" class="col-span-12 md:col-span-7">A fájlodból kézzelfogható tárgy</h1>
+        <div class="col-span-12 md:col-start-8 md:col-span-5">
+          <p class="lead">FDM- és SLA-nyomtatás, 3D tervezés és prototípus, egy műhelyben.</p>
+          <div class="flex flex-wrap gap-sm mt-lg">
+            <a class="btn btn--primary" href="#kapcsolat">Ajánlatot kérek</a>
+            <a class="btn" href="#termekek">Kész termékek</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Rólunk / Technológia ===== -->
+  <section class="sec-l" id="rolunk" aria-labelledby="rolunk-title">
+    <div class="container grid grid-cols-12 gap-col">
+      <div class="col-span-12 md:col-span-4 mb-xl md:mb-0">
+        <h2 id="rolunk-title">Négy út a fájltól a tárgyig</h2>
+        <p class="lead mt-lg">Tervezéstől a kész darabig egy kézben marad a munka.</p>
+      </div>
+      <dl class="sheet col-span-12 md:col-start-6 md:col-span-7">
+        <div><dt>FDM</dt><dd>Olvasztott műanyag szálból, rétegenként. Strapabíró alkatrészekhez és nagyobb méretekhez.</dd></div>
+        <div><dt>SLA</dt><dd>Fénnyel kikeményített gyantából. Finom részletek, sima felület figurákhoz és mintadarabokhoz.</dd></div>
+        <div><dt>Egyedi tervezés</dt><dd>Vázlatból, fotóból vagy méretekből megrajzoljuk a nyomtatható 3D modellt.</dd></div>
+        <div><dt>Prototípusgyártás</dt><dd>Kézbe vehető, kipróbálható darab, mielőtt szériára vagy szerszámra költenél.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== Munkáink (galéria) ===== -->
+  <section class="sec" id="munkaink" aria-labelledby="munkaink-title">
+    <div class="container">
+      <div class="grid grid-cols-12 gap-col items-end mb-2xl">
+        <h2 id="munkaink-title" class="col-span-12 md:col-span-6">Ami eddig lekerült a tálcáról</h2>
+        <p class="lead col-span-12 md:col-start-8 md:col-span-5 mt-md md:mt-0">Válogatás az elkészült darabokból.</p>
+      </div>
+      <div class="works">
+        <figure class="w-7">
+          <div class="plate" data-slot="munka-1" data-alt="Saját fotó: elkészült darab, közelről">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/3DBenchy_printed_on_a_resin_printer.jpg?width=1600" width="1600" height="1200" loading="lazy" alt="Gyantából nyomtatott hajómodell">
+          </div>
+          <figcaption>SLA, gyanta</figcaption>
+        </figure>
+        <figure class="w-5">
+          <div class="plate" data-slot="munka-2" data-alt="Saját fotó: többszínű FDM-darab">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/3DBenchy_created_using_color_mixing_on_an_FDM_printer.jpg?width=1200" width="1200" height="1200" loading="lazy" alt="Színkeveréssel nyomtatott hajómodell">
+          </div>
+          <figcaption>FDM, színkeveréssel</figcaption>
+        </figure>
+        <figure class="w-5">
+          <div class="plate plate--low" data-slot="munka-3" data-alt="Saját fotó: öntvény vagy utómunkázott darab">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/3D_print_polymer_resin_cast.jpg?width=1200" width="1200" height="900" loading="lazy" alt="Gyantaöntvény nyomtatott mintáról">
+          </div>
+          <figcaption>Öntvény nyomtatott mintáról</figcaption>
+        </figure>
+        <figure class="w-7">
+          <div class="plate plate--low" data-slot="munka-4" data-alt="Saját fotó: műszaki alkatrész vagy prototípus">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SLA_3D_Printed_PCB.jpg?width=1600" width="1600" height="1200" loading="lazy" alt="SLA-val nyomtatott műszaki alkatrész">
+          </div>
+          <figcaption>SLA, műszaki alkatrész</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Folyamat ===== -->
+  <section class="band grained" aria-labelledby="folyamat-title">
+    <div class="container">
+      <h2 id="folyamat-title" class="mb-2xl">Három lépés a kész darabig</h2>
+      <ol class="steps">
+        <li><h3>Küldd el a fájlt</h3><p>STL- vagy STEP-fájl, esetleg egy vázlat a méretekkel.</p></li>
+        <li><h3>Ajánlatot adunk</h3><p>Anyag, határidő és ár, egyetlen válaszban.</p></li>
+        <li><h3>Nyomtatjuk</h3><p>Elkészül, utómunkázzuk, és egyeztetjük az átvételt.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Termékek (a products.json-ból) ===== -->
+  <section class="sec" id="termekek" aria-labelledby="termekek-title">
+    <div class="container">
+      <div class="grid grid-cols-12 gap-col items-end mb-2xl">
+        <h2 id="termekek-title" class="col-span-12 md:col-span-6">Kész darabok, ajánlatkérésre</h2>
+        <p class="lead col-span-12 md:col-start-8 md:col-span-5 mt-md md:mt-0">Webshop nincs: jelöld meg, ami érdekel, és ajánlattal válaszolunk.</p>
+      </div>
+      <ul class="catalogue" id="termek-lista" data-src="products.json" aria-live="polite"></ul>
+      <noscript><p class="catalogue__empty">A termékek listájához engedélyezd a JavaScriptet, vagy írj nekünk a lenti űrlapon.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ===== Kapcsolat ===== -->
+  <section class="sec-l" id="kapcsolat" aria-labelledby="kapcsolat-title">
+    <div class="container grid grid-cols-12 gap-col">
+      <div class="col-span-12 md:col-span-5 mb-2xl md:mb-0">
+        <h2 id="kapcsolat-title">Küldd el a modelled</h2>
+        <p class="lead mt-lg">A fájl alapján megírjuk, miből, mikorra és mennyiért készülhet el.</p>
+        <dl class="contacts">
+          <div><dt>E-mail</dt><dd><span class="fill" data-fill="email">e-mail-cím</span></dd></div>
+          <div><dt>Telefon</dt><dd><span class="fill" data-fill="telefon">telefonszám</span></dd></div>
+        </dl>
+      </div>
+
+      <!-- data-endpoint: ide jön az űrlapküldő szolgáltatás címe (pl. Formspree), üresen semmi nem megy el -->
+      <form class="form col-span-12 md:col-start-7 md:col-span-6" id="ajanlatkeres" data-endpoint="" novalidate>
+        <input type="hidden" name="termek" id="termek">
+        <div class="field">
+          <label for="nev">Név</label>
+          <input class="input" id="nev" name="nev" type="text" autocomplete="name" required>
+          <p class="help" id="nev-help" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="email">E-mail-cím</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+          <p class="help" id="email-help" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="uzenet">Üzenet</label>
+          <textarea class="input" id="uzenet" name="uzenet" rows="6" placeholder="Mit szeretnél nyomtatni? Méret, darabszám, határidő."></textarea>
+        </div>
+        <div class="field">
+          <span class="label" id="fajl-label">3D fájlok (nem kötelező)</span>
+          <label class="drop" id="drop">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+            <span><strong>Húzd ide a fájlt, vagy kattints a tallózáshoz</strong><small>STL, STEP, 3MF vagy OBJ, több fájl is mehet</small></span>
+            <input type="file" id="fajlok" name="fajlok" multiple accept=".stl,.step,.stp,.3mf,.obj" aria-labelledby="fajl-label">
+          </label>
+          <ul class="files" id="fajl-lista" aria-live="polite"></ul>
+        </div>
+        <div>
+          <button class="btn btn--primary" type="submit">Ajánlatot kérek</button>
+          <p class="help" id="form-help" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Lábléc ===== -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer__line">Várjuk a következő fájlodat.</p>
+    <div class="footer__sign">
+      <span>© <span class="num" id="ev">2026</span> 3D műhely</span>
+      <a class="link" href="#top">Vissza az oldal tetejére</a>
+    </div>
+    <p class="footer__credits" data-credits>Helyettesítő fotók a Wikimedia Commonsról, a szerzők és licencek a fájloldalakon:
+      <a href="https://commons.wikimedia.org/wiki/File:3D_printing_in_progress.jpg">3D printing in progress</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:3DBenchy_printed_on_a_resin_printer.jpg">3DBenchy (resin)</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:3DBenchy_created_using_color_mixing_on_an_FDM_printer.jpg">3DBenchy (FDM)</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:3D_print_polymer_resin_cast.jpg">Polymer resin cast</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:SLA_3D_Printed_PCB.jpg">SLA printed PCB</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:Prusa_i3_-_RepRap_3D_printer_printing.jpg">Prusa i3</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:3D_print_in_process_(9437659715).jpg">3D print in process</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:Felix_3D_Printer_-_Printing_Head_Cropped.JPG">Felix printing head</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:3D_Printing_Filament.jpg">3D printing filament</a>.
+    </p>
+  </div>
+</footer>
+
+<!--
+  ===== TERMÉKEK =====
+  A lista a products.json fájlból töltődik be (ha az oldal szerveren fut).
+  Ha a products.json nem érhető el (pl. a fájlt dupla kattintással nyitod meg),
+  az alábbi beágyazott lista jelenik meg. A kettőt tartsd egyformán, vagy élesben töröld ezt a blokkot.
+  Mezők: nev, leiras, ar, kep (kép URL vagy relatív útvonal, pl. "kepek/tarto.jpg"), alt (képleírás).
+-->
+<script type="application/json" id="termekek-adat">
+[
+  { "nev": "Egyedi telefontartó", "leiras": "Asztali vagy autós tartó, a telefonod és a tokja pontos méretére szabva.", "ar": "4 900 Ft-tól", "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/Prusa_i3_-_RepRap_3D_printer_printing.jpg?width=1200", "alt": "FDM nyomtató nyomtatás közben" },
+  { "nev": "Gyantás miniatűr figura", "leiras": "Részletgazdag figura SLA-nyomtatással, festésre előkészítve.", "ar": "6 500 Ft-tól", "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/3D_print_in_process_%289437659715%29.jpg?width=1200", "alt": "Készülő 3D nyomtatott darab a tálcán" },
+  { "nev": "Pótalkatrész", "leiras": "Eltört műanyag alkatrész újragyártása mintadarab vagy rajz alapján.", "ar": "Egyedi ajánlat", "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/Felix_3D_Printer_-_Printing_Head_Cropped.JPG?width=1200", "alt": "3D nyomtató nyomtatófeje közelről" },
+  { "nev": "Névtábla, kulcstartó", "leiras": "Felirattal vagy logóval, kétszínű nyomtatással, akár sorozatban.", "ar": "1 500 Ft-tól", "kep": "https://commons.wikimedia.org/wiki/Special:FilePath/3D_Printing_Filament.jpg?width=1200", "alt": "Filamenttekercsek" }
+]
+</script>
+
+<script>
+/* Képhelyek: ha egy kép nem töltődik be, eltűnik (a háttér marad). Saját képekkel: hallmarkSlots({ hero: 'kepek/hero.jpg' }) */
+window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
+const guardImg = (i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); };
+document.querySelectorAll('[data-slot] img').forEach(guardImg);
+
+/* Év a láblécben */
+document.getElementById('ev').textContent = new Date().getFullYear();
+
+/* Mobil menü */
+(() => {
+  const nav = document.querySelector('[data-nav]');
+  const btn = nav.querySelector('.nav__toggle');
+  const set = (open) => { nav.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); btn.textContent = open ? 'Bezárás' : 'Menü'; };
+  btn.addEventListener('click', () => set(!nav.classList.contains('is-open')));
+  nav.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', () => set(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('is-open')) { set(false); btn.focus(); } });
+})();
+
+/* Termékkártyák a JSON-ból */
+(() => {
+  const list = document.getElementById('termek-lista');
+  const embedded = () => JSON.parse(document.getElementById('termekek-adat').textContent);
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+
+  const render = (items) => {
+    list.replaceChildren();
+    if (!Array.isArray(items) || !items.length) { list.append(el('li', 'catalogue__empty', 'Hamarosan feltöltjük a termékeket.')); return; }
+    items.forEach((t, i) => {
+      const li = el('li');
+      const card = el('article', 'product');
+      const photo = el('div', 'product__photo');
+      photo.dataset.slot = `termek-${i + 1}`;
+      photo.dataset.alt = `Saját fotó: ${t.nev}`;
+      if (t.kep) {
+        const img = new Image();
+        img.src = t.kep; img.alt = t.alt || ''; img.width = 1200; img.height = 900; img.loading = 'lazy'; img.decoding = 'async';
+        photo.append(img); guardImg(img);
+      }
+      const body = el('div', 'product__body');
+      body.append(el('h3', null, t.nev), el('p', null, t.leiras));
+      const price = el('div', 'product__price');
+      price.append(el('span', null, 'Ártájékoztató'), el('strong', null, t.ar || 'Egyedi ajánlat'));
+      const cta = el('a', 'btn', 'Érdekel');
+      cta.setAttribute('aria-label', `Érdekel: ${t.nev}, ajánlatot kérek`);
+      cta.href = '#kapcsolat';
+      cta.dataset.termek = t.nev;
+      body.append(price, cta);
+      card.append(photo, body);
+      li.append(card);
+      list.append(li);
+    });
+  };
+
+  fetch(list.dataset.src, { cache: 'no-cache' })
+    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(() => render(embedded()));
+
+  /* "Érdekel" gomb: beírja a termék nevét az üzenetbe, és az űrlaphoz görget */
+  const msg = document.getElementById('uzenet');
+  const hidden = document.getElementById('termek');
+  let auto = '';
+  list.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-termek]');
+    if (!a) return;
+    const line = `Érdekelne a következő termék: ${a.dataset.termek}.\n`;
+    if (!msg.value.trim() || msg.value === auto) msg.value = line;
+    else if (!msg.value.includes(a.dataset.termek)) msg.value = line + msg.value;
+    auto = msg.value;
+    hidden.value = a.dataset.termek;
+    document.getElementById('nev').focus({ preventScroll: true });
+  });
+})();
+
+/* Fájlfeltöltés: húzd-és-ejtsd jelzés és fájllista */
+(() => {
+  const drop = document.getElementById('drop');
+  const input = document.getElementById('fajlok');
+  const out = document.getElementById('fajl-lista');
+  const size = (b) => b > 1048576 ? `${(b / 1048576).toFixed(1).replace('.', ',')} MB` : `${Math.max(1, Math.round(b / 1024))} kB`;
+  ['dragenter', 'dragover'].forEach((t) => drop.addEventListener(t, () => drop.classList.add('is-over')));
+  ['dragleave', 'drop'].forEach((t) => drop.addEventListener(t, () => drop.classList.remove('is-over')));
+  input.addEventListener('change', () => {
+    out.replaceChildren(...[...input.files].map((f) => { const li = document.createElement('li'); li.textContent = `${f.name} (${size(f.size)})`; return li; }));
+  });
+})();
+
+/* Űrlap: ellenőrzés és küldés. Amíg a data-endpoint üres, semmi nem megy el. */
+(() => {
+  const form = document.getElementById('ajanlatkeres');
+  const status = document.getElementById('form-help');
+  const btn = form.querySelector('button[type="submit"]');
+  const checks = [
+    ['nev', 'nev-help', 'Add meg a neved, hogy tudjuk, kinek válaszolunk.'],
+    ['email', 'email-help', 'Ez az e-mail-cím hiányos. Így írd: nev@pelda.hu.']
+  ];
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let first = null;
+    checks.forEach(([id, helpId, text]) => {
+      const f = document.getElementById(id), h = document.getElementById(helpId);
+      const ok = f.checkValidity();
+      f.toggleAttribute('aria-invalid', !ok);
+      if (ok) { h.textContent = ''; h.classList.remove('is-error'); f.removeAttribute('aria-describedby'); }
+      else { h.textContent = text; h.classList.add('is-error'); f.setAttribute('aria-describedby', helpId); first = first || f; }
+    });
+    if (first) { first.focus(); return; }
+    if (!form.dataset.endpoint) { status.textContent = 'Semmi nem ment el: az űrlap még nincs bekötve.'; return; }
+    btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
+    fetch(form.dataset.endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then((r) => {
+        if (!r.ok) throw new Error(r.status);
+        status.textContent = `Megkaptuk, a választ ide küldjük: ${form.email.value.trim()}`;
+        form.reset(); document.getElementById('fajl-lista').replaceChildren();
+      })
+      .catch(() => { status.textContent = 'Nem sikerült elküldeni. Próbáld újra egy perc múlva.'; })
+      .finally(() => { btn.removeAttribute('aria-busy'); btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
