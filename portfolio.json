@@ -19,7 +19,7 @@
       "category": "Tabletop & miniatúrák",
       "profile": 3,
       "summary": "Romok, falak, ládák és egyéb terepelemek a játékasztalra.",
-      "images": "https://images.unsplash.com/photo-1764011643109-87e696b19b7b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "images": ["https://images.unsplash.com/photo-1764011643109-87e696b19b7b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"],
       "purpose": "A játéktér kialakítása: fedezékek, épületek és dekorációs elemek a játékhoz vagy a bemutatóhoz.",
       "problem": "Az egyedi játéktérhez nehéz megfelelő méretű és stílusú terepelemet találni. Itt a méret és a forma a játékhoz igazítható.",
       "material": "PLA, strapabíróbb elemekhez PETG",
