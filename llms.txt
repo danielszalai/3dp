@@ -1,0 +1,21 @@
+# ODDFUSE
+
+> Digitális formák, valós tárgyak. Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. Budapest, HU.
+
+- Technológia: kizárólag FDM, 0,04 mm rétegvastagság
+- Anyagok: PLA, PETG, TPU, ASA
+- Fájlformátumok: .stl, .step, .stp
+- Online vásárlás nincs: ajánlatkérés a kapcsolatfelvételi űrlapon keresztül, tájékoztató árak a katalógusban
+
+## Gépileg olvasható adatok
+- [Főoldal](index.html): JSON-LD (`#ai-schema`) és összefoglaló (`#ai-data`) a <head>-ben
+- [Termékkatalógus](products.json)
+- [Portfólió projektek](portfolio.json)
+
+## Oldalak
+- [Portfólió](portfolio.html): részletes projektoldalak (portfolio.html?p=<slug>)
+- [Kapcsolat / ajánlatkérés](index.html#kapcsolat)
+
+## Elérhetőség
+- E-mail: hello@example.hu
+- Telefon: +36 30 000 0000

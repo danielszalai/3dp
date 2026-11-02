@@ -1,54 +1,12 @@
 {
-  "_help": "Új termék: másolj be egy objektumot a 'products' tömbbe, és írd át az értékeket. Az 'id' legyen egyedi. A 'category' alapján jönnek létre automatikusan a szűrőgombok.",
+  "_help": "MINTATERMÉKEK és tájékoztató árak – cseréld a sajátjaidra. Új termék: másolj be egy objektumot a 'products' tömbbe, az 'id' legyen egyedi szám. A 'category' alapján automatikusan jönnek létre a szűrőgombok. Kép: tedd az img/products/ mappába, és írd az útvonalat az 'image' mezőbe (üresen hagyva generált rétegminta jelenik meg). A 'profile' (0–7) a generált illusztráció formája. JSON módosítás után futtasd: node tools/sync-fallback.js",
   "currency": "HUF",
   "products": [
-    {
-      "id": 1,
-      "category": "Ipari alkatrészek",
-      "name": "Egyedi tartókonzol",
-      "description": "Erős PETG konzol műszaki felhasználásra, pontos furatokkal.",
-      "price": "2 900 Ft-tól",
-      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=70"
-    },
-    {
-      "id": 2,
-      "category": "Prototípusok",
-      "name": "Funkcionális prototípus",
-      "description": "Gyors átfutású, tesztelhető prototípus iterációkhoz.",
-      "price": "4 500 Ft-tól",
-      "image": "https://images.unsplash.com/photo-1615286922420-c6b348ccf1a5?auto=format&fit=crop&w=800&q=70"
-    },
-    {
-      "id": 3,
-      "category": "Otthon & dekoráció",
-      "name": "Geometrikus lámpabúra",
-      "description": "Részletgazdag PLA lámpabúra, látványos rétegmintával.",
-      "price": "7 900 Ft-tól",
-      "image": "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=70"
-    },
-    {
-      "id": 4,
-      "category": "Hobbi & modellezés",
-      "name": "Részletes figura",
-      "description": "Finom felbontású modell festésre előkészítve.",
-      "price": "3 500 Ft-tól",
-      "image": "https://images.unsplash.com/photo-1563520239648-a24e51d4b570?auto=format&fit=crop&w=800&q=70"
-    },
-    {
-      "id": 5,
-      "category": "Ipari alkatrészek",
-      "name": "Fogaskerék szett",
-      "description": "Szívós PETG fogaskerekek egyedi méretben.",
-      "price": "5 200 Ft-tól",
-      "image": "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=70"
-    },
-    {
-      "id": 6,
-      "category": "Otthon & dekoráció",
-      "name": "Modern kaspó",
-      "description": "Letisztult formájú kaspó, több színben és méretben.",
-      "price": "3 200 Ft-tól",
-      "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=70"
-    }
+    { "id": 1, "category": "Háziállat szobrok", "profile": 6, "name": "Háziállat szobor fényképből", "description": "Egyedi szobor a kedvenced fényképei alapján, PLA-ból, festésre előkészítve.", "price": "14 900 Ft-tól", "image": "" },
+    { "id": 2, "category": "Tabletop & miniatúrák", "profile": 0, "name": "Tabletop miniatúra", "description": "Részletes, 0,04 mm-es rétegvastagságú figura, festésre előkészítve.", "price": "2 500 Ft-tól", "image": "" },
+    { "id": 3, "category": "Praktikus kiegészítők", "profile": 4, "name": "Tolómérő-tartó", "description": "A tolómérő méretére szabott PETG tartó asztalra vagy falra.", "price": "2 900 Ft-tól", "image": "" },
+    { "id": 4, "category": "Praktikus kiegészítők", "profile": 1, "name": "Asztali telefontartó", "description": "Stabil, letisztult tartó a telefonod és tokod méretére szabva.", "price": "3 200 Ft-tól", "image": "" },
+    { "id": 5, "category": "Pótalkatrészek", "profile": 2, "name": "Törött alkatrész pótlása", "description": "Gomb, kapocs vagy műanyag alkatrész pótlása az eredeti darab vagy minta alapján.", "price": "3 500 Ft-tól", "image": "" },
+    { "id": 6, "category": "Prototípusok", "profile": 3, "name": "Funkcionális prototípus", "description": "Gyors átfutású, tesztelhető prototípus ötletekhez és iterációkhoz.", "price": "4 500 Ft-tól", "image": "" }
   ]
 }

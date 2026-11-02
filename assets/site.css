@@ -1,0 +1,43 @@
+/* ODDFUSE – közös stílusok (Graphite + Digital Violet) */
+body { background:#17191A; color:#E8E5F0; }
+.glass { background:rgba(41,36,49,.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(232,229,240,.08); }
+.glass-strong { background:rgba(23,25,26,.72); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(232,229,240,.08); }
+.text-grad { background:linear-gradient(90deg,#B5A0FF,#E8E5F0 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.layers { background-image:repeating-linear-gradient(0deg, rgba(232,229,240,.03) 0 1px, transparent 1px 10px); }
+.glow { box-shadow:0 0 0 1px rgba(181,160,255,.25), 0 10px 40px -14px rgba(181,160,255,.4); }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity:1; transform:none; }
+.card { transition:transform .35s ease, border-color .35s ease; }
+.card:hover { transform:translateY(-6px); border-color:rgba(181,160,255,.45); }
+.img-wrap { background:linear-gradient(135deg,#292431,#17191A); }
+.nozzle { animation:scan 6s ease-in-out infinite; }
+@keyframes scan { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(70vw) } }
+::selection { background:#B5A0FF; color:#17191A; }
+:focus-visible { outline:2px solid #B5A0FF; outline-offset:3px; }
+
+/* Generált rétegminta-illusztráció (amíg nincs saját fotó) */
+.art-wrap { background:radial-gradient(120% 90% at 50% 0%, #34304a 0%, #292431 45%, #17191A 100%); }
+.art-wrap svg { display:block; width:100%; height:100%; }
+
+/* ===== Diszkrét, háttérben futó szövegsáv ===== */
+.ticker { position:absolute; left:0; right:0; overflow:hidden; pointer-events:none; user-select:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+.ticker-track { display:flex; width:max-content; will-change:transform; animation:ticker-left 160s linear infinite; }
+.ticker.rev .ticker-track { animation-name:ticker-right; animation-duration:190s; }
+.ticker-group { display:flex; flex-shrink:0; align-items:center; white-space:nowrap;
+  font-family:'Space Grotesk',system-ui,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  font-size:clamp(2.25rem,6vw,4.75rem); line-height:1; color:#45494A; }
+.ticker-group span.dot { margin:0 1.1em; }
+@keyframes ticker-left  { from{ transform:translateX(0) }    to{ transform:translateX(-50%) } }
+@keyframes ticker-right { from{ transform:translateX(-50%) } to{ transform:translateX(0) } }
+
+/* Honeypot: vizuálisan és képernyőolvasók elől is rejtett, botok kitöltik */
+.hp-field { position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .nozzle { animation:none !important; }
+  .reveal { transition:none; opacity:1; transform:none; }
+  .card, .card:hover { transition:none; transform:none; }
+  html { scroll-behavior:auto; }
+}

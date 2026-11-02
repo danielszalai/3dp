@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ODDFUSE – Digitális formák, valós tárgyak | FDM 3D nyomtatás</title>
-  <meta name="description" content="ODDFUSE: prémium FDM 3D nyomtatási szolgáltatás. Digitális formák, valós tárgyak – prototípusok, egyedi alkatrészek, kisszériás gyártás PLA és PETG anyagból. Töltsd fel az STL/STEP fájlt, és kérj ajánlatot." />
+  <meta name="description" content="ODDFUSE: egyedi FDM 3D nyomtatás. Digitális formák, valós tárgyak – prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből és személyre szabott tárgyak PLA, PETG, TPU és ASA anyagból." />
   <meta name="theme-color" content="#17191A" />
 
-  <!-- AI-barát meta adatok -->
-  <meta name="ai-content-summary" content="ODDFUSE – FDM 3D nyomtatási szolgáltatás Magyarországon: prototípusok, egyedi alkatrészek, kisszériás gyártás, PLA és PETG anyagok. Árajánlat STL/STEP fájl alapján." />
+  <!-- AI-barát meta adatok (vizuálisan nem jelennek meg, de a bot / AI ügynök azonnal olvassa) -->
+  <meta name="ai-content-summary" content="ODDFUSE – egyedi FDM 3D nyomtatás Magyarországon: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. PLA, PETG, TPU, ASA. Rétegvastagság: 0,04 mm. Árajánlat STL/STEP fájl vagy kép alapján." />
   <meta name="ai-data-endpoint" content="#ai-data" />
   <link rel="alternate" type="application/json" href="#ai-data" title="Machine-readable business data" />
   <link rel="alternate" type="application/json" href="products.json" title="ODDFUSE product catalog" />
+  <link rel="alternate" type="application/json" href="portfolio.json" title="ODDFUSE portfolio projects" />
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly site summary" />
 
   <!-- ===== AI-ENDPOINT 1: JSON-LD (schema.org) ===== -->
   <script type="application/ld+json" id="ai-schema">
@@ -21,26 +23,29 @@
     "@id": "https://example.hu/#business",
     "name": "ODDFUSE",
     "slogan": "Digitális formák, valós tárgyak.",
-    "description": "Prémium FDM 3D nyomtatási szolgáltatás: prototípusgyártás, egyedi alkatrészek és kisszériás gyártás PLA és PETG alapanyagból.",
+    "description": "Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak PLA, PETG, TPU és ASA alapanyagból.",
     "url": "https://example.hu/",
     "email": "hello@example.hu",
     "telephone": "+36 30 000 0000",
     "areaServed": "HU",
     "address": { "@type": "PostalAddress", "addressLocality": "Budapest", "addressCountry": "HU" },
-    "knowsAbout": ["FDM 3D nyomtatás", "Fused Deposition Modeling", "Prototípusgyártás", "Kisszériás gyártás", "PLA", "PETG"],
+    "knowsAbout": ["FDM 3D nyomtatás", "Fused Deposition Modeling", "Prototípusgyártás", "Pótalkatrészek", "Tabletop miniatúrák", "PLA", "PETG", "TPU", "ASA"],
     "makesOffer": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Egyedi FDM nyomtatás STL/STEP fájlból" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prototípusgyártás" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kisszériás gyártás" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prototípusok" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pótalkatrészek készítése" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Háziállat szobor fényképből" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tabletop miniatúrák és terepelemek" } }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Termékkategóriák",
       "itemListElement": [
-        { "@type": "OfferCatalog", "name": "Ipari alkatrészek" },
-        { "@type": "OfferCatalog", "name": "Prototípusok" },
-        { "@type": "OfferCatalog", "name": "Otthon & dekoráció" },
-        { "@type": "OfferCatalog", "name": "Hobbi & modellezés" }
+        { "@type": "OfferCatalog", "name": "Háziállat szobrok" },
+        { "@type": "OfferCatalog", "name": "Tabletop & miniatúrák" },
+        { "@type": "OfferCatalog", "name": "Praktikus kiegészítők" },
+        { "@type": "OfferCatalog", "name": "Pótalkatrészek" },
+        { "@type": "OfferCatalog", "name": "Prototípusok" }
       ]
     },
     "potentialAction": { "@type": "ContactAction", "target": "https://example.hu/#kapcsolat" }
@@ -54,12 +59,20 @@
     "slogan": "Digitális formák, valós tárgyak.",
     "type": "3D printing service",
     "technology": "FDM (Fused Deposition Modeling) only",
-    "materials": ["PLA", "PETG"],
-    "services": ["custom printing from STL/STEP", "prototyping", "small-batch production", "finishing on request"],
+    "layer_height_mm": 0.04,
+    "materials": {
+      "PLA": "rigid, fine detail, easy to print; for miniatures, statues, decor, prototypes; softens above ~55-60 C",
+      "PETG": "tougher, slightly flexible, moisture/chemical resistant; for holders, spare parts, everyday items",
+      "TPU": "flexible, impact- and vibration-absorbing; for protective parts, cases, rubber-like accessories",
+      "ASA": "UV- and weather-resistant, heat tolerant; for outdoor use; more demanding to print"
+    },
+    "services": ["custom printing from STL/STEP", "prototypes", "replacement parts", "pet statues from photos", "tabletop miniatures and terrain", "personalised objects"],
     "accepted_files": [".stl", ".step", ".stp"],
-    "product_categories": ["Ipari alkatrészek", "Prototípusok", "Otthon & dekoráció", "Hobbi & modellezés"],
+    "product_categories": ["Háziállat szobrok", "Tabletop & miniatúrák", "Praktikus kiegészítők", "Pótalkatrészek", "Prototípusok"],
     "product_catalog": "products.json",
-    "pricing": "Indicative prices on cards; final quote after file review",
+    "portfolio_data": "portfolio.json",
+    "portfolio_pages": "portfolio.html?id=<project-id>",
+    "pricing": "Indicative prices on cards; final quote after file/photo review",
     "online_checkout": false,
     "how_to_order": "Send inquiry via contact form (#kapcsolat) with optional STL/STEP file",
     "contact": { "email": "hello@example.hu", "phone": "+36 30 000 0000", "location": "Budapest, HU" },
@@ -69,88 +82,39 @@
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['"Space Grotesk"', 'Inter', 'sans-serif'] },
-          colors: {
-            ink: '#17191A',      /* sötét grafit – fő háttér */
-            graphite: '#272B2D', /* grafit – másodlagos felületek */
-            lime: '#D2FF3F',     /* acid lime – akcentus */
-            bone: '#E8E9E5'      /* törtfehér – fő szöveg */
-          }
-        }
-      }
-    }
-  </script>
+  <script src="assets/tw.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    body { background:#17191A; color:#E8E9E5; }
-    .glass { background:rgba(39,43,45,.55); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(232,233,229,.08); }
-    .glass-strong { background:rgba(23,25,26,.72); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(232,233,229,.08); }
-    .text-grad { background:linear-gradient(90deg,#D2FF3F,#E8E9E5 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .layers { background-image:repeating-linear-gradient(0deg, rgba(232,233,229,.03) 0 1px, transparent 1px 10px); }
-    .glow { box-shadow:0 0 0 1px rgba(210,255,63,.25), 0 10px 40px -14px rgba(210,255,63,.35); }
-    .reveal { opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); }
-    .reveal.in { opacity:1; transform:none; }
-    .card:hover { transform:translateY(-6px); border-color:rgba(210,255,63,.4); }
-    .card { transition:all .35s ease; }
-    .img-wrap { background:linear-gradient(135deg,#272B2D,#17191A); }
-    .nozzle { animation:scan 6s ease-in-out infinite; }
-    @keyframes scan { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(70vw) } }
-    ::selection { background:#D2FF3F; color:#17191A; }
-
-    /* ===== Diszkrét, háttérben futó szövegsáv ===== */
-    .ticker { position:absolute; left:0; right:0; overflow:hidden; pointer-events:none; user-select:none;
-      -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
-              mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
-    .ticker-track { display:flex; width:max-content; will-change:transform; animation:ticker-left 160s linear infinite; }
-    .ticker.rev .ticker-track { animation-name:ticker-right; animation-duration:190s; }
-    .ticker-group { display:flex; flex-shrink:0; align-items:center; white-space:nowrap;
-      font-family:'Space Grotesk',Inter,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
-      font-size:clamp(2.25rem,6vw,4.75rem); line-height:1; color:#45494A; }
-    .ticker-group span.dot { margin:0 1.1em; }
-    @keyframes ticker-left  { from{ transform:translateX(0) }    to{ transform:translateX(-50%) } }
-    @keyframes ticker-right { from{ transform:translateX(-50%) } to{ transform:translateX(0) } }
-
-    @media (prefers-reduced-motion: reduce) {
-      .ticker-track, .nozzle { animation:none !important; }
-      .reveal { transition:none; opacity:1; transform:none; }
-      html { scroll-behavior:auto; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 
 <body class="font-sans antialiased">
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (azonos a portfolio.html-ben) -->
   <header class="fixed top-0 inset-x-0 z-50">
-    <nav class="glass-strong mx-auto mt-4 max-w-6xl rounded-2xl px-5 py-3 flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
-        <span class="inline-grid place-items-center h-8 w-8 rounded-lg bg-lime text-ink">
+    <nav class="glass-strong mx-auto mt-4 max-w-6xl rounded-2xl px-5 py-3 flex items-center justify-between" aria-label="Főmenü">
+      <a href="index.html#hero" class="flex items-center gap-2.5" aria-label="ODDFUSE – főoldal">
+        <span class="inline-grid place-items-center h-8 w-8 rounded-lg bg-accent text-ink">
           <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
         </span>
-        ODD<span class="text-lime">FUSE</span>
+        <span class="font-brand font-medium text-base tracking-tight">ODD<span class="text-accent">FUSE</span></span>
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm text-bone/80">
-        <a href="#technologia" class="hover:text-lime transition">Technológia</a>
-        <a href="#portfolio" class="hover:text-lime transition">Portfólió</a>
-        <a href="#katalogus" class="hover:text-lime transition">Katalógus</a>
-        <a href="#kapcsolat" class="rounded-xl bg-lime px-4 py-2 font-medium text-ink hover:brightness-110 transition">Ajánlatkérés</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-bone/80">
+        <a href="index.html#technologia" class="hover:text-accent transition">Technológia</a>
+        <a href="index.html#portfolio" class="hover:text-accent transition">Portfólió</a>
+        <a href="index.html#katalogus" class="hover:text-accent transition">Katalógus</a>
+        <a href="index.html#kapcsolat" class="rounded-xl bg-accent px-4 py-2 font-semibold text-ink hover:brightness-110 transition">Ajánlatkérés</a>
       </div>
-      <button id="menuBtn" class="md:hidden p-2 text-bone/80" aria-label="Menü">
+      <button id="menuBtn" class="md:hidden p-2 text-bone/80" aria-label="Menü" aria-expanded="false" aria-controls="mobileMenu">
         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </nav>
     <div id="mobileMenu" class="hidden glass-strong mx-4 mt-2 rounded-2xl p-5 md:hidden space-y-4 text-bone/90">
-      <a href="#technologia" class="block">Technológia</a>
-      <a href="#portfolio" class="block">Portfólió</a>
-      <a href="#katalogus" class="block">Katalógus</a>
-      <a href="#kapcsolat" class="block text-lime font-medium">Ajánlatkérés</a>
+      <a href="index.html#technologia" class="block">Technológia</a>
+      <a href="index.html#portfolio" class="block">Portfólió</a>
+      <a href="index.html#katalogus" class="block">Katalógus</a>
+      <a href="index.html#kapcsolat" class="block text-accent font-semibold">Ajánlatkérés</a>
     </div>
   </header>
 
@@ -158,40 +122,39 @@
     <!-- HERO -->
     <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-28">
       <div class="absolute inset-0 layers"></div>
-      <img src="https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=1800&q=70" alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" onerror="this.remove()" />
       <div class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/80 to-ink"></div>
-      <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-lime/10 blur-[130px]"></div>
-      <div class="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-graphite blur-[120px]"></div>
+      <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[130px]"></div>
+      <div class="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-plum blur-[120px]"></div>
 
       <!-- Diszkrét szövegsáv (dekoratív, a tartalom mögött) -->
       <div id="tickerTop" class="ticker top-[16%]" aria-hidden="true"></div>
       <div id="tickerBottom" class="ticker rev bottom-[9%]" aria-hidden="true"></div>
 
-      <div class="nozzle absolute top-24 left-4 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-lime to-transparent opacity-60"></div>
+      <div class="nozzle absolute top-24 left-4 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-60"></div>
 
       <div class="relative z-10 mx-auto w-full max-w-6xl px-5 py-20">
-        <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest uppercase text-bone/80">
-          <span class="h-2 w-2 rounded-full bg-lime animate-pulse"></span> Kizárólag FDM technológia
+        <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-bone/80">
+          <span class="h-2 w-2 rounded-full bg-accent animate-pulse"></span> Kizárólag FDM technológia
         </span>
-        <h1 class="mt-6 font-display text-[2rem] sm:text-6xl lg:text-8xl font-bold leading-[1.04] tracking-tight">
+        <h1 class="mt-6 font-brand font-medium text-[clamp(1.55rem,6.2vw,4.25rem)] leading-[1.14] tracking-tight">
           Digitális formák,<br /><span class="text-grad">valós tárgyak.</span>
         </h1>
-        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-bone/60 font-light">
-          Prémium minőségű FDM 3D nyomtatás prototípusokhoz, egyedi alkatrészekhez és kisszériákhoz. Zárt kamrás és nyitott vázas gépparkkal, ipari pontossággal.
+        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-bone/60 font-light leading-relaxed">
+          Egyedi 3D nyomtatás prototípusokhoz, pótalkatrészekhez, tabletop miniatúrákhoz, praktikus hétköznapi tárgyakhoz és fényképből készülő háziállat szobrokhoz. Precíz rétegek, személyre szabott megoldások.
         </p>
         <div class="mt-10 flex flex-wrap gap-4">
-          <a href="#kapcsolat" class="glow group inline-flex items-center gap-2 rounded-2xl bg-lime px-7 py-4 font-semibold text-ink transition hover:brightness-110 hover:scale-[1.03]">
+          <a href="#kapcsolat" class="glow group inline-flex items-center gap-2 rounded-2xl bg-accent px-7 py-4 font-semibold text-ink transition hover:brightness-110 hover:scale-[1.03]">
             Kérj ajánlatot
             <svg class="h-5 w-5 transition group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
           </a>
-          <a href="#katalogus" class="glass rounded-2xl px-7 py-4 font-medium hover:border-lime/40 hover:text-lime transition">Termékek megtekintése</a>
+          <a href="#katalogus" class="glass rounded-2xl px-7 py-4 font-medium hover:border-accent/40 hover:text-accent transition">Termékek megtekintése</a>
         </div>
 
-        <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Rétegvastagság</dt><dd class="mt-1 font-display text-2xl">0,08 mm-től</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Anyagok</dt><dd class="mt-1 font-display text-2xl">PLA · PETG</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Fájlok</dt><dd class="mt-1 font-display text-2xl">STL · STEP</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Átfutás</dt><dd class="mt-1 font-display text-2xl">24–72 óra</dd></div>
+        <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Rétegvastagság</dt><dd class="mt-1 font-display text-xl font-semibold">0,04 mm</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Anyagok</dt><dd class="mt-1 font-display text-xl font-semibold leading-tight">PLA · PETG<br />TPU · ASA</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Fájlok</dt><dd class="mt-1 font-display text-xl font-semibold">STL · STEP</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Átfutás</dt><dd class="mt-1 font-display text-xl font-semibold">24–72 óra</dd></div>
         </dl>
       </div>
     </section>
@@ -200,46 +163,95 @@
     <section id="technologia" class="relative py-28">
       <div class="mx-auto max-w-6xl px-5">
         <div class="reveal max-w-3xl">
-          <p class="text-lime text-sm font-medium tracking-widest uppercase">Rólunk / Technológia</p>
+          <p class="text-accent text-sm font-medium tracking-widest uppercase">Rólunk / Technológia</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Miért az FDM?</h2>
-          <p class="mt-5 text-lg text-bone/60 font-light">
-            A Fused Deposition Modeling az egyik legmegbízhatóbb és leggazdaságosabb eljárás funkcionális alkatrészekhez. Egy fűtött fúvóka olvasztott műanyagot rak le pontos rétegekben, így erős, tartós és gyorsan elkészülő darabokat kapsz.
+          <p class="mt-5 text-lg text-bone/60 font-light leading-relaxed">
+            A Fused Deposition Modeling megbízható és költséghatékony eljárás egyedi, funkcionális tárgyakhoz. Egy fűtött fúvóka olvasztott műanyagot rak le pontos rétegekben, így erős, tartós és gyorsan elkészülő darabokat kapsz.
           </p>
         </div>
 
         <div class="mt-14 grid gap-5 md:grid-cols-3">
           <article class="reveal glass rounded-2xl p-7 card">
-            <div class="h-11 w-11 rounded-xl bg-lime/10 text-lime grid place-items-center">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Precizitás</h3>
-            <p class="mt-2 text-bone/60 text-sm leading-relaxed">Finomhangolt, kalibrált gépek, szűk tűrések és ismételhető minőség, akár 0,08 mm-es rétegmagassággal.</p>
+            <p class="mt-2 text-bone/60 text-sm leading-relaxed">Finomhangolt, kalibrált gépek, ismételhető minőség és akár 0,04 mm-es rétegvastagság a részletgazdag darabokhoz.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
-            <div class="h-11 w-11 rounded-xl bg-lime/10 text-lime grid place-items-center">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Sebesség</h3>
             <p class="mt-2 text-bone/60 text-sm leading-relaxed">Nagy sebességű, zárt kamrás rendszerek a gyors átfutáshoz, a nyitott vázas gépek pedig a nagyobb méretekhez.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
-            <div class="h-11 w-11 rounded-xl bg-lime/10 text-lime grid place-items-center">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Alapanyagok</h3>
-            <p class="mt-2 text-bone/60 text-sm leading-relaxed">PLA a részletgazdag modellekhez, PETG a strapabíró, vegyszerálló és enyhén rugalmas alkatrészekhez.</p>
+            <p class="mt-2 text-bone/60 text-sm leading-relaxed">PLA, PETG, TPU és ASA: a tárgy céljához, terheléséhez és környezetéhez illesztett anyagválasztás.</p>
           </article>
         </div>
 
-        <div class="reveal mt-5 glass rounded-2xl p-7 grid sm:grid-cols-2 gap-8">
-          <div>
-            <h3 class="font-display text-xl font-semibold text-lime">PLA</h3>
-            <p class="mt-2 text-sm text-bone/60">Kiváló részletesség, szép felület, széles színválaszték. Ideális modellekhez, dekorációhoz, bemutató prototípusokhoz.</p>
-          </div>
-          <div>
-            <h3 class="font-display text-xl font-semibold text-bone">PETG</h3>
-            <p class="mt-2 text-sm text-bone/60">Szívós, hőállóbb és vegyszerálló. Ideális funkcionális alkatrészekhez, házakhoz, tartókhoz.</p>
-          </div>
+        <!-- ANYAGOK -->
+        <div class="reveal mt-16">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold tracking-tight">Anyagok, amikkel dolgozunk</h3>
+          <p class="mt-3 max-w-2xl text-bone/60 font-light">Nem tudod, melyik anyag való a tárgyadhoz? Írd le, mire használnád, és segítünk választani.</p>
+        </div>
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+          <article class="reveal glass rounded-2xl p-7">
+            <div class="flex items-baseline justify-between gap-3">
+              <h4 class="font-display text-2xl font-bold text-accent">PLA</h4>
+              <span class="text-xs uppercase tracking-widest text-bone/45">Részletek, látvány</span>
+            </div>
+            <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">Merev, könnyen nyomtatható anyag kiváló részletességgel és szép felülettel, sok színben.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Pontos méretek, kis vetemedés, finom részletek.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Tabletop miniatúrák, szobrok, dekoráció, bemutató modellek, prototípusok.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Ha a megjelenés és a részletesség a fontos. Kb. 55–60 °C felett lágyul, és ütésre törékenyebb, ezért meleg helyre vagy kültérre nem ajánlott.</dd></div>
+            </dl>
+          </article>
+
+          <article class="reveal glass rounded-2xl p-7">
+            <div class="flex items-baseline justify-between gap-3">
+              <h4 class="font-display text-2xl font-bold text-bone">PETG</h4>
+              <span class="text-xs uppercase tracking-widest text-bone/45">Strapabíró, sokoldalú</span>
+            </div>
+            <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">Szívósabb és kissé rugalmasabb, mint a PLA. Jó rétegtapadású, nedvességnek és sok vegyszernek jobban ellenáll.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Jobb ütésállóság, kb. 70–80 °C-ig hőtűrő, tartós a mindennapi használatban.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Szerszám- és eszköztartók, telefontartók, pótalkatrészek, praktikus kiegészítők.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Ha a tárgyat használni és terhelni fogják, de nem áll tartós napfényben. Finom részleteknél a PLA általában élesebb.</dd></div>
+            </dl>
+          </article>
+
+          <article class="reveal glass rounded-2xl p-7">
+            <div class="flex items-baseline justify-between gap-3">
+              <h4 class="font-display text-2xl font-bold text-bone">TPU</h4>
+              <span class="text-xs uppercase tracking-widest text-bone/45">Rugalmas, ütéselnyelő</span>
+            </div>
+            <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">Rugalmas, hajlítható, kopásálló és ütéselnyelő anyag. A hajlíthatóság a keménységtől és a kialakítástól (falvastagság, kitöltés) is függ.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Csillapítja az ütést és a rezgést, nem törik könnyen, gumiszerű tapintású.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Rugalmas védőelemek, rezgéscsillapító alkatrészek, tokok, gumiszerű kiegészítők, lábak és ütközők.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Ha a tárgynak hajolnia kell, majd vissza kell állnia. Merev tartószerkezethez nem ideális, és lassabban nyomtatható.</dd></div>
+            </dl>
+          </article>
+
+          <article class="reveal glass rounded-2xl p-7">
+            <div class="flex items-baseline justify-between gap-3">
+              <h4 class="font-display text-2xl font-bold text-bone">ASA</h4>
+              <span class="text-xs uppercase tracking-widest text-bone/45">Kültéri, időjárásálló</span>
+            </div>
+            <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">UV- és időjárásálló, szívós műanyag, a PETG-nél hőállóbb (kb. 90–100 °C-ig).</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Napfény és változó időjárás mellett is hosszabb ideig megtartja az alakját és a színét.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Kültéri tartók, burkolatok, házak, napfénynek vagy időjárásnak kitett alkatrészek.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Tartós kültéri használatra. A nyomtatása technikailag igényesebb (vetemedésre hajlamos), ezért nagyobb, lapos darabnál érdemes előre egyeztetni.</dd></div>
+            </dl>
+          </article>
         </div>
       </div>
     </section>
@@ -249,12 +261,15 @@
       <div class="mx-auto max-w-6xl px-5">
         <div class="reveal flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p class="text-lime text-sm font-medium tracking-widest uppercase">Portfólió</p>
+            <p class="text-accent text-sm font-medium tracking-widest uppercase">Portfólió</p>
             <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Elkészült munkák</h2>
           </div>
-          <p class="max-w-sm text-bone/60 font-light">Precíz rétegek, tiszta felületek, ipari és egyedi minőség.</p>
+          <p class="max-w-sm text-bone/60 font-light">Miniatúrák, praktikus tartók, pótlások és személyre szabott tárgyak. Kattints egy munkára a részletekért.</p>
         </div>
-        <div id="gallery" class="mt-12 grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-4"></div>
+        <div id="portfolioGrid" class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+        <div class="mt-8 text-center">
+          <a href="portfolio.html" class="glass inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-medium hover:border-accent/40 hover:text-accent transition">Összes munka megtekintése <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
@@ -263,7 +278,7 @@
       <div class="absolute inset-0 layers opacity-60"></div>
       <div class="relative mx-auto max-w-6xl px-5">
         <div class="reveal max-w-3xl">
-          <p class="text-lime text-sm font-medium tracking-widest uppercase">Termékkatalógus</p>
+          <p class="text-accent text-sm font-medium tracking-widest uppercase">Termékkatalógus</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Válogatás a kínálatunkból</h2>
           <p class="mt-4 text-bone/60 font-light">Az árak tájékoztató jellegűek. A végleges ajánlatot a méret, az anyag és a darabszám alapján adjuk. Online vásárlás nincs, érdeklődj bátran.</p>
         </div>
@@ -274,10 +289,10 @@
 
     <!-- KAPCSOLAT -->
     <section id="kapcsolat" class="relative py-28">
-      <div class="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/5 blur-[140px]"></div>
+      <div class="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[140px]"></div>
       <div class="relative mx-auto max-w-4xl px-5">
         <div class="reveal text-center">
-          <p class="text-lime text-sm font-medium tracking-widest uppercase">Kapcsolat</p>
+          <p class="text-accent text-sm font-medium tracking-widest uppercase">Kapcsolat</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Kezdjük el a projektedet</h2>
           <p class="mt-4 text-bone/60 font-light">Írd le az elképzelésed, vagy tölts fel egy modellt. 24 órán belül válaszolunk.</p>
         </div>
@@ -286,30 +301,39 @@
           <div class="grid gap-6 sm:grid-cols-2">
             <label class="block">
               <span class="text-sm text-bone/60">Név</span>
-              <input id="name" required type="text" placeholder="Kovács Péter" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-lime focus:ring-2 focus:ring-lime/25 transition" />
+              <input id="name" name="name" required type="text" autocomplete="name" placeholder="Kovács Péter" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-accent focus:ring-2 focus:ring-accent/25 transition" />
             </label>
             <label class="block">
               <span class="text-sm text-bone/60">E-mail</span>
-              <input id="email" required type="email" placeholder="te@email.hu" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-lime focus:ring-2 focus:ring-lime/25 transition" />
+              <input id="email" name="email" required type="email" autocomplete="email" placeholder="te@email.hu" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-accent focus:ring-2 focus:ring-accent/25 transition" />
             </label>
           </div>
           <label class="block">
             <span class="text-sm text-bone/60">Üzenet</span>
-            <textarea id="message" required rows="5" placeholder="Mit szeretnél nyomtatni? Anyag, méret, darabszám…" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-lime focus:ring-2 focus:ring-lime/25 transition"></textarea>
+            <textarea id="message" name="message" required rows="5" placeholder="Mit szeretnél nyomtatni? Anyag, méret, darabszám…" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-accent focus:ring-2 focus:ring-accent/25 transition"></textarea>
           </label>
 
           <div>
             <span class="text-sm text-bone/60">3D modell (.STL / .STEP)</span>
-            <div id="dropzone" class="mt-2 cursor-pointer rounded-2xl border-2 border-dashed border-bone/15 bg-ink/40 p-8 text-center transition hover:border-lime/60 hover:bg-lime/5">
-              <svg class="mx-auto h-10 w-10 text-lime" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+            <div id="dropzone" class="mt-2 cursor-pointer rounded-2xl border-2 border-dashed border-bone/15 bg-ink/40 p-8 text-center transition hover:border-accent/60 hover:bg-accent/5">
+              <svg class="mx-auto h-10 w-10 text-accent" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
               <p id="dropText" class="mt-3 text-bone/80">Húzd ide a fájlt, vagy kattints a tallózáshoz</p>
-              <p class="mt-1 text-xs text-bone/45">Támogatott: .stl, .step, .stp · max. 50 MB</p>
-              <input id="fileInput" type="file" accept=".stl,.step,.stp" class="hidden" />
+              <p class="mt-1 text-xs text-bone/45">Támogatott: .stl, .step, .stp · max. <span id="maxMB">20</span> MB</p>
+              <input id="fileInput" name="file" type="file" accept=".stl,.step,.stp" class="hidden" />
             </div>
           </div>
 
-          <button type="submit" class="glow w-full rounded-2xl bg-lime py-4 font-semibold text-ink transition hover:brightness-110">Érdeklődés küldése</button>
-          <p id="formStatus" class="text-center text-sm min-h-[1.25rem]" role="status"></p>
+          <!-- Spamvédelem: honeypot (botok kitöltik, emberek nem látják) -->
+          <div class="hp-field" aria-hidden="true">
+            <label>Ne töltsd ki ezt a mezőt <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <input type="hidden" name="ts" id="ts" value="" />
+
+          <!-- Spamvédelem: Cloudflare Turnstile (assets/config.js → turnstileSiteKey) -->
+          <div id="turnstile" class="flex justify-center"></div>
+
+          <button type="submit" class="glow w-full rounded-2xl bg-accent py-4 font-semibold text-ink transition hover:brightness-110">Érdeklődés küldése</button>
+          <p id="formStatus" class="text-center text-sm min-h-[1.25rem]" role="status" aria-live="polite"></p>
         </form>
 
         <div class="reveal mt-8 grid gap-4 sm:grid-cols-3 text-center text-sm text-bone/60">
@@ -321,49 +345,32 @@
     </section>
   </main>
 
-  <!-- LÁBLÉC -->
+  <!-- LÁBLÉC (azonos a portfolio.html-ben) -->
   <footer class="border-t border-bone/10 py-10">
-    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-sm text-bone/45">
+    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between text-sm text-bone/45">
+      <div>
+        <a href="index.html#hero" class="font-brand font-medium text-base text-bone">ODD<span class="text-accent">FUSE</span></a>
+        <p class="mt-2">Digitális formák, valós tárgyak.</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Lábléc menü">
+        <a href="index.html#technologia" class="hover:text-accent transition">Technológia</a>
+        <a href="portfolio.html" class="hover:text-accent transition">Portfólió</a>
+        <a href="index.html#katalogus" class="hover:text-accent transition">Katalógus</a>
+        <a href="index.html#kapcsolat" class="hover:text-accent transition">Kapcsolat</a>
+      </nav>
       <p>© <span id="year">2026</span> ODDFUSE. Minden jog fenntartva.</p>
-      <p class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-lime"></span>
-        AI-barát oldal · strukturált adatok: JSON-LD (<code class="text-bone/60">#ai-schema</code>), JSON (<code class="text-bone/60">#ai-data</code>) és <code class="text-bone/60">products.json</code>
-      </p>
     </div>
   </footer>
 
+  <script src="assets/config.js"></script>
+  <script src="assets/fallback.js"></script>
+  <script src="assets/common.js"></script>
   <script>
-    /* ===== Szövegsáv szavai ===== */
+    initChrome();
+    const CFG = window.ODDFUSE_CONFIG || {};
+
+    /* ===== Szövegsáv ===== */
     const TICKER_WORDS = ["MELTED REALITY","BAD GEOMETRY","LAYER ZERO","PLASTIC NOISE","ODD MATTER","NOZZLE THERAPY","GRIDBITE","POLYBENDER","ALMOST SOLID"];
-
-    /* ===== Galéria (könnyen bővíthető) ===== */
-    const GALLERY = [
-      { src:"https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=900&q=70", alt:"Nyomtatás közben, rétegek közelről", span:"col-span-2 row-span-2" },
-      { src:"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=700&q=70", alt:"Zárt kamrás nyomtatási folyamat", span:"" },
-      { src:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=700&q=70", alt:"Precíz műszaki alkatrész", span:"" },
-      { src:"https://images.unsplash.com/photo-1615286922420-c6b348ccf1a5?auto=format&fit=crop&w=700&q=70", alt:"Nyitott vázas gép munka közben", span:"row-span-2" },
-      { src:"https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=700&q=70", alt:"Kész modellek", span:"" },
-      { src:"https://images.unsplash.com/photo-1563520239648-a24e51d4b570?auto=format&fit=crop&w=900&q=70", alt:"Részletes nyomtatott figura", span:"col-span-2" }
-    ];
-
-    /* ===== Tartalék termékadat =====
-       Csak akkor jelenik meg, ha a products.json nem tölthető be
-       (pl. az index.html dupla kattintással, file:// címről van megnyitva). */
-    const FALLBACK_PRODUCTS = [
-      { id:1, category:"Ipari alkatrészek", name:"Egyedi tartókonzol", description:"Erős PETG konzol műszaki felhasználásra, pontos furatokkal.", price:"2 900 Ft-tól", image:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=70" },
-      { id:2, category:"Prototípusok", name:"Funkcionális prototípus", description:"Gyors átfutású, tesztelhető prototípus iterációkhoz.", price:"4 500 Ft-tól", image:"https://images.unsplash.com/photo-1615286922420-c6b348ccf1a5?auto=format&fit=crop&w=800&q=70" },
-      { id:3, category:"Otthon & dekoráció", name:"Geometrikus lámpabúra", description:"Részletgazdag PLA lámpabúra, látványos rétegmintával.", price:"7 900 Ft-tól", image:"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=70" },
-      { id:4, category:"Hobbi & modellezés", name:"Részletes figura", description:"Finom felbontású modell festésre előkészítve.", price:"3 500 Ft-tól", image:"https://images.unsplash.com/photo-1563520239648-a24e51d4b570?auto=format&fit=crop&w=800&q=70" },
-      { id:5, category:"Ipari alkatrészek", name:"Fogaskerék szett", description:"Szívós PETG fogaskerekek egyedi méretben.", price:"5 200 Ft-tól", image:"https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=70" },
-      { id:6, category:"Otthon & dekoráció", name:"Modern kaspó", description:"Letisztult formájú kaspó, több színben és méretben.", price:"3 200 Ft-tól", image:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=70" }
-    ];
-
-    /* ===== Segédfüggvények ===== */
-    const $ = (s, r=document) => r.querySelector(s);
-    const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const fallback = 'onerror="this.remove()"';
-
-    /* Szövegsáv felépítése: a csoport kétszer szerepel, így a ciklus zökkenőmentes */
     function buildTicker(el, words) {
       const group = `<div class="ticker-group">${words.map(w => `<span>${esc(w)}</span><span class="dot">·</span>`).join('')}</div>`;
       el.innerHTML = `<div class="ticker-track">${group}${group}</div>`;
@@ -371,37 +378,38 @@
     buildTicker($('#tickerTop'), TICKER_WORDS);
     buildTicker($('#tickerBottom'), [...TICKER_WORDS].reverse());
 
-    /* Galéria */
-    $('#gallery').innerHTML = GALLERY.map(g => `
-      <figure class="reveal img-wrap group relative overflow-hidden rounded-2xl border border-bone/10 ${g.span}">
-        <img src="${g.src}" alt="${esc(g.alt)}" loading="lazy" ${fallback} class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-        <figcaption class="absolute bottom-3 left-4 right-4 text-sm opacity-0 group-hover:opacity-100 transition">${esc(g.alt)}</figcaption>
-      </figure>`).join('');
+    /* ===== Portfólió (adat: portfolio.json) ===== */
+    loadData('portfolio').then(d => {
+      const n = CFG.portfolioLimit || 8;
+      $('#portfolioGrid').innerHTML = (d.projects || []).slice(0, n).map(projectCard).join('');
+      observeReveals();
+    }).catch(() => {
+      $('#portfolioGrid').innerHTML = '<p class="col-span-full text-sm text-bone/60">A portfólió jelenleg nem tölthető be.</p>';
+    });
 
-    /* Katalógus + szűrők (adat: products.json) */
-    let PRODUCTS = [];
-    let activeCat = 'Mind';
+    /* ===== Katalógus + szűrők (adat: products.json) ===== */
+    let PRODUCTS = [], activeCat = 'Mind';
     function renderFilters() {
       const cats = ['Mind', ...new Set(PRODUCTS.map(p => p.category))];
       $('#filters').innerHTML = cats.map(c => `
-        <button data-cat="${esc(c)}" class="rounded-full px-4 py-2 text-sm transition ${c===activeCat ? 'bg-lime text-ink font-medium' : 'glass text-bone/80 hover:border-lime/40 hover:text-lime'}">${esc(c)}</button>`).join('');
+        <button data-cat="${esc(c)}" class="rounded-full px-4 py-2 text-sm transition ${c===activeCat ? 'bg-accent text-ink font-semibold' : 'glass text-bone/80 hover:border-accent/40 hover:text-accent'}">${esc(c)}</button>`).join('');
       document.querySelectorAll('#filters button').forEach(b => b.onclick = () => { activeCat = b.dataset.cat; renderFilters(); renderCatalog(); });
     }
     function renderCatalog() {
       const list = PRODUCTS.filter(p => activeCat === 'Mind' || p.category === activeCat);
       $('#catalog').innerHTML = list.map(p => `
         <article class="card glass rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/30">
-          <div class="img-wrap relative h-52 overflow-hidden">
-            <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" ${fallback} class="h-full w-full object-cover transition duration-700 hover:scale-105" />
-            <span class="absolute left-3 top-3 glass-strong rounded-full px-3 py-1 text-xs text-bone/90">${esc(p.category)}</span>
+          <div class="relative h-52 overflow-hidden">
+            <div class="art-wrap absolute inset-0">${layerArt(p.profile ?? p.id, p.id % 3, 'slice')}</div>
+            ${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover" />` : ''}
+            <span class="glass-strong absolute left-3 top-3 rounded-full px-3 py-1 text-xs text-bone/90">${esc(p.category)}</span>
           </div>
           <div class="flex flex-1 flex-col p-6">
             <h3 class="font-display text-xl font-semibold">${esc(p.name)}</h3>
             <p class="mt-2 flex-1 text-sm text-bone/60 leading-relaxed">${esc(p.description)}</p>
             <div class="mt-5 flex items-center justify-between">
-              <span class="font-display text-lg text-lime">${esc(p.price)}</span>
-              <a href="#kapcsolat" data-inquiry="${esc(p.name)}" class="rounded-xl border border-lime/50 px-4 py-2 text-sm text-lime transition hover:bg-lime hover:text-ink">Érdeklődés</a>
+              <span class="font-display text-lg font-semibold text-accent">${esc(p.price)}</span>
+              <a href="#kapcsolat" data-inquiry="${esc(p.name)}" class="rounded-xl border border-accent/50 px-4 py-2 text-sm font-medium text-accent transition hover:bg-accent hover:text-ink">Érdeklődés</a>
             </div>
           </div>
         </article>`).join('');
@@ -410,54 +418,67 @@
         if (!m.value.trim()) m.value = `Érdeklődöm a(z) „${a.dataset.inquiry}" termék iránt. `;
       }));
     }
-    async function loadProducts() {
-      try {
-        const r = await fetch('products.json', { cache: 'no-cache' });
-        if (!r.ok) throw new Error(r.status);
-        const data = await r.json();
-        PRODUCTS = Array.isArray(data) ? data : (data.products || []);
-        if (!PRODUCTS.length) throw new Error('empty');
-      } catch (e) {
-        PRODUCTS = FALLBACK_PRODUCTS;
-      }
-      renderFilters(); renderCatalog();
-    }
-    loadProducts();
+    loadData('products').then(d => { PRODUCTS = d.products || []; renderFilters(); renderCatalog(); })
+      .catch(() => { $('#catalog').innerHTML = '<p class="col-span-full text-sm text-bone/60">A katalógus jelenleg nem tölthető be.</p>'; });
 
-    /* Mobil menü */
-    $('#menuBtn').onclick = () => $('#mobileMenu').classList.toggle('hidden');
-    document.querySelectorAll('#mobileMenu a').forEach(a => a.onclick = () => $('#mobileMenu').classList.add('hidden'));
-
-    /* Fájlfeltöltési zóna */
+    /* ===== Fájlfeltöltési zóna ===== */
+    const MAX_MB = CFG.maxFileMB || 20;
+    $('#maxMB').textContent = MAX_MB;
     const dz = $('#dropzone'), fi = $('#fileInput'), dt = $('#dropText');
     const okExt = /\.(stl|step|stp)$/i;
+    function resetDrop() { dt.textContent = 'Húzd ide a fájlt, vagy kattints a tallózáshoz'; dt.className = 'mt-3 text-bone/80'; }
     function setFile(f) {
       if (!f) return;
-      if (!okExt.test(f.name)) { dt.textContent = 'Csak .stl, .step vagy .stp fájl engedélyezett.'; dt.className = 'mt-3 text-red-400'; fi.value=''; return; }
-      if (f.size > 50*1024*1024) { dt.textContent = 'A fájl túl nagy (max. 50 MB).'; dt.className = 'mt-3 text-red-400'; fi.value=''; return; }
-      dt.textContent = `✔ ${f.name} (${(f.size/1048576).toFixed(2)} MB)`; dt.className = 'mt-3 text-lime';
+      if (!okExt.test(f.name)) { dt.textContent = 'Csak .stl, .step vagy .stp fájl engedélyezett.'; dt.className = 'mt-3 text-red-400'; fi.value = ''; return; }
+      if (f.size > MAX_MB * 1048576) { dt.textContent = `A fájl túl nagy (max. ${MAX_MB} MB).`; dt.className = 'mt-3 text-red-400'; fi.value = ''; return; }
+      dt.textContent = `✔ ${f.name} (${(f.size/1048576).toFixed(2)} MB)`; dt.className = 'mt-3 text-accent';
     }
     dz.onclick = () => fi.click();
     fi.onchange = () => setFile(fi.files[0]);
-    ['dragenter','dragover'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.add('border-lime','bg-lime/10'); }));
-    ['dragleave','drop'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.remove('border-lime','bg-lime/10'); }));
+    ['dragenter','dragover'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.add('border-accent','bg-accent/10'); }));
+    ['dragleave','drop'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.remove('border-accent','bg-accent/10'); }));
     dz.addEventListener('drop', ev => { const f = ev.dataTransfer.files[0]; if (f) { const d = new DataTransfer(); d.items.add(f); fi.files = d.files; setFile(f); } });
 
-    /* Űrlap (frontend demó – backendhez / Formspree-hoz köthető) */
-    $('#contactForm').addEventListener('submit', e => {
+    /* ===== Űrlap + spamvédelem =====
+       Kliensoldali védelem: honeypot, időzítés, Turnstile widget.
+       A VALÓDI védelem a szerveroldali ellenőrzés (worker/contact-worker.js). */
+    const form = $('#contactForm'), st = $('#formStatus');
+    const loadedAt = Date.now(); $('#ts').value = loadedAt;
+    const say = (msg, cls) => { st.textContent = msg; st.className = 'text-center text-sm ' + cls; };
+
+    if (CFG.turnstileSiteKey) {
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.async = true; s.defer = true;
+      s.onload = () => window.turnstile && window.turnstile.render('#turnstile', { sitekey: CFG.turnstileSiteKey, theme: 'dark', language: 'hu' });
+      document.head.appendChild(s);
+    }
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const st = $('#formStatus');
       const n = $('#name').value.trim(), m = $('#email').value.trim(), msg = $('#message').value.trim();
-      if (!n || !/^\S+@\S+\.\S+$/.test(m) || !msg) { st.textContent = 'Kérjük, tölts ki minden mezőt érvényes adatokkal.'; st.className = 'text-center text-sm text-red-400'; return; }
-      st.textContent = 'Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.'; st.className = 'text-center text-sm text-lime';
-      e.target.reset(); dt.textContent = 'Húzd ide a fájlt, vagy kattints a tallózáshoz'; dt.className = 'mt-3 text-bone/80';
+      if (!n || !/^\S+@\S+\.\S+$/.test(m) || !msg) return say('Kérjük, tölts ki minden mezőt érvényes adatokkal.', 'text-red-400');
+      if (form.elements.website.value) return say('Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.', 'text-accent'); /* honeypot: bot, csendben eldobjuk */
+      if (Date.now() - loadedAt < 3000) return say('Egy pillanat, kérjük, próbáld újra.', 'text-red-400');
+      if (CFG.turnstileSiteKey && !(form.elements['cf-turnstile-response'] && form.elements['cf-turnstile-response'].value))
+        return say('Kérjük, igazold, hogy nem vagy robot.', 'text-red-400');
+      if (!CFG.formEndpoint) return say('Az ajánlatkérő űrlap még nincs bekötve. Kérjük, írj a hello@example.hu címre.', 'text-red-400');
+
+      const btn = form.querySelector('button[type=submit]'); btn.disabled = true; btn.classList.add('opacity-60');
+      try {
+        const r = await fetch(CFG.formEndpoint, { method: 'POST', body: new FormData(form) });
+        if (!r.ok) throw new Error(r.status);
+        say('Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.', 'text-accent');
+        form.reset(); resetDrop(); $('#ts').value = Date.now();
+      } catch (err) {
+        say('A küldés nem sikerült. Kérjük, próbáld újra, vagy írj a hello@example.hu címre.', 'text-red-400');
+      } finally {
+        btn.disabled = false; btn.classList.remove('opacity-60');
+        if (window.turnstile) window.turnstile.reset();
+      }
     });
 
-    /* Görgetés-animáció */
-    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12 });
-    document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
-
-    $('#year').textContent = new Date().getFullYear();
+    observeReveals();
   </script>
 </body>
 </html>
