@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LAYERFORGE – Prémium FDM 3D nyomtatás egyedi megrendelésre</title>
-  <meta name="description" content="Prémium FDM 3D nyomtatási szolgáltatás: prototípusok, egyedi alkatrészek, kisszériás gyártás PLA és PETG anyagból. Töltsd fel az STL/STEP fájlt, és kérj ajánlatot." />
-  <meta name="theme-color" content="#0a0a0b" />
+  <title>ODDFUSE – Digitális formák, valós tárgyak | FDM 3D nyomtatás</title>
+  <meta name="description" content="ODDFUSE: prémium FDM 3D nyomtatási szolgáltatás. Digitális formák, valós tárgyak – prototípusok, egyedi alkatrészek, kisszériás gyártás PLA és PETG anyagból. Töltsd fel az STL/STEP fájlt, és kérj ajánlatot." />
+  <meta name="theme-color" content="#17191A" />
 
   <!-- AI-barát meta adatok -->
-  <meta name="ai-content-summary" content="FDM 3D nyomtatási szolgáltatás Magyarországon: prototípusok, egyedi alkatrészek, kisszériás gyártás, PLA és PETG anyagok. Árajánlat STL/STEP fájl alapján." />
+  <meta name="ai-content-summary" content="ODDFUSE – FDM 3D nyomtatási szolgáltatás Magyarországon: prototípusok, egyedi alkatrészek, kisszériás gyártás, PLA és PETG anyagok. Árajánlat STL/STEP fájl alapján." />
   <meta name="ai-data-endpoint" content="#ai-data" />
   <link rel="alternate" type="application/json" href="#ai-data" title="Machine-readable business data" />
+  <link rel="alternate" type="application/json" href="products.json" title="ODDFUSE product catalog" />
 
   <!-- ===== AI-ENDPOINT 1: JSON-LD (schema.org) ===== -->
   <script type="application/ld+json" id="ai-schema">
@@ -18,7 +19,8 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": "https://example.hu/#business",
-    "name": "LAYERFORGE",
+    "name": "ODDFUSE",
+    "slogan": "Digitális formák, valós tárgyak.",
     "description": "Prémium FDM 3D nyomtatási szolgáltatás: prototípusgyártás, egyedi alkatrészek és kisszériás gyártás PLA és PETG alapanyagból.",
     "url": "https://example.hu/",
     "email": "hello@example.hu",
@@ -48,19 +50,21 @@
   <!-- ===== AI-ENDPOINT 2: Tömör, géppel olvasható adatblokk ===== -->
   <script type="application/json" id="ai-data">
   {
-    "business": "LAYERFORGE",
+    "business": "ODDFUSE",
+    "slogan": "Digitális formák, valós tárgyak.",
     "type": "3D printing service",
     "technology": "FDM (Fused Deposition Modeling) only",
     "materials": ["PLA", "PETG"],
     "services": ["custom printing from STL/STEP", "prototyping", "small-batch production", "finishing on request"],
     "accepted_files": [".stl", ".step", ".stp"],
     "product_categories": ["Ipari alkatrészek", "Prototípusok", "Otthon & dekoráció", "Hobbi & modellezés"],
+    "product_catalog": "products.json",
     "pricing": "Indicative prices on cards; final quote after file review",
     "online_checkout": false,
     "how_to_order": "Send inquiry via contact form (#kapcsolat) with optional STL/STEP file",
     "contact": { "email": "hello@example.hu", "phone": "+36 30 000 0000", "location": "Budapest, HU" },
     "language": "hu",
-    "last_updated": "2026-10-31"
+    "last_updated": "2026-11-02"
   }
   </script>
 
@@ -70,7 +74,12 @@
       theme: {
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['"Space Grotesk"', 'Inter', 'sans-serif'] },
-          colors: { ember: '#ff6a1a', volt: '#2d8cff' }
+          colors: {
+            ink: '#17191A',      /* sötét grafit – fő háttér */
+            graphite: '#272B2D', /* grafit – másodlagos felületek */
+            lime: '#D2FF3F',     /* acid lime – akcentus */
+            bone: '#E8E9E5'      /* törtfehér – fő szöveg */
+          }
         }
       }
     }
@@ -80,20 +89,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    body { background:#09090b; color:#e5e7eb; }
-    .glass { background:rgba(255,255,255,.04); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.08); }
-    .glass-strong { background:rgba(12,12,14,.65); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.08); }
-    .text-grad { background:linear-gradient(90deg,#ff6a1a,#ffb04d 50%,#2d8cff); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .layers { background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 10px); }
-    .glow { box-shadow:0 0 0 1px rgba(255,106,26,.35), 0 10px 50px -10px rgba(255,106,26,.55); }
+    body { background:#17191A; color:#E8E9E5; }
+    .glass { background:rgba(39,43,45,.55); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(232,233,229,.08); }
+    .glass-strong { background:rgba(23,25,26,.72); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(232,233,229,.08); }
+    .text-grad { background:linear-gradient(90deg,#D2FF3F,#E8E9E5 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .layers { background-image:repeating-linear-gradient(0deg, rgba(232,233,229,.03) 0 1px, transparent 1px 10px); }
+    .glow { box-shadow:0 0 0 1px rgba(210,255,63,.25), 0 10px 40px -14px rgba(210,255,63,.35); }
     .reveal { opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.7,.2,1); }
     .reveal.in { opacity:1; transform:none; }
-    .card:hover { transform:translateY(-6px); border-color:rgba(255,106,26,.45); }
+    .card:hover { transform:translateY(-6px); border-color:rgba(210,255,63,.4); }
     .card { transition:all .35s ease; }
-    .img-wrap { background:linear-gradient(135deg,#1a1a1f,#0e0e12); }
+    .img-wrap { background:linear-gradient(135deg,#272B2D,#17191A); }
     .nozzle { animation:scan 6s ease-in-out infinite; }
     @keyframes scan { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(70vw) } }
-    ::selection { background:#ff6a1a; color:#000; }
+    ::selection { background:#D2FF3F; color:#17191A; }
+
+    /* ===== Diszkrét, háttérben futó szövegsáv ===== */
+    .ticker { position:absolute; left:0; right:0; overflow:hidden; pointer-events:none; user-select:none;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+              mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+    .ticker-track { display:flex; width:max-content; will-change:transform; animation:ticker-left 160s linear infinite; }
+    .ticker.rev .ticker-track { animation-name:ticker-right; animation-duration:190s; }
+    .ticker-group { display:flex; flex-shrink:0; align-items:center; white-space:nowrap;
+      font-family:'Space Grotesk',Inter,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+      font-size:clamp(2.25rem,6vw,4.75rem); line-height:1; color:#45494A; }
+    .ticker-group span.dot { margin:0 1.1em; }
+    @keyframes ticker-left  { from{ transform:translateX(0) }    to{ transform:translateX(-50%) } }
+    @keyframes ticker-right { from{ transform:translateX(-50%) } to{ transform:translateX(0) } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track, .nozzle { animation:none !important; }
+      .reveal { transition:none; opacity:1; transform:none; }
+      html { scroll-behavior:auto; }
+    }
   </style>
 </head>
 
@@ -103,26 +131,26 @@
   <header class="fixed top-0 inset-x-0 z-50">
     <nav class="glass-strong mx-auto mt-4 max-w-6xl rounded-2xl px-5 py-3 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
-        <span class="inline-grid place-items-center h-8 w-8 rounded-lg bg-gradient-to-br from-ember to-amber-400 text-black">
+        <span class="inline-grid place-items-center h-8 w-8 rounded-lg bg-lime text-ink">
           <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
         </span>
-        LAYER<span class="text-ember">FORGE</span>
+        ODD<span class="text-lime">FUSE</span>
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm text-gray-300">
-        <a href="#technologia" class="hover:text-white transition">Technológia</a>
-        <a href="#portfolio" class="hover:text-white transition">Portfólió</a>
-        <a href="#katalogus" class="hover:text-white transition">Katalógus</a>
-        <a href="#kapcsolat" class="rounded-xl bg-ember px-4 py-2 font-medium text-black hover:bg-amber-400 transition">Ajánlatkérés</a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-bone/80">
+        <a href="#technologia" class="hover:text-lime transition">Technológia</a>
+        <a href="#portfolio" class="hover:text-lime transition">Portfólió</a>
+        <a href="#katalogus" class="hover:text-lime transition">Katalógus</a>
+        <a href="#kapcsolat" class="rounded-xl bg-lime px-4 py-2 font-medium text-ink hover:brightness-110 transition">Ajánlatkérés</a>
       </div>
-      <button id="menuBtn" class="md:hidden p-2 text-gray-300" aria-label="Menü">
+      <button id="menuBtn" class="md:hidden p-2 text-bone/80" aria-label="Menü">
         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </nav>
-    <div id="mobileMenu" class="hidden glass-strong mx-4 mt-2 rounded-2xl p-5 md:hidden space-y-4 text-gray-200">
+    <div id="mobileMenu" class="hidden glass-strong mx-4 mt-2 rounded-2xl p-5 md:hidden space-y-4 text-bone/90">
       <a href="#technologia" class="block">Technológia</a>
       <a href="#portfolio" class="block">Portfólió</a>
       <a href="#katalogus" class="block">Katalógus</a>
-      <a href="#kapcsolat" class="block text-ember font-medium">Ajánlatkérés</a>
+      <a href="#kapcsolat" class="block text-lime font-medium">Ajánlatkérés</a>
     </div>
   </header>
 
@@ -131,34 +159,39 @@
     <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-28">
       <div class="absolute inset-0 layers"></div>
       <img src="https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=1800&q=70" alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" onerror="this.remove()" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#09090b]/60 via-[#09090b]/80 to-[#09090b]"></div>
-      <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-ember/20 blur-[120px]"></div>
-      <div class="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-volt/20 blur-[120px]"></div>
-      <div class="nozzle absolute top-24 left-4 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-ember to-transparent opacity-70"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/80 to-ink"></div>
+      <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-lime/10 blur-[130px]"></div>
+      <div class="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-graphite blur-[120px]"></div>
 
-      <div class="relative mx-auto max-w-6xl px-5 py-20">
-        <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest uppercase text-gray-300">
-          <span class="h-2 w-2 rounded-full bg-ember animate-pulse"></span> Kizárólag FDM technológia
+      <!-- Diszkrét szövegsáv (dekoratív, a tartalom mögött) -->
+      <div id="tickerTop" class="ticker top-[16%]" aria-hidden="true"></div>
+      <div id="tickerBottom" class="ticker rev bottom-[9%]" aria-hidden="true"></div>
+
+      <div class="nozzle absolute top-24 left-4 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-lime to-transparent opacity-60"></div>
+
+      <div class="relative z-10 mx-auto w-full max-w-6xl px-5 py-20">
+        <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest uppercase text-bone/80">
+          <span class="h-2 w-2 rounded-full bg-lime animate-pulse"></span> Kizárólag FDM technológia
         </span>
-        <h1 class="mt-6 font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[1.02] tracking-tight">
-          Rétegről rétegre.<br /><span class="text-grad">Tökéletesen.</span>
+        <h1 class="mt-6 font-display text-[2rem] sm:text-6xl lg:text-8xl font-bold leading-[1.04] tracking-tight">
+          Digitális formák,<br /><span class="text-grad">valós tárgyak.</span>
         </h1>
-        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-gray-400 font-light">
+        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-bone/60 font-light">
           Prémium minőségű FDM 3D nyomtatás prototípusokhoz, egyedi alkatrészekhez és kisszériákhoz. Zárt kamrás és nyitott vázas gépparkkal, ipari pontossággal.
         </p>
         <div class="mt-10 flex flex-wrap gap-4">
-          <a href="#kapcsolat" class="glow group inline-flex items-center gap-2 rounded-2xl bg-ember px-7 py-4 font-semibold text-black transition hover:bg-amber-400 hover:scale-[1.03]">
+          <a href="#kapcsolat" class="glow group inline-flex items-center gap-2 rounded-2xl bg-lime px-7 py-4 font-semibold text-ink transition hover:brightness-110 hover:scale-[1.03]">
             Kérj ajánlatot
             <svg class="h-5 w-5 transition group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
           </a>
-          <a href="#katalogus" class="glass rounded-2xl px-7 py-4 font-medium hover:bg-white/10 transition">Termékek megtekintése</a>
+          <a href="#katalogus" class="glass rounded-2xl px-7 py-4 font-medium hover:border-lime/40 hover:text-lime transition">Termékek megtekintése</a>
         </div>
 
         <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-gray-500 uppercase">Rétegvastagság</dt><dd class="mt-1 font-display text-2xl">0,08 mm-től</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-gray-500 uppercase">Anyagok</dt><dd class="mt-1 font-display text-2xl">PLA · PETG</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-gray-500 uppercase">Fájlok</dt><dd class="mt-1 font-display text-2xl">STL · STEP</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-gray-500 uppercase">Átfutás</dt><dd class="mt-1 font-display text-2xl">24–72 óra</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Rétegvastagság</dt><dd class="mt-1 font-display text-2xl">0,08 mm-től</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Anyagok</dt><dd class="mt-1 font-display text-2xl">PLA · PETG</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Fájlok</dt><dd class="mt-1 font-display text-2xl">STL · STEP</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase">Átfutás</dt><dd class="mt-1 font-display text-2xl">24–72 óra</dd></div>
         </dl>
       </div>
     </section>
@@ -167,45 +200,45 @@
     <section id="technologia" class="relative py-28">
       <div class="mx-auto max-w-6xl px-5">
         <div class="reveal max-w-3xl">
-          <p class="text-ember text-sm font-medium tracking-widest uppercase">Rólunk / Technológia</p>
+          <p class="text-lime text-sm font-medium tracking-widest uppercase">Rólunk / Technológia</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Miért az FDM?</h2>
-          <p class="mt-5 text-lg text-gray-400 font-light">
+          <p class="mt-5 text-lg text-bone/60 font-light">
             A Fused Deposition Modeling az egyik legmegbízhatóbb és leggazdaságosabb eljárás funkcionális alkatrészekhez. Egy fűtött fúvóka olvasztott műanyagot rak le pontos rétegekben, így erős, tartós és gyorsan elkészülő darabokat kapsz.
           </p>
         </div>
 
         <div class="mt-14 grid gap-5 md:grid-cols-3">
           <article class="reveal glass rounded-2xl p-7 card">
-            <div class="h-11 w-11 rounded-xl bg-ember/15 text-ember grid place-items-center">
+            <div class="h-11 w-11 rounded-xl bg-lime/10 text-lime grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Precizitás</h3>
-            <p class="mt-2 text-gray-400 text-sm leading-relaxed">Finomhangolt, kalibrált gépek, szűk tűrések és ismételhető minőség, akár 0,08 mm-es rétegmagassággal.</p>
+            <p class="mt-2 text-bone/60 text-sm leading-relaxed">Finomhangolt, kalibrált gépek, szűk tűrések és ismételhető minőség, akár 0,08 mm-es rétegmagassággal.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
-            <div class="h-11 w-11 rounded-xl bg-volt/15 text-volt grid place-items-center">
+            <div class="h-11 w-11 rounded-xl bg-lime/10 text-lime grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Sebesség</h3>
-            <p class="mt-2 text-gray-400 text-sm leading-relaxed">Nagy sebességű, zárt kamrás rendszerek a gyors átfutáshoz, a nyitott vázas gépek pedig a nagyobb méretekhez.</p>
+            <p class="mt-2 text-bone/60 text-sm leading-relaxed">Nagy sebességű, zárt kamrás rendszerek a gyors átfutáshoz, a nyitott vázas gépek pedig a nagyobb méretekhez.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
-            <div class="h-11 w-11 rounded-xl bg-emerald-400/15 text-emerald-300 grid place-items-center">
+            <div class="h-11 w-11 rounded-xl bg-lime/10 text-lime grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Alapanyagok</h3>
-            <p class="mt-2 text-gray-400 text-sm leading-relaxed">PLA a részletgazdag modellekhez, PETG a strapabíró, vegyszerálló és enyhén rugalmas alkatrészekhez.</p>
+            <p class="mt-2 text-bone/60 text-sm leading-relaxed">PLA a részletgazdag modellekhez, PETG a strapabíró, vegyszerálló és enyhén rugalmas alkatrészekhez.</p>
           </article>
         </div>
 
         <div class="reveal mt-5 glass rounded-2xl p-7 grid sm:grid-cols-2 gap-8">
           <div>
-            <h3 class="font-display text-xl font-semibold text-ember">PLA</h3>
-            <p class="mt-2 text-sm text-gray-400">Kiváló részletesség, szép felület, széles színválaszték. Ideális modellekhez, dekorációhoz, bemutató prototípusokhoz.</p>
+            <h3 class="font-display text-xl font-semibold text-lime">PLA</h3>
+            <p class="mt-2 text-sm text-bone/60">Kiváló részletesség, szép felület, széles színválaszték. Ideális modellekhez, dekorációhoz, bemutató prototípusokhoz.</p>
           </div>
           <div>
-            <h3 class="font-display text-xl font-semibold text-volt">PETG</h3>
-            <p class="mt-2 text-sm text-gray-400">Szívós, hőállóbb és vegyszerálló. Ideális funkcionális alkatrészekhez, házakhoz, tartókhoz.</p>
+            <h3 class="font-display text-xl font-semibold text-bone">PETG</h3>
+            <p class="mt-2 text-sm text-bone/60">Szívós, hőállóbb és vegyszerálló. Ideális funkcionális alkatrészekhez, házakhoz, tartókhoz.</p>
           </div>
         </div>
       </div>
@@ -216,10 +249,10 @@
       <div class="mx-auto max-w-6xl px-5">
         <div class="reveal flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p class="text-ember text-sm font-medium tracking-widest uppercase">Portfólió</p>
+            <p class="text-lime text-sm font-medium tracking-widest uppercase">Portfólió</p>
             <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Elkészült munkák</h2>
           </div>
-          <p class="max-w-sm text-gray-400 font-light">Precíz rétegek, tiszta felületek, ipari és egyedi minőség.</p>
+          <p class="max-w-sm text-bone/60 font-light">Precíz rétegek, tiszta felületek, ipari és egyedi minőség.</p>
         </div>
         <div id="gallery" class="mt-12 grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-4"></div>
       </div>
@@ -230,9 +263,9 @@
       <div class="absolute inset-0 layers opacity-60"></div>
       <div class="relative mx-auto max-w-6xl px-5">
         <div class="reveal max-w-3xl">
-          <p class="text-ember text-sm font-medium tracking-widest uppercase">Termékkatalógus</p>
+          <p class="text-lime text-sm font-medium tracking-widest uppercase">Termékkatalógus</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Válogatás a kínálatunkból</h2>
-          <p class="mt-4 text-gray-400 font-light">Az árak tájékoztató jellegűek. A végleges ajánlatot a méret, az anyag és a darabszám alapján adjuk. Online vásárlás nincs, érdeklődj bátran.</p>
+          <p class="mt-4 text-bone/60 font-light">Az árak tájékoztató jellegűek. A végleges ajánlatot a méret, az anyag és a darabszám alapján adjuk. Online vásárlás nincs, érdeklődj bátran.</p>
         </div>
         <div id="filters" class="reveal mt-8 flex flex-wrap gap-2"></div>
         <div id="catalog" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
@@ -241,45 +274,45 @@
 
     <!-- KAPCSOLAT -->
     <section id="kapcsolat" class="relative py-28">
-      <div class="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/10 blur-[140px]"></div>
+      <div class="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/5 blur-[140px]"></div>
       <div class="relative mx-auto max-w-4xl px-5">
         <div class="reveal text-center">
-          <p class="text-ember text-sm font-medium tracking-widest uppercase">Kapcsolat</p>
+          <p class="text-lime text-sm font-medium tracking-widest uppercase">Kapcsolat</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Kezdjük el a projektedet</h2>
-          <p class="mt-4 text-gray-400 font-light">Írd le az elképzelésed, vagy tölts fel egy modellt. 24 órán belül válaszolunk.</p>
+          <p class="mt-4 text-bone/60 font-light">Írd le az elképzelésed, vagy tölts fel egy modellt. 24 órán belül válaszolunk.</p>
         </div>
 
         <form id="contactForm" class="reveal glass rounded-2xl p-6 sm:p-10 mt-12 space-y-6" novalidate>
           <div class="grid gap-6 sm:grid-cols-2">
             <label class="block">
-              <span class="text-sm text-gray-400">Név</span>
-              <input id="name" required type="text" placeholder="Kovács Péter" class="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 outline-none placeholder:text-gray-600 focus:border-ember focus:ring-2 focus:ring-ember/30 transition" />
+              <span class="text-sm text-bone/60">Név</span>
+              <input id="name" required type="text" placeholder="Kovács Péter" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-lime focus:ring-2 focus:ring-lime/25 transition" />
             </label>
             <label class="block">
-              <span class="text-sm text-gray-400">E-mail</span>
-              <input id="email" required type="email" placeholder="te@email.hu" class="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 outline-none placeholder:text-gray-600 focus:border-ember focus:ring-2 focus:ring-ember/30 transition" />
+              <span class="text-sm text-bone/60">E-mail</span>
+              <input id="email" required type="email" placeholder="te@email.hu" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-lime focus:ring-2 focus:ring-lime/25 transition" />
             </label>
           </div>
           <label class="block">
-            <span class="text-sm text-gray-400">Üzenet</span>
-            <textarea id="message" required rows="5" placeholder="Mit szeretnél nyomtatni? Anyag, méret, darabszám…" class="mt-2 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 outline-none placeholder:text-gray-600 focus:border-ember focus:ring-2 focus:ring-ember/30 transition"></textarea>
+            <span class="text-sm text-bone/60">Üzenet</span>
+            <textarea id="message" required rows="5" placeholder="Mit szeretnél nyomtatni? Anyag, méret, darabszám…" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-lime focus:ring-2 focus:ring-lime/25 transition"></textarea>
           </label>
 
           <div>
-            <span class="text-sm text-gray-400">3D modell (.STL / .STEP)</span>
-            <div id="dropzone" class="mt-2 cursor-pointer rounded-2xl border-2 border-dashed border-white/15 bg-black/30 p-8 text-center transition hover:border-ember/60 hover:bg-ember/5">
-              <svg class="mx-auto h-10 w-10 text-ember" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
-              <p id="dropText" class="mt-3 text-gray-300">Húzd ide a fájlt, vagy kattints a tallózáshoz</p>
-              <p class="mt-1 text-xs text-gray-500">Támogatott: .stl, .step, .stp · max. 50 MB</p>
+            <span class="text-sm text-bone/60">3D modell (.STL / .STEP)</span>
+            <div id="dropzone" class="mt-2 cursor-pointer rounded-2xl border-2 border-dashed border-bone/15 bg-ink/40 p-8 text-center transition hover:border-lime/60 hover:bg-lime/5">
+              <svg class="mx-auto h-10 w-10 text-lime" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+              <p id="dropText" class="mt-3 text-bone/80">Húzd ide a fájlt, vagy kattints a tallózáshoz</p>
+              <p class="mt-1 text-xs text-bone/45">Támogatott: .stl, .step, .stp · max. 50 MB</p>
               <input id="fileInput" type="file" accept=".stl,.step,.stp" class="hidden" />
             </div>
           </div>
 
-          <button type="submit" class="glow w-full rounded-2xl bg-ember py-4 font-semibold text-black transition hover:bg-amber-400">Érdeklődés küldése</button>
+          <button type="submit" class="glow w-full rounded-2xl bg-lime py-4 font-semibold text-ink transition hover:brightness-110">Érdeklődés küldése</button>
           <p id="formStatus" class="text-center text-sm min-h-[1.25rem]" role="status"></p>
         </form>
 
-        <div class="reveal mt-8 grid gap-4 sm:grid-cols-3 text-center text-sm text-gray-400">
+        <div class="reveal mt-8 grid gap-4 sm:grid-cols-3 text-center text-sm text-bone/60">
           <div class="glass rounded-2xl p-4">hello@example.hu</div>
           <div class="glass rounded-2xl p-4">+36 30 000 0000</div>
           <div class="glass rounded-2xl p-4">Budapest, HU</div>
@@ -289,27 +322,21 @@
   </main>
 
   <!-- LÁBLÉC -->
-  <footer class="border-t border-white/10 py-10">
-    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-sm text-gray-500">
-      <p>© <span id="year">2026</span> LAYERFORGE. Minden jog fenntartva.</p>
+  <footer class="border-t border-bone/10 py-10">
+    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-sm text-bone/45">
+      <p>© <span id="year">2026</span> ODDFUSE. Minden jog fenntartva.</p>
       <p class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-        AI-barát oldal · strukturált adatok: JSON-LD (<code class="text-gray-400">#ai-schema</code>) és JSON (<code class="text-gray-400">#ai-data</code>)
+        <span class="h-2 w-2 rounded-full bg-lime"></span>
+        AI-barát oldal · strukturált adatok: JSON-LD (<code class="text-bone/60">#ai-schema</code>), JSON (<code class="text-bone/60">#ai-data</code>) és <code class="text-bone/60">products.json</code>
       </p>
     </div>
   </footer>
 
   <script>
-    /* ===== Könnyen bővíthető adatok ===== */
-    const PRODUCTS = [
-      { id:1, category:"Ipari alkatrészek", name:"Egyedi tartókonzol", description:"Erős PETG konzol műszaki felhasználásra, pontos furatokkal.", price:"2 900 Ft-tól", image:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=70" },
-      { id:2, category:"Prototípusok", name:"Funkcionális prototípus", description:"Gyors átfutású, tesztelhető prototípus iterációkhoz.", price:"4 500 Ft-tól", image:"https://images.unsplash.com/photo-1615286922420-c6b348ccf1a5?auto=format&fit=crop&w=800&q=70" },
-      { id:3, category:"Otthon & dekoráció", name:"Geometrikus lámpabúra", description:"Részletgazdag PLA lámpabúra, látványos rétegmintával.", price:"7 900 Ft-tól", image:"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=70" },
-      { id:4, category:"Hobbi & modellezés", name:"Részletes figura", description:"Finom felbontású modell festésre előkészítve.", price:"3 500 Ft-tól", image:"https://images.unsplash.com/photo-1563520239648-a24e51d4b570?auto=format&fit=crop&w=800&q=70" },
-      { id:5, category:"Ipari alkatrészek", name:"Fogaskerék szett", description:"Szívós PETG fogaskerekek egyedi méretben.", price:"5 200 Ft-tól", image:"https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=70" },
-      { id:6, category:"Otthon & dekoráció", name:"Modern kaspó", description:"Letisztult formájú kaspó, több színben és méretben.", price:"3 200 Ft-tól", image:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=70" }
-    ];
+    /* ===== Szövegsáv szavai ===== */
+    const TICKER_WORDS = ["MELTED REALITY","BAD GEOMETRY","LAYER ZERO","PLASTIC NOISE","ODD MATTER","NOZZLE THERAPY","GRIDBITE","POLYBENDER","ALMOST SOLID"];
 
+    /* ===== Galéria (könnyen bővíthető) ===== */
     const GALLERY = [
       { src:"https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=900&q=70", alt:"Nyomtatás közben, rétegek közelről", span:"col-span-2 row-span-2" },
       { src:"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=700&q=70", alt:"Zárt kamrás nyomtatási folyamat", span:"" },
@@ -319,25 +346,46 @@
       { src:"https://images.unsplash.com/photo-1563520239648-a24e51d4b570?auto=format&fit=crop&w=900&q=70", alt:"Részletes nyomtatott figura", span:"col-span-2" }
     ];
 
+    /* ===== Tartalék termékadat =====
+       Csak akkor jelenik meg, ha a products.json nem tölthető be
+       (pl. az index.html dupla kattintással, file:// címről van megnyitva). */
+    const FALLBACK_PRODUCTS = [
+      { id:1, category:"Ipari alkatrészek", name:"Egyedi tartókonzol", description:"Erős PETG konzol műszaki felhasználásra, pontos furatokkal.", price:"2 900 Ft-tól", image:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=70" },
+      { id:2, category:"Prototípusok", name:"Funkcionális prototípus", description:"Gyors átfutású, tesztelhető prototípus iterációkhoz.", price:"4 500 Ft-tól", image:"https://images.unsplash.com/photo-1615286922420-c6b348ccf1a5?auto=format&fit=crop&w=800&q=70" },
+      { id:3, category:"Otthon & dekoráció", name:"Geometrikus lámpabúra", description:"Részletgazdag PLA lámpabúra, látványos rétegmintával.", price:"7 900 Ft-tól", image:"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=70" },
+      { id:4, category:"Hobbi & modellezés", name:"Részletes figura", description:"Finom felbontású modell festésre előkészítve.", price:"3 500 Ft-tól", image:"https://images.unsplash.com/photo-1563520239648-a24e51d4b570?auto=format&fit=crop&w=800&q=70" },
+      { id:5, category:"Ipari alkatrészek", name:"Fogaskerék szett", description:"Szívós PETG fogaskerekek egyedi méretben.", price:"5 200 Ft-tól", image:"https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=70" },
+      { id:6, category:"Otthon & dekoráció", name:"Modern kaspó", description:"Letisztult formájú kaspó, több színben és méretben.", price:"3 200 Ft-tól", image:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=70" }
+    ];
+
     /* ===== Segédfüggvények ===== */
     const $ = (s, r=document) => r.querySelector(s);
     const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const fallback = 'onerror="this.remove()"';
 
+    /* Szövegsáv felépítése: a csoport kétszer szerepel, így a ciklus zökkenőmentes */
+    function buildTicker(el, words) {
+      const group = `<div class="ticker-group">${words.map(w => `<span>${esc(w)}</span><span class="dot">·</span>`).join('')}</div>`;
+      el.innerHTML = `<div class="ticker-track">${group}${group}</div>`;
+    }
+    buildTicker($('#tickerTop'), TICKER_WORDS);
+    buildTicker($('#tickerBottom'), [...TICKER_WORDS].reverse());
+
     /* Galéria */
     $('#gallery').innerHTML = GALLERY.map(g => `
-      <figure class="reveal img-wrap group relative overflow-hidden rounded-2xl border border-white/10 ${g.span}">
+      <figure class="reveal img-wrap group relative overflow-hidden rounded-2xl border border-bone/10 ${g.span}">
         <img src="${g.src}" alt="${esc(g.alt)}" loading="lazy" ${fallback} class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
         <figcaption class="absolute bottom-3 left-4 right-4 text-sm opacity-0 group-hover:opacity-100 transition">${esc(g.alt)}</figcaption>
       </figure>`).join('');
 
-    /* Katalógus + szűrők */
+    /* Katalógus + szűrők (adat: products.json) */
+    let PRODUCTS = [];
     let activeCat = 'Mind';
     function renderFilters() {
       const cats = ['Mind', ...new Set(PRODUCTS.map(p => p.category))];
       $('#filters').innerHTML = cats.map(c => `
-        <button data-cat="${esc(c)}" class="rounded-full px-4 py-2 text-sm transition ${c===activeCat ? 'bg-ember text-black font-medium' : 'glass text-gray-300 hover:bg-white/10'}">${esc(c)}</button>`).join('');
+        <button data-cat="${esc(c)}" class="rounded-full px-4 py-2 text-sm transition ${c===activeCat ? 'bg-lime text-ink font-medium' : 'glass text-bone/80 hover:border-lime/40 hover:text-lime'}">${esc(c)}</button>`).join('');
       document.querySelectorAll('#filters button').forEach(b => b.onclick = () => { activeCat = b.dataset.cat; renderFilters(); renderCatalog(); });
     }
     function renderCatalog() {
@@ -345,15 +393,15 @@
       $('#catalog').innerHTML = list.map(p => `
         <article class="card glass rounded-2xl overflow-hidden flex flex-col shadow-xl shadow-black/30">
           <div class="img-wrap relative h-52 overflow-hidden">
-            <img src="${p.image}" alt="${esc(p.name)}" loading="lazy" ${fallback} class="h-full w-full object-cover transition duration-700 hover:scale-105" />
-            <span class="absolute left-3 top-3 glass-strong rounded-full px-3 py-1 text-xs text-gray-200">${esc(p.category)}</span>
+            <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" ${fallback} class="h-full w-full object-cover transition duration-700 hover:scale-105" />
+            <span class="absolute left-3 top-3 glass-strong rounded-full px-3 py-1 text-xs text-bone/90">${esc(p.category)}</span>
           </div>
           <div class="flex flex-1 flex-col p-6">
             <h3 class="font-display text-xl font-semibold">${esc(p.name)}</h3>
-            <p class="mt-2 flex-1 text-sm text-gray-400 leading-relaxed">${esc(p.description)}</p>
+            <p class="mt-2 flex-1 text-sm text-bone/60 leading-relaxed">${esc(p.description)}</p>
             <div class="mt-5 flex items-center justify-between">
-              <span class="font-display text-lg text-ember">${esc(p.price)}</span>
-              <a href="#kapcsolat" data-inquiry="${esc(p.name)}" class="rounded-xl border border-ember/50 px-4 py-2 text-sm text-ember transition hover:bg-ember hover:text-black">Érdeklődés</a>
+              <span class="font-display text-lg text-lime">${esc(p.price)}</span>
+              <a href="#kapcsolat" data-inquiry="${esc(p.name)}" class="rounded-xl border border-lime/50 px-4 py-2 text-sm text-lime transition hover:bg-lime hover:text-ink">Érdeklődés</a>
             </div>
           </div>
         </article>`).join('');
@@ -362,7 +410,19 @@
         if (!m.value.trim()) m.value = `Érdeklődöm a(z) „${a.dataset.inquiry}" termék iránt. `;
       }));
     }
-    renderFilters(); renderCatalog();
+    async function loadProducts() {
+      try {
+        const r = await fetch('products.json', { cache: 'no-cache' });
+        if (!r.ok) throw new Error(r.status);
+        const data = await r.json();
+        PRODUCTS = Array.isArray(data) ? data : (data.products || []);
+        if (!PRODUCTS.length) throw new Error('empty');
+      } catch (e) {
+        PRODUCTS = FALLBACK_PRODUCTS;
+      }
+      renderFilters(); renderCatalog();
+    }
+    loadProducts();
 
     /* Mobil menü */
     $('#menuBtn').onclick = () => $('#mobileMenu').classList.toggle('hidden');
@@ -375,12 +435,12 @@
       if (!f) return;
       if (!okExt.test(f.name)) { dt.textContent = 'Csak .stl, .step vagy .stp fájl engedélyezett.'; dt.className = 'mt-3 text-red-400'; fi.value=''; return; }
       if (f.size > 50*1024*1024) { dt.textContent = 'A fájl túl nagy (max. 50 MB).'; dt.className = 'mt-3 text-red-400'; fi.value=''; return; }
-      dt.textContent = `✔ ${f.name} (${(f.size/1048576).toFixed(2)} MB)`; dt.className = 'mt-3 text-emerald-300';
+      dt.textContent = `✔ ${f.name} (${(f.size/1048576).toFixed(2)} MB)`; dt.className = 'mt-3 text-lime';
     }
     dz.onclick = () => fi.click();
     fi.onchange = () => setFile(fi.files[0]);
-    ['dragenter','dragover'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.add('border-ember','bg-ember/10'); }));
-    ['dragleave','drop'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.remove('border-ember','bg-ember/10'); }));
+    ['dragenter','dragover'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.add('border-lime','bg-lime/10'); }));
+    ['dragleave','drop'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.remove('border-lime','bg-lime/10'); }));
     dz.addEventListener('drop', ev => { const f = ev.dataTransfer.files[0]; if (f) { const d = new DataTransfer(); d.items.add(f); fi.files = d.files; setFile(f); } });
 
     /* Űrlap (frontend demó – backendhez / Formspree-hoz köthető) */
@@ -389,14 +449,13 @@
       const st = $('#formStatus');
       const n = $('#name').value.trim(), m = $('#email').value.trim(), msg = $('#message').value.trim();
       if (!n || !/^\S+@\S+\.\S+$/.test(m) || !msg) { st.textContent = 'Kérjük, tölts ki minden mezőt érvényes adatokkal.'; st.className = 'text-center text-sm text-red-400'; return; }
-      st.textContent = 'Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.'; st.className = 'text-center text-sm text-emerald-300';
-      e.target.reset(); dt.textContent = 'Húzd ide a fájlt, vagy kattints a tallózáshoz'; dt.className = 'mt-3 text-gray-300';
+      st.textContent = 'Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.'; st.className = 'text-center text-sm text-lime';
+      e.target.reset(); dt.textContent = 'Húzd ide a fájlt, vagy kattints a tallózáshoz'; dt.className = 'mt-3 text-bone/80';
     });
 
     /* Görgetés-animáció */
     const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12 });
-    const observe = () => document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
-    observe();
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 
     $('#year').textContent = new Date().getFullYear();
   </script>
