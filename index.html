@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#17191A" />
 
   <!-- AI-barát meta adatok (vizuálisan nem jelennek meg, de a bot / AI ügynök azonnal olvassa) -->
-  <meta name="ai-content-summary" content="ODDFUSE – egyedi FDM 3D nyomtatás Magyarországon: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. PLA, PETG, TPU, ASA, GLOW (sötétben világító). Jellemző rétegvastagság: 0,2 mm; a 0,04 mm-től induló finom rétegvastagság részletgazdag figurákhoz és miniatúrákhoz való. Árajánlat STL/STEP fájl vagy kép alapján." />
+  <meta name="ai-content-summary" content="ODDFUSE – egyedi FDM 3D nyomtatás Magyarországon: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. PLA, PETG, TPU, ASA, GLOW (sötétben világító). Jellemző rétegvastagság: 0,2 mm; a 0,04 mm-től részletgazdag figurákhoz és miniatúrákhoz való. Árajánlat STL/STEP fájl vagy kép alapján." />
   <meta name="ai-data-endpoint" content="#ai-data" />
   <link rel="alternate" type="application/json" href="#ai-data" title="Machine-readable business data" />
   <link rel="alternate" type="application/json" href="products.json" title="ODDFUSE product catalog" />
@@ -180,7 +180,7 @@
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Precizitás</h3>
-            <p class="mt-2 text-muted text-sm leading-relaxed">Finomhangolt, kalibrált gépek és ismételhető minőség. A jellemző rétegvastagság 0,2 mm; a 0,04 mm-től induló finom rétegezés nem általános, elsősorban rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez való.</p>
+            <p class="mt-2 text-muted text-sm leading-relaxed">Finomhangolt, kalibrált gépek és ismételhető minőség. A jellemző rétegvastagság 0,2 mm; de akár a 0,04 mm rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez is megvalósítható.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
             <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
@@ -201,7 +201,7 @@
         <!-- ANYAGOK -->
         <div class="reveal mt-16">
           <h3 class="font-display text-2xl sm:text-3xl font-bold tracking-tight">Anyagok, amikkel dolgozom</h3>
-          <p class="mt-3 max-w-2xl text-muted font-light">Nem tudod, melyik anyag való a tárgyadhoz? Írd le, mire használnád, és segítünk választani.</p>
+          <p class="mt-3 max-w-2xl text-muted font-light">Nem tudod, melyik anyag való a tárgyadhoz? Írd le, mire használnád és segítek választani.</p>
         </div>
         <div class="mt-8 grid gap-5 md:grid-cols-2">
 
@@ -387,7 +387,7 @@
     const MAIL = (CFG.contact && CFG.contact.email) || 'hello@oddfuse.hu';
 
     /* ===== Szövegsáv ===== */
-    const TICKER_WORDS = ["MELTED REALITY","BAD GEOMETRY","LAYER ZERO","PLASTIC NOISE","ODD MATTER","NOZZLE THERAPY","GRIDBITE","POLYBENDER","ALMOST SOLID"];
+    const TICKER_WORDS = ["MELTED REALITY","SOFT GEOMETRY","LAYER ZERO","PLASTIC NOISE","ODD MATTER","NOZZLE THERAPY","GRIDBITE","POLYBENDER","ALMOST SOLID","FRAGILE LOGIC","FILAMENT RITUAL","LAYER OVERDOSE","PLASTIC AFTERTHOUGHT"];
     function buildTicker(el, words) {
       const group = `<div class="ticker-group">${words.map(w => `<span>${esc(w)}</span><span class="dot">·</span>`).join('')}</div>`;
       el.innerHTML = `<div class="ticker-track">${group}${group}</div>`;
