@@ -33,7 +33,37 @@
    amber: {
      bg: '#1A1815', surface: '#2E2A24', accent: '#E0B15A',
      text: '#EDE8DF', muted: '#ADA698', ticker: '#4A4740', danger: '#E58A8A'
-    }
+    },
+     /* D – Graphite + Electric Blue */
+blue: {
+  bg: '#171A1D', surface: '#252D35', accent: '#63B8FF',
+  text: '#E6EDF3', muted: '#9CAAB8', ticker: '#414C56', danger: '#E58A8A'
+},
+     /* E – Graphite + Burnt Orange */
+orange: {
+  bg: '#1C1917', surface: '#302722', accent: '#F29A65',
+  text: '#F1E8E2', muted: '#B3A49A', ticker: '#51433B', danger: '#E58A8A'
+},
+     /* F – Graphite + Acid Yellow */
+yellow: {
+  bg: '#191A17', surface: '#2C2D25', accent: '#E5E66B',
+  text: '#ECEDE3', muted: '#A9AA9A', ticker: '#48493D', danger: '#E58A8A'
+},
+     /* G – Graphite + Rust Red */
+rust: {
+  bg: '#1B1818', surface: '#302525', accent: '#D98272',
+  text: '#EFE5E3', muted: '#B1A09D', ticker: '#4D3C3A', danger: '#E58A8A'
+},
+     /* H – Graphite + Ice Cyan */
+cyan: {
+  bg: '#171B1C', surface: '#273133', accent: '#85D5D5',
+  text: '#E3EEEE', muted: '#A0B3B4', ticker: '#425052', danger: '#E58A8A'
+},
+     /* I – Deep Midnight + Neon Indigo */
+midnight: {
+  bg: '#0D0F1A', surface: '#1A1D2E', accent: '#7A6CFF',
+  text: '#E6E8FF', muted: '#9AA0C3', ticker: '#343852', danger: '#E58A8A'
+},
      
   };
 
