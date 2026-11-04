@@ -1,5 +1,7 @@
 {
-  "_help": "MINTAPROJEKTEK – cseréld a saját munkáidra. Új projekt: másolj be egy blokkot a 'projects' tömbbe, az 'id' legyen egyedi, kisbetűs, szóköz nélküli (ez kerül a linkbe: portfolio.html?id=...). Fotók: tedd az img/portfolio/ mappába, és írd az útvonalukat az 'images' listába (az első a borítókép). Amíg az 'images' üres, generált rétegminta jelenik meg 'Fotó hamarosan' jelzéssel. A 'profile' (0–7) a generált illusztráció formáját adja. A főoldalon az első N projekt látszik (assets/config.js → portfolioLimit). JSON módosítás után futtasd: node tools/sync-fallback.js",
+  "_help": "MINTAPROJEKTEK – cseréld a saját munkáidra. Új projekt: másolj be egy blokkot a 'projects' tömbbe, az 'id' legyen egyedi, kisbetűs, szóköz nélküli (ez kerül a linkbe: portfolio.html?id=...). 
+  Fotók: tedd az img/portfolio/ mappába, és írd az útvonalukat az 'images' listába (az első a borítókép). Amíg az 'images' üres, generált rétegminta jelenik meg 'Fotó hamarosan' jelzéssel. A 'profile' (0–7) 
+  a generált illusztráció formáját adja. A főoldalon az első N projekt látszik (assets/config.js → portfolioLimit). JSON módosítás után futtasd: node tools/sync-fallback.js",
   "projects": [
     {
       "id": "tabletop-miniaturak",
@@ -79,21 +81,21 @@
       "category": "Háziállat szobrok",
       "profile": 6,
       "summary": "Egyedi emléktárgy a kedvenc fényképe alapján, festésre előkészítve.",
-      "images": [],
+      "images": ["https://unsplash.com/photos/adult-tan-and-white-basenji-sitting-on-black-textile-Jj48Cz5e0Eg", "https://unsplash.com/photos/brown-monkey-plush-toy-on-black-table-uWicuXg8KJ0","https://unsplash.com/photos/a-white-cat-figurine-with-a-golden-ball-on-a-table-NO2KZoiRprs"],
       "purpose": "Személyes ajándék vagy emléktárgy a kedvenc háziállatról.",
       "problem": "Személyes, egyedi tárgyat nem lehet készen megvenni. A szobor a kedvenc fényképei alapján készül.",
       "material": "PLA",
       "printing": "A modell nyomtatás előtt jóváhagyható. A finom részletekhez akár 0,04 mm-es rétegvastagság is választható. A hasonlóság a fényképek számától és minőségétől is függ."
     },
     {
-      "id": "szemelyre-szabott-nevtabla",
-      "title": "Személyre szabott névtábla",
+      "id": "halloween-dekoracio",
+      "title": "Halloweeni dekorációk",
       "category": "Dekoráció",
       "profile": 7,
-      "summary": "Egyedi feliratú tábla ajtóra, asztalra vagy ajándékba.",
-      "images": [],
-      "purpose": "Ajtóra, íróasztalra vagy ajándékba szánt egyedi felirat, név vagy jelzés.",
-      "problem": "Egyedi szöveg és forma esetén a készen kapható táblák nem elegendők. A szöveg, a méret és a stílus egyeztethető.",
+      "summary": "Különféle halloweeni kellékek, csontváz részek,szellemek, akár sötétben világitó darabok is",
+      "images": ["https://unsplash.com/photos/a-pink-skull-sitting-on-top-of-a-black-table-IT8n0zCrGP8"],
+      "purpose": "Ajtóra, lakásba, udvarra. Segitenek megteremteni a rémisztő hangulatot",
+      "problem": "A boltban kapható tucat díszek nagyon sablonosak és minden háznál megtalálhatóak. Így egyedi, saját stílusban díszithető fel a lakás",
       "material": "PLA",
       "printing": "Jellemzően 0,2 mm-es rétegvastagság. A tisztább élekhez és az apró betűkhöz ennél vékonyabb réteg is választható."
     }
