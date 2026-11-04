@@ -11,7 +11,7 @@
       "purpose": "Asztali és szerepjátékokhoz készülő figurák, amelyeket a játékos kifest és a játékban használ.",
       "problem": "Nem minden karakter, póz vagy méret kapható készen, az egyedi változatok pedig drágák. A saját vagy felhasználásra engedélyezett modell kinyomtatható a kívánt méretben.",
       "material": "PLA",
-      "printing": "0,04 mm-es rétegvastagság a finom részletekhez. A támaszok gondos elhelyezése miatt festés előtt csiszolás és alapozás ajánlott."
+      "printing": "Finom részletekhez akár 0,04 mm-es rétegvastagság is választható (a jellemző beállítás 0,2 mm). A támaszok gondos elhelyezése miatt festés előtt csiszolás és alapozás ajánlott."
     },
     {
       "id": "tabletop-tereptargyak",
@@ -19,7 +19,7 @@
       "category": "Tabletop & miniatúrák",
       "profile": 3,
       "summary": "Romok, falak, ládák és egyéb terepelemek a játékasztalra.",
-      "images": ["https://images.unsplash.com/photo-1764011643109-87e696b19b7b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"],
+      "images": [],
       "purpose": "A játéktér kialakítása: fedezékek, épületek és dekorációs elemek a játékhoz vagy a bemutatóhoz.",
       "problem": "Az egyedi játéktérhez nehéz megfelelő méretű és stílusú terepelemet találni. Itt a méret és a forma a játékhoz igazítható.",
       "material": "PLA, strapabíróbb elemekhez PETG",
@@ -83,7 +83,7 @@
       "purpose": "Személyes ajándék vagy emléktárgy a kedvenc háziállatról.",
       "problem": "Személyes, egyedi tárgyat nem lehet készen megvenni. A szobor a kedvenc fényképei alapján készül.",
       "material": "PLA",
-      "printing": "A modell nyomtatás előtt jóváhagyható. 0,04 mm-es rétegvastagság a finom részletekhez. A hasonlóság a fényképek számától és minőségétől is függ."
+      "printing": "A modell nyomtatás előtt jóváhagyható. A finom részletekhez akár 0,04 mm-es rétegvastagság is választható. A hasonlóság a fényképek számától és minőségétől is függ."
     },
     {
       "id": "szemelyre-szabott-nevtabla",
@@ -95,7 +95,7 @@
       "purpose": "Ajtóra, íróasztalra vagy ajándékba szánt egyedi felirat, név vagy jelzés.",
       "problem": "Egyedi szöveg és forma esetén a készen kapható táblák nem elegendők. A szöveg, a méret és a stílus egyeztethető.",
       "material": "PLA",
-      "printing": "0,04 mm-es rétegvastagság a tiszta élekért és a sima felületért."
+      "printing": "Jellemzően 0,2 mm-es rétegvastagság. A tisztább élekhez és az apró betűkhöz ennél vékonyabb réteg is választható."
     }
   ]
 }

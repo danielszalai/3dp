@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ODDFUSE – Digitális formák, valós tárgyak | FDM 3D nyomtatás</title>
-  <meta name="description" content="ODDFUSE: egyedi FDM 3D nyomtatás. Digitális formák, valós tárgyak – prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből és személyre szabott tárgyak PLA, PETG, TPU és ASA anyagból." />
+  <meta name="description" content="ODDFUSE: egyedi FDM 3D nyomtatás. Digitális formák, valós tárgyak – prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből és személyre szabott tárgyak PLA, PETG, TPU, ASA és GLOW (sötétben világító) anyagból." />
   <meta name="theme-color" content="#17191A" />
 
   <!-- AI-barát meta adatok (vizuálisan nem jelennek meg, de a bot / AI ügynök azonnal olvassa) -->
-  <meta name="ai-content-summary" content="ODDFUSE – egyedi FDM 3D nyomtatás Magyarországon: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. PLA, PETG, TPU, ASA. Rétegvastagság: 0,04 mm-tól. Árajánlat STL/STEP fájl vagy kép alapján." />
+  <meta name="ai-content-summary" content="ODDFUSE – egyedi FDM 3D nyomtatás Magyarországon: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. PLA, PETG, TPU, ASA, GLOW (sötétben világító). Jellemző rétegvastagság: 0,2 mm; a 0,04 mm-től induló finom rétegvastagság részletgazdag figurákhoz és miniatúrákhoz való. Árajánlat STL/STEP fájl vagy kép alapján." />
   <meta name="ai-data-endpoint" content="#ai-data" />
   <link rel="alternate" type="application/json" href="#ai-data" title="Machine-readable business data" />
   <link rel="alternate" type="application/json" href="products.json" title="ODDFUSE product catalog" />
@@ -20,16 +20,16 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://example.hu/#business",
+    "@id": "https://oddfuse.hu/#business",
     "name": "ODDFUSE",
     "slogan": "Digitális formák, valós tárgyak.",
-    "description": "Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak PLA, PETG, TPU és ASA alapanyagból.",
-    "url": "https://example.hu/",
-    "email": "hello@example.hu",
-    "telephone": "+36 30 000 0000",
+    "description": "Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak PLA, PETG, TPU, ASA és GLOW (sötétben világító) alapanyagból.",
+    "url": "https://oddfuse.hu/",
+    "email": "hello@oddfuse.hu",
+    "telephone": "+36209888098",
     "areaServed": "HU",
     "address": { "@type": "PostalAddress", "addressLocality": "Budapest", "addressCountry": "HU" },
-    "knowsAbout": ["FDM 3D nyomtatás", "Fused Deposition Modeling", "Prototípusgyártás", "Pótalkatrészek", "Tabletop miniatúrák", "PLA", "PETG", "TPU", "ASA"],
+    "knowsAbout": ["FDM 3D nyomtatás", "Fused Deposition Modeling", "Prototípusgyártás", "Pótalkatrészek", "Tabletop miniatúrák", "PLA", "PETG", "TPU", "ASA", "GLOW (sötétben világító) filament"],
     "makesOffer": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Egyedi FDM nyomtatás STL/STEP fájlból" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prototípusok" } },
@@ -48,7 +48,7 @@
         { "@type": "OfferCatalog", "name": "Prototípusok" }
       ]
     },
-    "potentialAction": { "@type": "ContactAction", "target": "https://example.hu/#kapcsolat" }
+    "potentialAction": { "@type": "ContactAction", "target": "https://oddfuse.hu/#kapcsolat" }
   }
   </script>
 
@@ -59,12 +59,13 @@
     "slogan": "Digitális formák, valós tárgyak.",
     "type": "3D printing service",
     "technology": "FDM (Fused Deposition Modeling) only",
-    "layer_height_mm": 0.04,
+    "layer_height_mm": { "typical": 0.2, "finest": 0.04, "note": "0.2 mm is the typical general layer height; 0.04 mm is only used for very detailed figures, miniatures and fine surface details" },
     "materials": {
       "PLA": "rigid, fine detail, easy to print; for miniatures, statues, decor, prototypes; softens above ~55-60 C",
       "PETG": "tougher, slightly flexible, moisture/chemical resistant; for holders, spare parts, everyday items",
       "TPU": "flexible, impact- and vibration-absorbing; for protective parts, cases, rubber-like accessories",
-      "ASA": "UV- and weather-resistant, heat tolerant; for outdoor use; more demanding to print"
+      "ASA": "UV- and weather-resistant, heat tolerant; for outdoor use; more demanding to print",
+      "GLOW": "phosphorescent glow-in-the-dark filament, usually PLA-based; charges under light, then glows faintly in the dark; brightness and duration depend on the pigment and the light source and fade over time; decorative use only; abrasive pigment, hardened nozzle recommended"
     },
     "services": ["custom printing from STL/STEP", "prototypes", "replacement parts", "pet statues from photos", "tabletop miniatures and terrain", "personalised objects"],
     "accepted_files": [".stl", ".step", ".stp"],
@@ -75,14 +76,17 @@
     "pricing": "Indicative prices on cards; final quote after file/photo review",
     "online_checkout": false,
     "how_to_order": "Send inquiry via contact form (#kapcsolat) with optional STL/STEP file",
-    "contact": { "email": "hello@example.hu", "phone": "+36 30 000 0000", "location": "Budapest, HU" },
+    "contact": { "email": "hello@oddfuse.hu", "phone": "+36209888098", "location": "Budapest, HU" },
     "language": "hu",
-    "last_updated": "2026-11-02"
+    "last_updated": "2026-11-04"
   }
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/tw.js"></script>
+  <!-- Paletta: a váltás helye az assets/config.js → palette (nincs látogatói kapcsoló) -->
+  <script src="assets/config.js"></script>
+  <script src="assets/palettes.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@500&display=swap" rel="stylesheet" />
@@ -124,7 +128,7 @@
       <div class="absolute inset-0 layers"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/80 to-ink"></div>
       <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[130px]"></div>
-      <div class="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-plum blur-[120px]"></div>
+      <div class="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-surface blur-[120px]"></div>
 
       <!-- Diszkrét szövegsáv (dekoratív, a tartalom mögött) -->
       <div id="tickerTop" class="ticker top-[16%]" aria-hidden="true"></div>
@@ -139,7 +143,7 @@
         <h1 class="mt-6 font-brand font-medium text-[clamp(1.55rem,6.2vw,4.25rem)] leading-[1.14] tracking-tight">
           Digitális formák,<br /><span class="text-grad">valós tárgyak.</span>
         </h1>
-        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-bone/60 font-light leading-relaxed">
+        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-muted font-light leading-relaxed">
           Egyedi 3D nyomtatás prototípusokhoz, pótalkatrészekhez, tabletop miniatúrákhoz, praktikus hétköznapi tárgyakhoz és fényképből készülő háziállat szobrokhoz. Precíz rétegek, személyre szabott megoldások.
         </p>
         <div class="mt-10 flex flex-wrap gap-4">
@@ -151,10 +155,10 @@
         </div>
 
         <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Rétegvastagság</dt><dd class="mt-1 font-display text-xl font-semibold">0,04 mm</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Anyagok</dt><dd class="mt-1 font-display text-xl font-semibold leading-tight">PLA · PETG<br />TPU · ASA</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Fájlok</dt><dd class="mt-1 font-display text-xl font-semibold">STL · STEP</dd></div>
-          <div class="glass rounded-2xl p-4"><dt class="text-xs text-bone/45 uppercase tracking-wide">Átfutás</dt><dd class="mt-1 font-display text-xl font-semibold">24–72 óra</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-muted uppercase tracking-wide">Rétegvastagság</dt><dd class="mt-1 font-display text-xl font-semibold">0,04 mm-től</dd><dd class="mt-1 text-[11px] leading-snug text-muted">Jellemzően 0,2 mm</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-muted uppercase tracking-wide">Anyagok</dt><dd class="mt-1 font-display text-xl font-semibold leading-tight">PLA · PETG<br />TPU · ASA<br />GLOW</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-muted uppercase tracking-wide">Fájlok</dt><dd class="mt-1 font-display text-xl font-semibold">STL · STEP</dd></div>
+          <div class="glass rounded-2xl p-4"><dt class="text-xs text-muted uppercase tracking-wide">Átfutás</dt><dd class="mt-1 font-display text-xl font-semibold">24–72 óra</dd></div>
         </dl>
       </div>
     </section>
@@ -165,7 +169,7 @@
         <div class="reveal max-w-3xl">
           <p class="text-accent text-sm font-medium tracking-widest uppercase">Rólunk / Technológia</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Miért az FDM?</h2>
-          <p class="mt-5 text-lg text-bone/60 font-light leading-relaxed">
+          <p class="mt-5 text-lg text-muted font-light leading-relaxed">
             A Fused Deposition Modeling megbízható és költséghatékony eljárás egyedi, funkcionális tárgyakhoz. Egy fűtött fúvóka olvasztott műanyagot rak le pontos rétegekben, így erős, tartós és gyorsan elkészülő darabokat kapsz.
           </p>
         </div>
@@ -176,80 +180,93 @@
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Precizitás</h3>
-            <p class="mt-2 text-bone/60 text-sm leading-relaxed">Finomhangolt, kalibrált gépek, ismételhető minőség és akár 0,04 mm-es rétegvastagság a részletgazdag darabokhoz.</p>
+            <p class="mt-2 text-muted text-sm leading-relaxed">Finomhangolt, kalibrált gépek és ismételhető minőség. A jellemző rétegvastagság 0,2 mm; a 0,04 mm-től induló finom rétegezés nem általános beállítás, elsősorban rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez való.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
             <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Sebesség</h3>
-            <p class="mt-2 text-bone/60 text-sm leading-relaxed">Nagy sebességű, zárt kamrás rendszerek a gyors átfutáshoz, a nyitott vázas gépek pedig a nagyobb méretekhez.</p>
+            <p class="mt-2 text-muted text-sm leading-relaxed">Nagy sebességű, zárt kamrás rendszerek a gyors átfutáshoz, a nyitott vázas gépek pedig a nagyobb méretekhez.</p>
           </article>
           <article class="reveal glass rounded-2xl p-7 card">
             <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Alapanyagok</h3>
-            <p class="mt-2 text-bone/60 text-sm leading-relaxed">PLA, PETG, TPU és ASA: a tárgy céljához, terheléséhez és környezetéhez illesztett anyagválasztás.</p>
+            <p class="mt-2 text-muted text-sm leading-relaxed">PLA, PETG, TPU, ASA és GLOW: a tárgy céljához, terheléséhez és környezetéhez illesztett anyagválasztás.</p>
           </article>
         </div>
 
         <!-- ANYAGOK -->
         <div class="reveal mt-16">
           <h3 class="font-display text-2xl sm:text-3xl font-bold tracking-tight">Anyagok, amikkel dolgozunk</h3>
-          <p class="mt-3 max-w-2xl text-bone/60 font-light">Nem tudod, melyik anyag való a tárgyadhoz? Írd le, mire használnád, és segítünk választani.</p>
+          <p class="mt-3 max-w-2xl text-muted font-light">Nem tudod, melyik anyag való a tárgyadhoz? Írd le, mire használnád, és segítünk választani.</p>
         </div>
         <div class="mt-8 grid gap-5 md:grid-cols-2">
 
           <article class="reveal glass rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
               <h4 class="font-display text-2xl font-bold text-accent">PLA</h4>
-              <span class="text-xs uppercase tracking-widest text-bone/45">Részletek, látvány</span>
+              <span class="text-xs uppercase tracking-widest text-muted">Részletek, látvány</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
-              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">Merev, könnyen nyomtatható anyag kiváló részletességgel és szép felülettel, sok színben.</dd></div>
-              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Pontos méretek, kis vetemedés, finom részletek.</dd></div>
-              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Tabletop miniatúrák, szobrok, dekoráció, bemutató modellek, prototípusok.</dd></div>
-              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Ha a megjelenés és a részletesség a fontos. Kb. 55–60 °C felett lágyul, és ütésre törékenyebb, ezért meleg helyre vagy kültérre nem ajánlott.</dd></div>
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-muted">Merev, könnyen nyomtatható anyag kiváló részletességgel és szép felülettel, sok színben.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-muted">Pontos méretek, kis vetemedés, finom részletek.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-muted">Tabletop miniatúrák, szobrok, dekoráció, bemutató modellek, prototípusok.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-muted">Ha a megjelenés és a részletesség a fontos. Kb. 55–60 °C felett lágyul, és ütésre törékenyebb, ezért meleg helyre vagy kültérre nem ajánlott.</dd></div>
             </dl>
           </article>
 
           <article class="reveal glass rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
               <h4 class="font-display text-2xl font-bold text-bone">PETG</h4>
-              <span class="text-xs uppercase tracking-widest text-bone/45">Strapabíró, sokoldalú</span>
+              <span class="text-xs uppercase tracking-widest text-muted">Strapabíró, sokoldalú</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
-              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">Szívósabb és kissé rugalmasabb, mint a PLA. Jó rétegtapadású, nedvességnek és sok vegyszernek jobban ellenáll.</dd></div>
-              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Jobb ütésállóság, kb. 70–80 °C-ig hőtűrő, tartós a mindennapi használatban.</dd></div>
-              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Szerszám- és eszköztartók, telefontartók, pótalkatrészek, praktikus kiegészítők.</dd></div>
-              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Ha a tárgyat használni és terhelni fogják, de nem áll tartós napfényben. Finom részleteknél a PLA általában élesebb.</dd></div>
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-muted">Szívósabb és kissé rugalmasabb, mint a PLA. Jó rétegtapadású, nedvességnek és sok vegyszernek jobban ellenáll.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-muted">Jobb ütésállóság, kb. 70–80 °C-ig hőtűrő, tartós a mindennapi használatban.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-muted">Szerszám- és eszköztartók, telefontartók, pótalkatrészek, praktikus kiegészítők.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-muted">Ha a tárgyat használni és terhelni fogják, de nem áll tartós napfényben. Finom részleteknél a PLA általában élesebb.</dd></div>
             </dl>
           </article>
 
           <article class="reveal glass rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
               <h4 class="font-display text-2xl font-bold text-bone">TPU</h4>
-              <span class="text-xs uppercase tracking-widest text-bone/45">Rugalmas, ütéselnyelő</span>
+              <span class="text-xs uppercase tracking-widest text-muted">Rugalmas, ütéselnyelő</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
-              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">Rugalmas, hajlítható, kopásálló és ütéselnyelő anyag. A hajlíthatóság a keménységtől és a kialakítástól (falvastagság, kitöltés) is függ.</dd></div>
-              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Csillapítja az ütést és a rezgést, nem törik könnyen, gumiszerű tapintású.</dd></div>
-              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Rugalmas védőelemek, rezgéscsillapító alkatrészek, tokok, gumiszerű kiegészítők, lábak és ütközők.</dd></div>
-              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Ha a tárgynak hajolnia kell, majd vissza kell állnia. Merev tartószerkezethez nem ideális, és lassabban nyomtatható.</dd></div>
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-muted">Rugalmas, hajlítható, kopásálló és ütéselnyelő anyag. A hajlíthatóság a keménységtől és a kialakítástól (falvastagság, kitöltés) is függ.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-muted">Csillapítja az ütést és a rezgést, nem törik könnyen, gumiszerű tapintású.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-muted">Rugalmas védőelemek, rezgéscsillapító alkatrészek, tokok, gumiszerű kiegészítők, lábak és ütközők.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-muted">Ha a tárgynak hajolnia kell, majd vissza kell állnia. Merev tartószerkezethez nem ideális, és lassabban nyomtatható.</dd></div>
             </dl>
           </article>
 
           <article class="reveal glass rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
               <h4 class="font-display text-2xl font-bold text-bone">ASA</h4>
-              <span class="text-xs uppercase tracking-widest text-bone/45">Kültéri, időjárásálló</span>
+              <span class="text-xs uppercase tracking-widest text-muted">Kültéri, időjárásálló</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
-              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-bone/60">UV- és időjárásálló, szívós műanyag, a PETG-nél hőállóbb (kb. 90–100 °C-ig).</dd></div>
-              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-bone/60">Napfény és változó időjárás mellett is hosszabb ideig megtartja az alakját és a színét.</dd></div>
-              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-bone/60">Kültéri tartók, burkolatok, házak, napfénynek vagy időjárásnak kitett alkatrészek.</dd></div>
-              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-bone/60">Tartós kültéri használatra. A nyomtatása technikailag igényesebb (vetemedésre hajlamos), ezért nagyobb, lapos darabnál érdemes előre egyeztetni.</dd></div>
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-muted">UV- és időjárásálló, szívós műanyag, a PETG-nél hőállóbb (kb. 90–100 °C-ig).</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-muted">Napfény és változó időjárás mellett is hosszabb ideig megtartja az alakját és a színét.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-muted">Kültéri tartók, burkolatok, házak, napfénynek vagy időjárásnak kitett alkatrészek.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-muted">Tartós kültéri használatra. A nyomtatása technikailag igényesebb (vetemedésre hajlamos), ezért nagyobb, lapos darabnál érdemes előre egyeztetni.</dd></div>
+            </dl>
+          </article>
+
+          <article class="reveal glass rounded-2xl p-7 md:col-span-2">
+            <div class="flex items-baseline justify-between gap-3">
+              <h4 class="font-display text-2xl font-bold text-bone">GLOW</h4>
+              <span class="text-xs uppercase tracking-widest text-muted">Sötétben világító</span>
+            </div>
+            <dl class="mt-5 grid gap-x-8 gap-y-4 text-sm leading-relaxed md:grid-cols-2">
+              <div><dt class="font-semibold text-bone">Fő tulajdonságok</dt><dd class="mt-1 text-muted">Leggyakrabban PLA alapú filament világító (foszforeszkáló) pigmenttel. Fény hatására feltöltődik, majd sötétben halványan világít. Mechanikai tulajdonságai általában a PLA-éhoz hasonlók.</dd></div>
+              <div><dt class="font-semibold text-bone">Előnyök</dt><dd class="mt-1 text-muted">Látványos, dekoratív hatás külön utómunka nélkül: a tárgy sötétben is látható marad.</dd></div>
+              <div><dt class="font-semibold text-bone">Tipikus felhasználás</dt><dd class="mt-1 text-muted">Dekoratív és játékos tárgyak, figurák, kulcstartók, éjszakai jelzések, látványos kiegészítők.</dd></div>
+              <div><dt class="font-semibold text-bone">Mikor válaszd?</dt><dd class="mt-1 text-muted">Ha a cél a látványos, sötétben látható hatás. A világítás ideje és erőssége a pigmenttől, a feltöltő fényforrástól és a töltés idejétől függ, és fokozatosan halványul. Nem folyamatos vagy erős fényforrás, világítást vagy biztonsági jelzést nem helyettesít. A pigment koptató hatású, ezért nyomtatásához általában kopásálló fúvóka ajánlott.</dd></div>
             </dl>
           </article>
         </div>
@@ -264,7 +281,7 @@
             <p class="text-accent text-sm font-medium tracking-widest uppercase">Portfólió</p>
             <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Elkészült munkák</h2>
           </div>
-          <p class="max-w-sm text-bone/60 font-light">Miniatúrák, praktikus tartók, pótlások és személyre szabott tárgyak. Kattints egy munkára a részletekért.</p>
+          <p class="max-w-sm text-muted font-light">Miniatúrák, praktikus tartók, pótlások és személyre szabott tárgyak. Kattints egy munkára a részletekért.</p>
         </div>
         <div id="portfolioGrid" class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
         <div class="mt-8 text-center">
@@ -280,7 +297,7 @@
         <div class="reveal max-w-3xl">
           <p class="text-accent text-sm font-medium tracking-widest uppercase">Termékkatalógus</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Válogatás a kínálatunkból</h2>
-          <p class="mt-4 text-bone/60 font-light">Az árak tájékoztató jellegűek. A végleges ajánlatot a méret, az anyag és a darabszám alapján adjuk. Online vásárlás nincs, érdeklődj bátran.</p>
+          <p class="mt-4 text-muted font-light">Az árak tájékoztató jellegűek. A végleges ajánlatot a méret, az anyag és a darabszám alapján adjuk. Online vásárlás nincs, érdeklődj bátran.</p>
         </div>
         <div id="filters" class="reveal mt-8 flex flex-wrap gap-2"></div>
         <div id="catalog" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
@@ -288,37 +305,37 @@
     </section>
 
     <!-- KAPCSOLAT -->
-    <section id="kapcsolat" class="relative py-28">
+    <section id="kapcsolat" class="relative overflow-hidden py-28">
       <div class="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[140px]"></div>
       <div class="relative mx-auto max-w-4xl px-5">
         <div class="reveal text-center">
           <p class="text-accent text-sm font-medium tracking-widest uppercase">Kapcsolat</p>
           <h2 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Kezdjük el a projektedet</h2>
-          <p class="mt-4 text-bone/60 font-light">Írd le az elképzelésed, vagy tölts fel egy modellt. 24 órán belül válaszolunk.</p>
+          <p class="mt-4 text-muted font-light">Írd le az elképzelésed, vagy tölts fel egy modellt. 24 órán belül válaszolunk.</p>
         </div>
 
         <form id="contactForm" class="reveal glass rounded-2xl p-6 sm:p-10 mt-12 space-y-6" novalidate>
           <div class="grid gap-6 sm:grid-cols-2">
             <label class="block">
-              <span class="text-sm text-bone/60">Név</span>
-              <input id="name" name="name" required type="text" autocomplete="name" placeholder="Kovács Péter" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-accent focus:ring-2 focus:ring-accent/25 transition" />
+              <span class="text-sm text-muted">Név</span>
+              <input id="name" name="name" required type="text" autocomplete="name" placeholder="Kovács Péter" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/25 transition" />
             </label>
             <label class="block">
-              <span class="text-sm text-bone/60">E-mail</span>
-              <input id="email" name="email" required type="email" autocomplete="email" placeholder="te@email.hu" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-accent focus:ring-2 focus:ring-accent/25 transition" />
+              <span class="text-sm text-muted">E-mail</span>
+              <input id="email" name="email" required type="email" autocomplete="email" placeholder="te@email.hu" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/25 transition" />
             </label>
           </div>
           <label class="block">
-            <span class="text-sm text-bone/60">Üzenet</span>
-            <textarea id="message" name="message" required rows="5" placeholder="Mit szeretnél nyomtatni? Anyag, méret, darabszám…" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-bone/30 focus:border-accent focus:ring-2 focus:ring-accent/25 transition"></textarea>
+            <span class="text-sm text-muted">Üzenet</span>
+            <textarea id="message" name="message" required rows="5" placeholder="Mit szeretnél nyomtatni? Anyag, méret, darabszám…" class="mt-2 w-full rounded-xl border border-bone/10 bg-ink/60 px-4 py-3 outline-none placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/25 transition"></textarea>
           </label>
 
           <div>
-            <span class="text-sm text-bone/60">3D modell (.STL / .STEP)</span>
+            <span class="text-sm text-muted">3D modell (.STL / .STEP)</span>
             <div id="dropzone" class="mt-2 cursor-pointer rounded-2xl border-2 border-dashed border-bone/15 bg-ink/40 p-8 text-center transition hover:border-accent/60 hover:bg-accent/5">
               <svg class="mx-auto h-10 w-10 text-accent" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
               <p id="dropText" class="mt-3 text-bone/80">Húzd ide a fájlt, vagy kattints a tallózáshoz</p>
-              <p class="mt-1 text-xs text-bone/45">Támogatott: .stl, .step, .stp · max. <span id="maxMB">20</span> MB</p>
+              <p class="mt-1 text-xs text-muted">Támogatott: .stl, .step, .stp · max. <span id="maxMB">1</span> MB</p>
               <input id="fileInput" name="file" type="file" accept=".stl,.step,.stp" class="hidden" />
             </div>
           </div>
@@ -327,7 +344,7 @@
           <div class="hp-field" aria-hidden="true">
             <label>Ne töltsd ki ezt a mezőt <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
           </div>
-          <input type="hidden" name="ts" id="ts" value="" />
+          <input type="hidden" name="elapsed" id="elapsed" value="0" />
 
           <!-- Spamvédelem: Cloudflare Turnstile (assets/config.js → turnstileSiteKey) -->
           <div id="turnstile" class="flex justify-center"></div>
@@ -336,9 +353,9 @@
           <p id="formStatus" class="text-center text-sm min-h-[1.25rem]" role="status" aria-live="polite"></p>
         </form>
 
-        <div class="reveal mt-8 grid gap-4 sm:grid-cols-3 text-center text-sm text-bone/60">
-          <div class="glass rounded-2xl p-4">hello@example.hu</div>
-          <div class="glass rounded-2xl p-4">+36 30 000 0000</div>
+        <div class="reveal mt-8 grid gap-4 sm:grid-cols-3 text-center text-sm text-muted">
+          <div class="glass rounded-2xl p-4">hello@oddfuse.hu</div>
+          <div class="glass rounded-2xl p-4">+36 20 988 8098</div>
           <div class="glass rounded-2xl p-4">Budapest, HU</div>
         </div>
       </div>
@@ -347,7 +364,7 @@
 
   <!-- LÁBLÉC (azonos a portfolio.html-ben) -->
   <footer class="border-t border-bone/10 py-10">
-    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between text-sm text-bone/45">
+    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between text-sm text-muted">
       <div>
         <a href="index.html#hero" class="font-brand font-medium text-base text-bone">ODD<span class="text-accent">FUSE</span></a>
         <p class="mt-2">Digitális formák, valós tárgyak.</p>
@@ -362,12 +379,12 @@
     </div>
   </footer>
 
-  <script src="assets/config.js"></script>
   <script src="assets/fallback.js"></script>
   <script src="assets/common.js"></script>
   <script>
     initChrome();
     const CFG = window.ODDFUSE_CONFIG || {};
+    const MAIL = (CFG.contact && CFG.contact.email) || 'hello@oddfuse.hu';
 
     /* ===== Szövegsáv ===== */
     const TICKER_WORDS = ["MELTED REALITY","BAD GEOMETRY","LAYER ZERO","PLASTIC NOISE","ODD MATTER","NOZZLE THERAPY","GRIDBITE","POLYBENDER","ALMOST SOLID"];
@@ -384,7 +401,7 @@
       $('#portfolioGrid').innerHTML = (d.projects || []).slice(0, n).map(projectCard).join('');
       observeReveals();
     }).catch(() => {
-      $('#portfolioGrid').innerHTML = '<p class="col-span-full text-sm text-bone/60">A portfólió jelenleg nem tölthető be.</p>';
+      $('#portfolioGrid').innerHTML = '<p class="col-span-full text-sm text-muted">A portfólió jelenleg nem tölthető be.</p>';
     });
 
     /* ===== Katalógus + szűrők (adat: products.json) ===== */
@@ -406,7 +423,7 @@
           </div>
           <div class="flex flex-1 flex-col p-6">
             <h3 class="font-display text-xl font-semibold">${esc(p.name)}</h3>
-            <p class="mt-2 flex-1 text-sm text-bone/60 leading-relaxed">${esc(p.description)}</p>
+            <p class="mt-2 flex-1 text-sm text-muted leading-relaxed">${esc(p.description)}</p>
             <div class="mt-5 flex items-center justify-between">
               <span class="font-display text-lg font-semibold text-accent">${esc(p.price)}</span>
               <a href="#kapcsolat" data-inquiry="${esc(p.name)}" class="rounded-xl border border-accent/50 px-4 py-2 text-sm font-medium text-accent transition hover:bg-accent hover:text-ink">Érdeklődés</a>
@@ -419,18 +436,18 @@
       }));
     }
     loadData('products').then(d => { PRODUCTS = d.products || []; renderFilters(); renderCatalog(); })
-      .catch(() => { $('#catalog').innerHTML = '<p class="col-span-full text-sm text-bone/60">A katalógus jelenleg nem tölthető be.</p>'; });
+      .catch(() => { $('#catalog').innerHTML = '<p class="col-span-full text-sm text-muted">A katalógus jelenleg nem tölthető be.</p>'; });
 
     /* ===== Fájlfeltöltési zóna ===== */
-    const MAX_MB = CFG.maxFileMB || 20;
+    const MAX_MB = CFG.maxFileMB || 1;
     $('#maxMB').textContent = MAX_MB;
     const dz = $('#dropzone'), fi = $('#fileInput'), dt = $('#dropText');
     const okExt = /\.(stl|step|stp)$/i;
     function resetDrop() { dt.textContent = 'Húzd ide a fájlt, vagy kattints a tallózáshoz'; dt.className = 'mt-3 text-bone/80'; }
     function setFile(f) {
       if (!f) return;
-      if (!okExt.test(f.name)) { dt.textContent = 'Csak .stl, .step vagy .stp fájl engedélyezett.'; dt.className = 'mt-3 text-red-400'; fi.value = ''; return; }
-      if (f.size > MAX_MB * 1048576) { dt.textContent = `A fájl túl nagy (max. ${MAX_MB} MB).`; dt.className = 'mt-3 text-red-400'; fi.value = ''; return; }
+      if (!okExt.test(f.name)) { dt.textContent = 'Csak .stl, .step vagy .stp fájl engedélyezett.'; dt.className = 'mt-3 text-danger'; fi.value = ''; return; }
+      if (f.size > MAX_MB * 1048576) { dt.textContent = `A fájl túl nagy (max. ${MAX_MB} MB). Nagyobb fájlt kérjük, küldd el e-mailben: ${MAIL}`; dt.className = 'mt-3 text-danger'; fi.value = ''; return; }
       dt.textContent = `✔ ${f.name} (${(f.size/1048576).toFixed(2)} MB)`; dt.className = 'mt-3 text-accent';
     }
     dz.onclick = () => fi.click();
@@ -443,7 +460,7 @@
        Kliensoldali védelem: honeypot, időzítés, Turnstile widget.
        A VALÓDI védelem a szerveroldali ellenőrzés (worker/contact-worker.js). */
     const form = $('#contactForm'), st = $('#formStatus');
-    const loadedAt = Date.now(); $('#ts').value = loadedAt;
+    const loadedAt = Date.now(); /* a szervernek a kitöltés idejét (ms) küldjük, nem az óra állását: így az óraeltérés nem számít */
     const say = (msg, cls) => { st.textContent = msg; st.className = 'text-center text-sm ' + cls; };
 
     if (CFG.turnstileSiteKey) {
@@ -457,21 +474,31 @@
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const n = $('#name').value.trim(), m = $('#email').value.trim(), msg = $('#message').value.trim();
-      if (!n || !/^\S+@\S+\.\S+$/.test(m) || !msg) return say('Kérjük, tölts ki minden mezőt érvényes adatokkal.', 'text-red-400');
+      if (!n || !/^\S+@\S+\.\S+$/.test(m) || !msg) return say('Kérjük, tölts ki minden mezőt érvényes adatokkal.', 'text-danger');
       if (form.elements.website.value) return say('Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.', 'text-accent'); /* honeypot: bot, csendben eldobjuk */
-      if (Date.now() - loadedAt < 3000) return say('Egy pillanat, kérjük, próbáld újra.', 'text-red-400');
+      if (Date.now() - loadedAt < 3000) return say('Egy pillanat, kérjük, próbáld újra.', 'text-danger');
       if (CFG.turnstileSiteKey && !(form.elements['cf-turnstile-response'] && form.elements['cf-turnstile-response'].value))
-        return say('Kérjük, igazold, hogy nem vagy robot.', 'text-red-400');
-      if (!CFG.formEndpoint) return say('Az ajánlatkérő űrlap még nincs bekötve. Kérjük, írj a hello@example.hu címre.', 'text-red-400');
+        return say('Kérjük, igazold, hogy nem vagy robot.', 'text-danger');
+      if (!CFG.formEndpoint) return say('Az ajánlatkérő űrlap még nincs bekötve. Kérjük, írj a ' + MAIL + ' címre.', 'text-danger');
 
       const btn = form.querySelector('button[type=submit]'); btn.disabled = true; btn.classList.add('opacity-60');
       try {
+        $('#elapsed').value = Date.now() - loadedAt;
         const r = await fetch(CFG.formEndpoint, { method: 'POST', body: new FormData(form) });
-        if (!r.ok) throw new Error(r.status);
+        let data = null; try { data = await r.json(); } catch (_) {}
+        if (!r.ok || (data && data.ok === false)) { const e2 = new Error('send_failed'); e2.code = data && data.error; throw e2; }
         say('Köszönjük! Érdeklődésedet megkaptuk, hamarosan jelentkezünk.', 'text-accent');
-        form.reset(); resetDrop(); $('#ts').value = Date.now();
+        form.reset(); resetDrop();
       } catch (err) {
-        say('A küldés nem sikerült. Kérjük, próbáld újra, vagy írj a hello@example.hu címre.', 'text-red-400');
+        const known = {
+          rate_limited: 'Túl sok próbálkozás történt. Kérjük, próbáld újra később.',
+          captcha_missing: 'Az ellenőrzés nem sikerült. Kérjük, töltsd újra az oldalt, és próbáld újra.',
+          captcha_failed: 'Az ellenőrzés nem sikerült. Kérjük, töltsd újra az oldalt, és próbáld újra.',
+          too_fast: 'Egy pillanat, kérjük, próbáld újra.',
+          file_too_large: `A fájl túl nagy (max. ${MAX_MB} MB). Nagyobb fájlt kérjük, küldd el e-mailben: ${MAIL}`,
+          invalid_file_type: 'Csak .stl, .step vagy .stp fájl engedélyezett.'
+        };
+        say(known[err.code] || ('A küldés nem sikerült. Kérjük, próbáld újra, vagy írj a ' + MAIL + ' címre.'), 'text-danger');
       } finally {
         btn.disabled = false; btn.classList.remove('opacity-60');
         if (window.turnstile) window.turnstile.reset();

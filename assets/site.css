@@ -1,22 +1,34 @@
-/* ODDFUSE – közös stílusok (Graphite + Digital Violet) */
-body { background:#17191A; color:#E8E5F0; }
-.glass { background:rgba(41,36,49,.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(232,229,240,.08); }
-.glass-strong { background:rgba(23,25,26,.72); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(232,229,240,.08); }
-.text-grad { background:linear-gradient(90deg,#B5A0FF,#E8E5F0 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.layers { background-image:repeating-linear-gradient(0deg, rgba(232,229,240,.03) 0 1px, transparent 1px 10px); }
-.glow { box-shadow:0 0 0 1px rgba(181,160,255,.25), 0 10px 40px -14px rgba(181,160,255,.4); }
+/* ODDFUSE – közös stílusok.
+   Itt NINCS szám szerinti szín: minden szín a palettából jön (assets/palettes.js).
+   Az alábbi :root érték csak tartalék, arra az esetre, ha a JavaScript nem futna le (= violet paletta). */
+:root {
+  --c-bg: 23 25 26;
+  --c-surface: 41 36 49;
+  --c-accent: 181 160 255;
+  --c-text: 232 229 240;
+  --c-muted: 165 161 173;
+  --c-ticker: 69 73 74;
+  --c-danger: 229 138 138;
+}
+
+body { background:rgb(var(--c-bg)); color:rgb(var(--c-text)); }
+.glass { background:rgb(var(--c-surface) / .6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgb(var(--c-text) / .08); }
+.glass-strong { background:rgb(var(--c-bg) / .72); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgb(var(--c-text) / .08); }
+.text-grad { background:linear-gradient(90deg, rgb(var(--c-accent)), rgb(var(--c-text)) 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.layers { background-image:repeating-linear-gradient(0deg, rgb(var(--c-text) / .03) 0 1px, transparent 1px 10px); }
+.glow { box-shadow:0 0 0 1px rgb(var(--c-accent) / .25), 0 10px 40px -14px rgb(var(--c-accent) / .4); }
 .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.in { opacity:1; transform:none; }
 .card { transition:transform .35s ease, border-color .35s ease; }
-.card:hover { transform:translateY(-6px); border-color:rgba(181,160,255,.45); }
-.img-wrap { background:linear-gradient(135deg,#292431,#17191A); }
+.card:hover { transform:translateY(-6px); border-color:rgb(var(--c-accent) / .45); }
+.img-wrap { background:linear-gradient(135deg, rgb(var(--c-surface)), rgb(var(--c-bg))); }
 .nozzle { animation:scan 6s ease-in-out infinite; }
 @keyframes scan { 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(70vw) } }
-::selection { background:#B5A0FF; color:#17191A; }
-:focus-visible { outline:2px solid #B5A0FF; outline-offset:3px; }
+::selection { background:rgb(var(--c-accent)); color:rgb(var(--c-bg)); }
+:focus-visible { outline:2px solid rgb(var(--c-accent)); outline-offset:3px; }
 
 /* Generált rétegminta-illusztráció (amíg nincs saját fotó) */
-.art-wrap { background:radial-gradient(120% 90% at 50% 0%, #34304a 0%, #292431 45%, #17191A 100%); }
+.art-wrap { background:rgb(var(--c-surface)); background:radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, rgb(var(--c-surface)) 82%, rgb(var(--c-accent))) 0%, rgb(var(--c-surface)) 45%, rgb(var(--c-bg)) 100%); }
 .art-wrap svg { display:block; width:100%; height:100%; }
 
 /* ===== Diszkrét, háttérben futó szövegsáv ===== */
@@ -27,13 +39,14 @@ body { background:#17191A; color:#E8E5F0; }
 .ticker.rev .ticker-track { animation-name:ticker-right; animation-duration:190s; }
 .ticker-group { display:flex; flex-shrink:0; align-items:center; white-space:nowrap;
   font-family:'Space Grotesk',system-ui,sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
-  font-size:clamp(2.25rem,6vw,4.75rem); line-height:1; color:#45494A; }
+  font-size:clamp(2.25rem,6vw,4.75rem); line-height:1; color:rgb(var(--c-ticker)); }
 .ticker-group span.dot { margin:0 1.1em; }
 @keyframes ticker-left  { from{ transform:translateX(0) }    to{ transform:translateX(-50%) } }
 @keyframes ticker-right { from{ transform:translateX(-50%) } to{ transform:translateX(0) } }
 
 /* Honeypot: vizuálisan és képernyőolvasók elől is rejtett, botok kitöltik */
 .hp-field { position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.hp-field input { background:transparent; color:inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .nozzle { animation:none !important; }

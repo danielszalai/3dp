@@ -17,14 +17,17 @@
     "@type": "CollectionPage",
     "name": "ODDFUSE portfólió",
     "description": "Nyomtatott munkák: tabletop miniatúrák, praktikus kiegészítők, pótalkatrészek, háziállat szobrok, személyre szabott tárgyak.",
-    "isPartOf": { "@type": "WebSite", "name": "ODDFUSE", "url": "https://example.hu/" },
-    "about": { "@type": "ProfessionalService", "@id": "https://example.hu/#business", "name": "ODDFUSE" },
+    "isPartOf": { "@type": "WebSite", "name": "ODDFUSE", "url": "https://oddfuse.hu/" },
+    "about": { "@type": "ProfessionalService", "@id": "https://oddfuse.hu/#business", "name": "ODDFUSE" },
     "mainEntityOfPage": "portfolio.json"
   }
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/tw.js"></script>
+  <!-- Paletta: a váltás helye az assets/config.js → palette -->
+  <script src="assets/config.js"></script>
+  <script src="assets/palettes.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@500&display=swap" rel="stylesheet" />
@@ -65,13 +68,13 @@
     <div class="absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-accent/10 blur-[130px] pointer-events-none"></div>
 
     <div id="view" class="relative mx-auto max-w-6xl px-5">
-      <p class="text-bone/60 text-sm">Betöltés…</p>
+      <p class="text-muted text-sm">Betöltés…</p>
     </div>
   </main>
 
   <!-- LÁBLÉC (azonos a főoldalival) -->
   <footer class="border-t border-bone/10 py-10">
-    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between text-sm text-bone/45">
+    <div class="mx-auto max-w-6xl px-5 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between text-sm text-muted">
       <div>
         <a href="index.html#hero" class="font-brand font-medium text-base text-bone">ODD<span class="text-accent">FUSE</span></a>
         <p class="mt-2">Digitális formák, valós tárgyak.</p>
@@ -86,7 +89,6 @@
     </div>
   </footer>
 
-  <script src="assets/config.js"></script>
   <script src="assets/fallback.js"></script>
   <script src="assets/common.js"></script>
   <script>
@@ -103,11 +105,11 @@
     function renderList(projects) {
       setMeta('Portfólió – ODDFUSE | Digitális formák, valós tárgyak', 'ODDFUSE portfólió: tabletop miniatúrák, praktikus tartók, pótalkatrészek, háziállat szobrok és személyre szabott FDM nyomtatott tárgyak.');
       view.innerHTML = `
-        <a href="index.html#portfolio" class="inline-flex items-center gap-2 text-sm text-bone/60 hover:text-accent transition"><span aria-hidden="true">←</span> Vissza a főoldalra</a>
+        <a href="index.html#portfolio" class="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition"><span aria-hidden="true">←</span> Vissza a főoldalra</a>
         <div class="mt-6 max-w-3xl">
           <p class="text-accent text-sm font-medium tracking-widest uppercase">Portfólió</p>
           <h1 class="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">Elkészült munkák</h1>
-          <p class="mt-4 text-bone/60 font-light leading-relaxed">Válassz egy munkát, és nézd meg részletesen: mire szolgál, milyen problémát old meg, miből és hogyan készült.</p>
+          <p class="mt-4 text-muted font-light leading-relaxed">Válassz egy munkát, és nézd meg részletesen: mire szolgál, milyen problémát old meg, miből és hogyan készült.</p>
         </div>
         <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">${projects.map(projectCard).join('')}</div>`;
     }
@@ -118,7 +120,7 @@
         <div class="glass rounded-2xl p-6">
           <div class="h-10 w-10 rounded-xl bg-accent/10 text-accent grid place-items-center">${icon}</div>
           <h2 class="mt-4 font-display text-lg font-semibold">${esc(title)}</h2>
-          <p class="mt-2 text-sm text-bone/60 leading-relaxed">${esc(text)}</p>
+          <p class="mt-2 text-sm text-muted leading-relaxed">${esc(text)}</p>
         </div>`;
     }
     const I = {
@@ -142,7 +144,7 @@
       const prev = all[(idx - 1 + all.length) % all.length], next = all[(idx + 1) % all.length];
 
       view.innerHTML = `
-        <nav class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-bone/60" aria-label="Morzsamenü">
+        <nav class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted" aria-label="Morzsamenü">
           <a href="index.html#portfolio" class="hover:text-accent transition">← Főoldal</a><span aria-hidden="true">/</span>
           <a href="portfolio.html" class="hover:text-accent transition">Portfólió</a><span aria-hidden="true">/</span>
           <span class="text-bone/80">${esc(p.title)}</span>
@@ -153,15 +155,15 @@
             <div id="mainShot" class="img-wrap glass relative aspect-[4/3] overflow-hidden rounded-2xl">${tile(items[0], 'h-full w-full object-cover')}</div>
             ${items.length > 1 ? `<div class="mt-3 grid grid-cols-4 sm:grid-cols-5 gap-3" id="thumbs">${items.map((it, i) => `
               <button type="button" data-i="${i}" class="img-wrap glass aspect-[4/3] overflow-hidden rounded-xl transition hover:border-accent/60 ${i === 0 ? 'border-accent/70' : ''}" aria-label="${i + 1}. kép megtekintése">${tile(it, 'h-full w-full object-cover')}</button>`).join('')}</div>` : ''}
-            ${hasPhotos ? '' : '<p class="mt-3 text-xs text-bone/45">A projekt saját fotói hamarosan kerülnek fel. Az illusztráció a nyomtatott rétegeket idézi.</p>'}
+            ${hasPhotos ? '' : '<p class="mt-3 text-xs text-muted">A projekt saját fotói hamarosan kerülnek fel. Az illusztráció a nyomtatott rétegeket idézi.</p>'}
           </div>
 
           <div class="lg:col-span-2">
             <span class="text-xs uppercase tracking-widest text-accent">${esc(p.category)}</span>
             <h1 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight leading-tight">${esc(p.title)}</h1>
-            <p class="mt-4 text-bone/60 font-light leading-relaxed">${esc(p.summary)}</p>
+            <p class="mt-4 text-muted font-light leading-relaxed">${esc(p.summary)}</p>
             <div class="mt-6 glass rounded-2xl p-5">
-              <p class="text-xs uppercase tracking-widest text-bone/45">Anyag</p>
+              <p class="text-xs uppercase tracking-widest text-muted">Anyag</p>
               <p class="mt-1 font-display text-lg font-semibold">${esc(p.material)}</p>
             </div>
             <div class="mt-6 flex flex-wrap gap-3">
@@ -178,8 +180,8 @@
         </div>
 
         <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-bone/10 pt-6 text-sm">
-          <a href="portfolio.html?id=${encodeURIComponent(prev.id)}" class="text-bone/60 hover:text-accent transition">← ${esc(prev.title)}</a>
-          <a href="portfolio.html?id=${encodeURIComponent(next.id)}" class="text-bone/60 hover:text-accent transition">${esc(next.title)} →</a>
+          <a href="portfolio.html?id=${encodeURIComponent(prev.id)}" class="text-muted hover:text-accent transition">← ${esc(prev.title)}</a>
+          <a href="portfolio.html?id=${encodeURIComponent(next.id)}" class="text-muted hover:text-accent transition">${esc(next.title)} →</a>
         </div>`;
 
       const thumbs = $('#thumbs');
@@ -206,7 +208,7 @@
       view.innerHTML = `
         <div class="glass rounded-2xl p-10 text-center max-w-xl mx-auto">
           <h1 class="font-display text-2xl font-bold">A projekt nem található</h1>
-          <p class="mt-3 text-bone/60">Lehet, hogy a link elavult. Nézd meg az összes munkát.</p>
+          <p class="mt-3 text-muted">Lehet, hogy a link elavult. Nézd meg az összes munkát.</p>
           <a href="portfolio.html" class="mt-6 inline-flex rounded-2xl bg-accent px-6 py-3 font-semibold text-ink hover:brightness-110 transition">Összes munka</a>
         </div>`;
     }
@@ -221,7 +223,7 @@
       observeReveals();
       window.scrollTo(0, 0);
     }).catch(() => {
-      view.innerHTML = '<p class="text-bone/60">A portfólió jelenleg nem tölthető be. <a class="text-accent underline" href="index.html">Vissza a főoldalra</a></p>';
+      view.innerHTML = '<p class="text-muted">A portfólió jelenleg nem tölthető be. <a class="text-accent underline" href="index.html">Vissza a főoldalra</a></p>';
     });
   </script>
 </body>

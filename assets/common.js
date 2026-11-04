@@ -39,9 +39,9 @@
       const w = Math.max(18, f(t) * maxW);
       const y = top + i * step;
       const op = (0.28 + 0.6 * Math.pow(1 - t * 0.55, 1.4)) * (i % 2 ? 0.88 : 1);
-      out += `<rect x="${((W - w) / 2).toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${(step * .74).toFixed(1)}" rx="${(step * .3).toFixed(1)}" fill="#B5A0FF" fill-opacity="${op.toFixed(2)}"/>`;
+      out += `<rect x="${((W - w) / 2).toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${(step * .74).toFixed(1)}" rx="${(step * .3).toFixed(1)}" style="fill:rgb(var(--c-accent))" fill-opacity="${op.toFixed(2)}"/>`;
     }
-    out += `<rect x="70" y="${bottom + 6}" width="260" height="6" rx="3" fill="#E8E5F0" fill-opacity=".14"/>`;
+    out += `<rect x="70" y="${bottom + 6}" width="260" height="6" rx="3" style="fill:rgb(var(--c-text))" fill-opacity=".14"/>`;
     return `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid ${fit}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${out}</svg>`;
   }
 
@@ -55,11 +55,11 @@
       <a href="portfolio.html?id=${encodeURIComponent(p.id)}" class="reveal card glass group relative block aspect-[4/5] overflow-hidden rounded-2xl" aria-label="${esc(p.title)} – részletek">
         <div class="art-wrap absolute inset-0 transition duration-700 group-hover:scale-105">${media}</div>
         <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/15 to-transparent"></div>
-        ${img ? '' : '<span class="glass-strong absolute right-3 top-3 rounded-full px-2.5 py-1 text-[10px] uppercase tracking-widest text-bone/60">Fotó hamarosan</span>'}
+        ${img ? '' : '<span class="glass-strong absolute right-3 top-3 rounded-full px-2.5 py-1 text-[10px] uppercase tracking-widest text-muted">Fotó hamarosan</span>'}
         <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
           <span class="text-[11px] uppercase tracking-widest text-accent">${esc(p.category)}</span>
           <h3 class="mt-1 font-display text-base sm:text-lg font-semibold leading-snug">${esc(p.title)}</h3>
-          <span class="mt-2 inline-flex items-center gap-1 text-xs text-bone/60 transition group-hover:text-accent">Részletek <span aria-hidden="true">→</span></span>
+          <span class="mt-2 inline-flex items-center gap-1 text-xs text-muted transition group-hover:text-accent">Részletek <span aria-hidden="true">→</span></span>
         </div>
       </a>`;
   }

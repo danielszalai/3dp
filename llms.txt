@@ -2,8 +2,9 @@
 
 > Digitális formák, valós tárgyak. Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. Budapest, HU.
 
-- Technológia: kizárólag FDM, 0,04 mm rétegvastagság
-- Anyagok: PLA, PETG, TPU, ASA
+- Technológia: kizárólag FDM
+- Rétegvastagság: jellemzően 0,2 mm; a 0,04 mm-től induló finom rétegvastagság csak rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez való
+- Anyagok: PLA, PETG, TPU, ASA, GLOW (sötétben világító, dekoratív célra)
 - Fájlformátumok: .stl, .step, .stp
 - Online vásárlás nincs: ajánlatkérés a kapcsolatfelvételi űrlapon keresztül, tájékoztató árak a katalógusban
 
@@ -13,9 +14,9 @@
 - [Portfólió projektek](portfolio.json)
 
 ## Oldalak
-- [Portfólió](portfolio.html): részletes projektoldalak (portfolio.html?p=<slug>)
+- [Portfólió](portfolio.html): részletes projektoldalak (portfolio.html?id=<project-id>)
 - [Kapcsolat / ajánlatkérés](index.html#kapcsolat)
 
 ## Elérhetőség
-- E-mail: hello@example.hu
-- Telefon: +36 30 000 0000
+- E-mail: hello@oddfuse.hu
+- Telefon: +36209888098
