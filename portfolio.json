@@ -1,5 +1,5 @@
 {
-  "_help": "MINTAPROJEKTEK – cseréld a saját munkáidra. Új projekt: másolj be egy blokkot a 'projects' tömbbe, az 'id' legyen egyedi, kisbetűs, szóköz nélküli (ez kerül a linkbe: portfolio.html?id=...). Fotók: tedd az img/portfolio/ mappába, és írd az útvonalukat az 'images' listába (az első a borítókép). Amíg az 'images' üres, generált rétegminta jelenik meg 'Fotó hamarosan' jelzéssel. A 'profile' (0–7) a generált illusztráció formáját adja. A főoldalon az első N projekt látszik (assets/config.js → portfolioLimit). JSON módosítás után futtasd: node tools/sync-fallback.js",
+  "_help": "MINTAPROJEKTEK – cseréld a saját munkáidra. Új projekt: másolj be egy blokkot a 'projects' tömbbe, az 'id' legyen egyedi, kisbetűs, szóköz nélküli (ez kerül a linkbe: portfolio.html?id=...).Fotók: tedd az img/portfolio/ mappába, és írd az útvonalukat az 'images' listába (az első a borítókép). Amíg az 'images' üres, generált rétegminta jelenik meg 'Fotó hamarosan' jelzéssel. A 'profile' (0–7) a generált illusztráció formáját adja. A főoldalon az első N projekt látszik (assets/config.js → portfolioLimit). JSON módosítás után futtasd: node tools/sync-fallback.js",
   "projects": [
     {
       "id": "tabletop-miniaturak",
