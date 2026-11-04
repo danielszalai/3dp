@@ -28,7 +28,13 @@
     mint: {
       bg: '#1B1E1D', surface: '#303735', accent: '#8DC8B2',
       text: '#E2E7E3', muted: '#A6B0AA', ticker: '#454C49', danger: '#E58A8A'
+    },
+     /* C – Graphite + Amber */
+   amber: {
+     bg: '#1A1815', surface: '#2E2A24', accent: '#E0B15A',
+     text: '#EDE8DF', muted: '#ADA698', ticker: '#4A4740', danger: '#E58A8A'
     }
+     
   };
 
   var NAMES = ['bg', 'surface', 'accent', 'text', 'muted', 'ticker', 'danger'];
