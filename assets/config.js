@@ -7,7 +7,7 @@ window.ODDFUSE_CONFIG = {
        'mint'    →  B: Graphite + Muted Mint
      A palettákat az assets/palettes.js fájl tartalmazza (részletes útmutató: PALETTA.md).
      ========================================================== */
-  palette: 'cyan',
+  palette: 'mint',
 
   /* A kapcsolatfelvételi űrlap backend címe (a Cloudflare Worker URL-je, lásd a lépésenkénti útmutatót).
      Amíg üres, az űrlap nem küld semmit. */
