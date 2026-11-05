@@ -48,6 +48,26 @@ body { background:rgb(var(--c-bg)); color:rgb(var(--c-text)); }
 .hp-field { position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden; }
 .hp-field input { background:transparent; color:inherit; }
 
+/* ===== Anyagkártyák: egységes, egy fokkal sötétebb akcentszín ===== */
+h4.mat-title {
+  color: color-mix(in srgb, rgb(var(--c-accent)) 78%, black);
+}
+h4.mat-title::before {
+  content: '';
+  display: inline-block;
+  width: .4em; height: .4em;
+  margin-right: .55em;
+  border-radius: 2px;
+  background: currentColor;
+  vertical-align: .12em;
+}
+.glass.mat-card {
+  border-top: 2px solid rgb(var(--c-accent) / .4);
+  transition: border-color .35s ease;
+}
+.glass.mat-card:hover { border-top-color: rgb(var(--c-accent) / .75); }
+
+
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .nozzle { animation:none !important; }
   .reveal { transition:none; opacity:1; transform:none; }
