@@ -175,21 +175,21 @@
         </div>
 
         <div class="mt-14 grid gap-5 md:grid-cols-3">
-          <article class="reveal glass rounded-2xl p-7 card">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Precizitás</h3>
             <p class="mt-2 text-muted text-sm leading-relaxed">Finomhangolt, kalibrált gépek és ismételhető minőség. A jellemző rétegvastagság 0,2 mm; de akár a 0,04 mm rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez is megvalósítható.</p>
           </article>
-          <article class="reveal glass rounded-2xl p-7 card">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
             </div>
             <h3 class="mt-5 font-display text-xl font-semibold">Sebesség</h3>
             <p class="mt-2 text-muted text-sm leading-relaxed">Nagy sebességű, zárt kamrás rendszerek a gyors átfutáshoz, a nyitott vázas gépek pedig a nagyobb méretekhez.</p>
           </article>
-          <article class="reveal glass rounded-2xl p-7 card">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent grid place-items-center">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5"/></svg>
             </div>
@@ -205,9 +205,9 @@
         </div>
         <div class="mt-8 grid gap-5 md:grid-cols-2">
 
-          <article class="reveal glass rounded-2xl p-7">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
-              <h4 class="font-display text-2xl font-bold text-accent">PLA</h4>
+              <h4 class="mat-title font-display text-2xl font-bold">PLA</h4>
               <span class="text-xs uppercase tracking-widest text-muted">Részletek, látvány</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
@@ -218,9 +218,9 @@
             </dl>
           </article>
 
-          <article class="reveal glass rounded-2xl p-7">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
-              <h4 class="font-display text-2xl font-bold text-bone">PETG</h4>
+              <h4 class="mat-title font-display text-2xl font-bold">PETG</h4>
               <span class="text-xs uppercase tracking-widest text-muted">Strapabíró, sokoldalú</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
@@ -231,9 +231,9 @@
             </dl>
           </article>
 
-          <article class="reveal glass rounded-2xl p-7">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
-              <h4 class="font-display text-2xl font-bold text-bone">TPU</h4>
+              <h4 class="mat-title font-display text-2xl font-bold">TPU</h4>
               <span class="text-xs uppercase tracking-widest text-muted">Rugalmas, ütéselnyelő</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
@@ -244,9 +244,9 @@
             </dl>
           </article>
 
-          <article class="reveal glass rounded-2xl p-7">
+          <article class="reveal glass mat-card rounded-2xl p-7">
             <div class="flex items-baseline justify-between gap-3">
-              <h4 class="font-display text-2xl font-bold text-bone">ASA</h4>
+              <h4 class="mat-title font-display text-2xl font-bold">ASA</h4>
               <span class="text-xs uppercase tracking-widest text-muted">Kültéri, időjárásálló</span>
             </div>
             <dl class="mt-5 space-y-4 text-sm leading-relaxed">
@@ -257,9 +257,9 @@
             </dl>
           </article>
 
-          <article class="reveal glass rounded-2xl p-7 md:col-span-2">
+          <article class="reveal glass mat-card rounded-2xl p-7 md:col-span-2">
             <div class="flex items-baseline justify-between gap-3">
-              <h4 class="font-display text-2xl font-bold text-bone">GLOW</h4>
+              <h4 class="mat-title font-display text-2xl font-bold">GLOW</h4>
               <span class="text-xs uppercase tracking-widest text-muted">Sötétben világító</span>
             </div>
             <dl class="mt-5 grid gap-x-8 gap-y-4 text-sm leading-relaxed md:grid-cols-2">
@@ -438,6 +438,26 @@
     loadData('products').then(d => { PRODUCTS = d.products || []; renderFilters(); renderCatalog(); })
       .catch(() => { $('#catalog').innerHTML = '<p class="col-span-full text-sm text-muted">A katalógus jelenleg nem tölthető be.</p>'; });
 
+    /* ===== Horgonyra görgetés korrekció ===== */
+(function keepAnchor() {
+    const hash = location.hash;
+    if (!hash || hash.length < 2) return;
+    let target;
+    try { target = document.querySelector(hash); } catch (_) { return; }
+    if (!target) return;
+  
+    const jump = () => window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+    const ro = new ResizeObserver(jump);
+    const stop = () => ro.disconnect();
+
+    ro.observe(document.body);
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(ev =>
+    window.addEventListener(ev, stop, { once: true, passive: true }));
+    setTimeout(stop, 4000);
+    jump();
+    })();
+
+    
     /* ===== Fájlfeltöltési zóna ===== */
     const MAX_MB = CFG.maxFileMB || 1;
     $('#maxMB').textContent = MAX_MB;
