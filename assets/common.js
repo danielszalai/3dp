@@ -49,8 +49,13 @@
   function projectCard(p) {
     const img = p.images && p.images[0];
     const media = img
-      ? `<img src="${esc(img)}" alt="${esc(p.title)}" loading="lazy" class="h-full w-full object-cover" />`
-      : layerArt(p.profile ?? 0, 0, 'slice');
+  ? (p.imageFit === 'contain'
+      /* B) teljes kép középen, mögötte ugyanaz a kép elmosva kitölti a kártyát */
+      ? `<img src="${esc(img)}" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-xl" />
+         <img src="${esc(img)}" alt="${esc(p.title)}" loading="lazy" class="relative h-full w-full object-contain" />`
+      /* A) kitöltő kép, a kivágás helyét te választod */
+      : `<img src="${esc(img)}" alt="${esc(p.title)}" loading="lazy" class="h-full w-full object-cover" style="object-position:${esc(p.imagePosition || 'center')}" />`)
+  : layerArt(p.profile ?? 0, 0, 'slice');
     return `
       <a href="portfolio.html?id=${encodeURIComponent(p.id)}" class="reveal card glass group relative block aspect-[4/5] overflow-hidden rounded-2xl" aria-label="${esc(p.title)} – részletek">
         <div class="art-wrap absolute inset-0 transition duration-700 group-hover:scale-105">${media}</div>
