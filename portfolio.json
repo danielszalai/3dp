@@ -68,6 +68,7 @@
       "profile": 4,
       "summary": "A tolómérő méretére szabott tároló az asztalra vagy a falra.",
       "images": ["img/portfolio/caliperholder.jpg"],
+      "imagePosition": "0% 50%",
       "purpose": "A tolómérő biztonságos és kéznél lévő tárolása.",
       "problem": "A fiókban könnyen megsérül vagy elvész a mérőeszköz, és a nyitott pofák sérülékenyek.",
       "material": "PETG vagy PLA",
