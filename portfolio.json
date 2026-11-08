@@ -15,13 +15,13 @@
     },
     {
       "id": "kakukkosora-ajto-potlasa",
-      "title": "Régi kakukkosóra pótlása",
+      "title": "Régi kakukkosóra ajtajának pótlása",
       "category": "Pótalkatrészek",
       "profile": 3,
       "summary": "Szovjet majak kakukkosóra ajtajának pótlása rajz alapján",
       "images": ["img/portfolio/kakukkos3.jpg","img/portfolio/kakukkos2.jpg","img/portfolio/kakukkos1.jpg"],
       "purpose": "Régen elveszett ajtót rekonstruáltunk az ügyféllel, fellelt képek alapján.",
-      "problem": "Az óra a funkcióját nem látta el, mintaként sem volt meg az eredeti darab. Képek alapján sikerült a mintát megalkotni, egy kis kisérletezéssel a méretet is belőttük igy festés után az eredetihez nagyon hasonló alakot fog ölteni.",
+      "problem": "Az óra a funkcióját nem látta el, miven a 70-es években készült így mintaként sem volt meg az eredeti darab. Képek alapján sikerült a mintát megalkotni, egy kis kisérletezéssel a méretet is belőttük igy festés után az eredetihez nagyon hasonló alakot fog ölteni.",
       "material": "PLA",
       "printing": "0,04mm vastagsággal nyomtattam a részletek pontossága miatt."
     },
