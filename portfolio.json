@@ -14,16 +14,16 @@
       "printing": "Finom részletekhez akár 0,04 mm-es rétegvastagság is választható (a jellemző beállítás 0,2 mm). A támaszok gondos elhelyezése miatt festés előtt csiszolás és alapozás ajánlott."
     },
     {
-      "id": "tabletop-tereptargyak",
-      "title": "Tabletop tereptárgyak",
-      "category": "Tabletop & miniatúrák",
+      "id": "kakukkosora-ajto-potlasa",
+      "title": "Régi kakukkosóra pótlása",
+      "category": "Pótalkatrészek",
       "profile": 3,
-      "summary": "Romok, falak, ládák és egyéb terepelemek a játékasztalra.",
-      "images": [],
-      "purpose": "A játéktér kialakítása: fedezékek, épületek és dekorációs elemek a játékhoz vagy a bemutatóhoz.",
-      "problem": "Az egyedi játéktérhez nehéz megfelelő méretű és stílusú terepelemet találni. Itt a méret és a forma a játékhoz igazítható.",
-      "material": "PLA, strapabíróbb elemekhez PETG",
-      "printing": "A nagyobb elemeket több részből nyomtatjuk és illesztjük össze. A felület festésre, szárazecsetelésre alkalmas."
+      "summary": "Szovjet majak kakukkosóra ajtajának pótlása rajz alapján",
+      "images": ["img/portfolio/kakukkos3.jpg","img/portfolio/kakukkos2.jpg","img/portfolio/kakukkos1.jpg"],
+      "purpose": "Régen elveszett ajtót rekonstruáltunk az ügyféllel, fellelt képek alapján.",
+      "problem": "Az óra a funkcióját nem látta el, mintaként sem volt meg az eredeti darab. Képek alapján sikerült a mintát megalkotni, egy kis kisérletezéssel a méretet is belőttük igy festés után az eredetihez nagyon hasonló alakot fog ölteni.",
+      "material": "PLA",
+      "printing": "0,04mm vastagsággal nyomtattam a részletek pontossága miatt."
     },
     {
       "id": "szerszamtarto",
