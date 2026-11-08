@@ -1,12 +1,38 @@
 # ODDFUSE
 
-> Digitális formák, valós tárgyak. Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. Budapest, HU.
+> Digitális formák, valós tárgyak. Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. Budapest, Vác, Penc és környéke, országos csomagküldéssel.
 
 - Technológia: kizárólag FDM
 - Rétegvastagság: jellemzően 0,2 mm; a 0,04 mm-től induló finom rétegvastagság csak rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez való
 - Anyagok: PLA, PETG, TPU, ASA, GLOW (sötétben világító, dekoratív célra)
 - Fájlformátumok: .stl, .step, .stp
+- Átfutás: jellemzően 24–72 óra, a méret, a darabszám és az aktuális terhelés függvényében
 - Online vásárlás nincs: ajánlatkérés a kapcsolatfelvételi űrlapon keresztül, tájékoztató árak a katalógusban
+
+## Szolgáltatási terület
+- Budapest, Vác, Penc és környéke: egyeztetés szerint személyes átvétel vagy szállítás
+- Az ország többi részére csomagküldéssel
+
+## Szolgáltatások
+- Egyedi 3D nyomtatás STL vagy STEP fájlból
+- Prototípusok nyomtatása
+- Pótalkatrészek készítése az eredeti darab vagy minta alapján
+- Háziállat szobor fényképből
+- Tabletop miniatúrák és terepelemek
+- Praktikus és személyre szabott tárgyak, dekorációk
+
+## Anyagok röviden
+- PLA: merev, részletgazdag, könnyen nyomtatható; miniatúrákhoz, szobrokhoz, dekorációhoz, prototípusokhoz; kb. 55–60 °C felett lágyul
+- PETG: szívósabb, kissé rugalmas, nedvességnek és sok vegyszernek ellenáll; tartókhoz, pótalkatrészekhez
+- TPU: rugalmas, ütés- és rezgéscsillapító; védőelemekhez, tokokhoz, gumiszerű kiegészítőkhöz
+- ASA: UV- és időjárásálló, hőállóbb; kültéri használatra, nyomtatása igényesebb
+- GLOW: sötétben világító, dekoratív anyag; a világítás ideje és erőssége a pigmenttől és a feltöltő fénytől függ, és fokozatosan halványul
+
+## Gyakori kérdések
+- Mennyibe kerül? Az ár a mérettől, a tömegtől, a nyomtatási időtől, az anyagtól és a darabszámtól függ; STL/STEP fájl vagy fénykép alapján árajánlatot adok.
+- Mennyi idő alatt készül el? Jellemzően 24–72 óra.
+- Milyen fájlt küldhetek? STL, STEP vagy STP; az űrlapon 1 MB-ig, nagyobb modellt e-mailben.
+- Vállalsz Budapesten, Vácon és Penc környékén? Igen, egyeztetés szerint személyes átvétellel vagy szállítással, máshová csomagküldéssel.
 
 ## Gépileg olvasható adatok
 - [Főoldal](index.html): JSON-LD (`#ai-schema`) és összefoglaló (`#ai-data`) a <head>-ben
