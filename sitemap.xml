@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://oddfuse.hu/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <!-- Új portfólió projekt: másold be ezt a blokkot, az ID legyen a portfolio.json-beli "id"
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=IDE-AZ-ID</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  -->
+</urlset>
