@@ -81,7 +81,7 @@
       "category": "Háziállat szobrok",
       "profile": 6,
       "summary": "Egyedi emléktárgy a kedvenc fényképe alapján, festésre előkészítve.",
-      "images": [],
+      "images": ["img/products/pet.jpg"],
       "purpose": "Személyes ajándék vagy emléktárgy a kedvenc háziállatról.",
       "problem": "Személyes, egyedi tárgyat nem lehet készen megvenni. A szobor a kedvenc fényképei alapján készül.",
       "material": "PLA",
