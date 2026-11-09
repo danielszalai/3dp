@@ -56,11 +56,11 @@
       "category": "Praktikus kiegészítők",
       "profile": 1,
       "summary": "Egyedi rendszámos vagy logós kulcstartók",
-      "images": [],
-      "purpose": "A telefon stabil tartása az asztalon videóhíváshoz, olvasáshoz vagy töltés közben.",
-      "problem": "A kereskedelmi tartók gyakran nem illenek a konkrét telefonhoz és tokhoz, vagy útban van a töltőkábel.",
+      "images": ["img/portfolio/keyring1.jpg","img/portfolio/keyring2.jpg"],
+      "purpose": "Egyedi rendszám vagy márkajelzéssel ellátható",
+      "problem": "",
       "material": "PLA vagy PETG",
-      "printing": "A dőlésszög, a támasz szélessége és a kábelnyílás a telefonhoz igazítható."
+      "printing": "Standard 0.2mm vastagsággal, szinesben"
     },
     {
       "id": "tolomero-tarto",
