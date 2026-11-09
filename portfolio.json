@@ -1,5 +1,5 @@
 {
-  "_help": "MINTAPROJEKTEK – cseréld a saját munkáidra. Új projekt: másolj be egy blokkot a 'projects' tömbbe, az 'id' legyen egyedi, kisbetűs, szóköz nélküli (ez kerül a linkbe: portfolio.html?id=...).Fotók: tedd az img/portfolio/ mappába, és írd az útvonalukat az 'images' listába (az első a borítókép). Amíg az 'images' üres, generált rétegminta jelenik meg 'Fotó hamarosan' jelzéssel. A 'profile' (0–7) a generált illusztráció formáját adja. A főoldalon az első N projekt látszik (assets/config.js → portfolioLimit). JSON módosítás után futtasd: node tools/sync-fallback.js",
+  "_help": "MINTAPROJEKTEK – cseréld a saját munkáidra. Új projekt: másolj be egy blokkot a 'projects' tömbbe, az 'id' legyen egyedi, kisbetűs, szóköz nélküli (ez kerül a linkbe: portfolio.html?id=...). Fotók: tedd az img/portfolio/ mappába, és írd az útvonalukat az 'images' listába (az első a borítókép). Amíg az 'images' üres, generált rétegminta jelenik meg 'Fotó hamarosan' jelzéssel. A 'profile' (0–7) a generált illusztráció formáját adja. A főoldalon az első N projekt látszik (assets/config.js → portfolioLimit). JSON módosítás után futtasd: node tools/sync-fallback.js",
   "projects": [
     {
       "id": "tabletop-miniaturok",
@@ -15,27 +15,27 @@
     },
      {
       "id": "tabletop-kiegeszito",
-      "title": "Tabletop kiegészitők",
+      "title": "Tabletop kiegészítők",
       "category": "Tabletop & miniatűrök",
       "profile": 5,
-      "summary": "Hangulatos kiegészitő tabletop játékhoz.",
+      "summary": "Hangulatos kiegészítő tabletop játékhoz.",
       "images": ["img/portfolio/tt_house1.jpg","img/portfolio/tt_house2.jpg", "img/portfolio/tt_house3.jpg"],
-      "purpose": "Alapozás és festés után jóval immerzivebb játékélményt ad.",
-      "problem": "Ha komolyabb kampányról van szó, az ilyen tereptárgyak kiváló kiegészitői a D&D játéknak.",
+      "purpose": "Alapozás és festés után jóval immerzívebb játékélményt ad.",
+      "problem": "Ha komolyabb kampányról van szó, az ilyen tereptárgyak kiváló kiegészítői a D&D játéknak.",
       "material": "PLA",
-      "printing": "0.2mm lassú nyomtatással, részletes modelfileból dolgozva látványos eredmény érhető el."
+      "printing": "0,2 mm-es rétegvastagsággal, lassú nyomtatással, részletes modellfájlból dolgozva látványos eredmény érhető el."
     },
     {
       "id": "kakukkosora-ajto-potlasa",
       "title": "Régi kakukkosóra ajtajának pótlása",
       "category": "Pótalkatrészek",
       "profile": 3,
-      "summary": "Szovjet majak kakukkosóra ajtajának pótlása rajz alapján",
+      "summary": "Szovjet Majak kakukkosóra ajtajának pótlása rajz alapján.",
       "images": ["img/portfolio/kakukkos3.jpg","img/portfolio/kakukkos2.jpg","img/portfolio/kakukkos1.jpg"],
       "purpose": "Régen elveszett ajtót rekonstruáltunk az ügyféllel, fellelt képek alapján.",
-      "problem": "Az óra a funkcióját nem látta el, miven a 70-es években készült így mintaként sem volt meg az eredeti darab. Képek alapján sikerült a mintát megalkotni, egy kis kisérletezéssel a méretet is belőttük igy festés után az eredetihez nagyon hasonló alakot fog ölteni.",
+      "problem": "Az óra a funkcióját nem látta el, mivel a 70-es években készült, így mintaként sem volt meg az eredeti darab. Képek alapján sikerült a mintát megalkotni, egy kis kísérletezéssel a méretet is belőttem, így festés után az eredetihez nagyon hasonló alakot fog ölteni.",
       "material": "PLA",
-      "printing": "0,04mm vastagsággal nyomtattam a részletek pontossága miatt."
+      "printing": "0,04 mm-es rétegvastagsággal nyomtattam a részletek pontossága miatt."
     },
    
     {
@@ -47,20 +47,20 @@
       "images": ["img/portfolio/dishwasher2.jpg","img/portfolio/dishwasher1.jpg"],
       "purpose": "Háztartási gép törött tálcakerekének pótlása.",
       "problem": "A gép nehézkesen volt használható, a tálcát kézzel kellett ki-be emelgetni.",
-      "material": "PETG vagy ASA, környezeti hőmérsékletétől függően",
-      "printing": "Méretvétel az eredeti darabról, a gyenge részek megerősitése,majd illesztési próba. Hőforrás közelében lévő alkatrésznél az anyagot előre egyeztetjük."
+      "material": "PETG vagy ASA, környezeti hőmérséklettől függően",
+      "printing": "Méretvétel az eredeti darabról, a gyenge részek megerősítése, majd illesztési próba. Hőforrás közelében lévő alkatrésznél az anyagot előre egyeztetjük."
     },
     {
       "id": "kulcstarto",
       "title": "Autós kulcstartó",
       "category": "Praktikus kiegészítők",
       "profile": 1,
-      "summary": "Egyedi rendszámos vagy logós kulcstartók",
+      "summary": "Egyedi rendszámos vagy logós kulcstartók.",
       "images": ["img/portfolio/keyring1.jpg","img/portfolio/keyring2.jpg"],
-      "purpose": "Egyedi rendszám vagy márkajelzéssel ellátható",
+      "purpose": "Egyedi rendszámmal vagy márkajelzéssel ellátható.",
       "problem": "",
       "material": "PLA vagy PETG",
-      "printing": "Standard 0.2mm vastagsággal, szinesben"
+      "printing": "Szokásos 0,2 mm-es rétegvastagsággal, színesben."
     },
     {
       "id": "tolomero-tarto",
@@ -92,10 +92,10 @@
       "title": "Halloweeni dekorációk",
       "category": "Dekoráció",
       "profile": 7,
-      "summary": "Különféle halloweeni kellékek, csontváz részek,szellemek, akár sötétben világitó darabok is",
+      "summary": "Különféle halloweeni kellékek, csontvázrészek, szellemek, akár sötétben világító darabok is.",
       "images": ["img/portfolio/halloween1.jpg","img/portfolio/glow1.jpg","img/portfolio/glow2.jpg"],
-      "purpose": "Ajtóra, lakásba, udvarra. Segitenek megteremteni a rémisztő hangulatot",
-      "problem": "A boltban kapható tucat díszek nagyon sablonosak és minden háznál megtalálhatóak. Így egyedi, saját stílusban díszithető fel a lakás",
+      "purpose": "Ajtóra, lakásba, udvarra. Segítenek megteremteni a rémisztő hangulatot.",
+      "problem": "A boltban kapható tucatdíszek nagyon sablonosak, és minden háznál megtalálhatók. Így egyedi, saját stílusban díszíthető fel a lakás.",
       "material": "PLA",
       "printing": "Jellemzően 0,2 mm-es rétegvastagság. A tisztább élekhez és az apró betűkhöz ennél vékonyabb réteg is választható."
     }

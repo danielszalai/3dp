@@ -4,10 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfólió – ODDFUSE | Digitális formák, valós tárgyak</title>
-  <meta name="description" content="ODDFUSE portfólió: tabletop miniatúrák, praktikus tartók, pótalkatrészek, háziállat szobrok és személyre szabott FDM nyomtatott tárgyak részletes bemutatása." />
+  <meta name="description" content="ODDFUSE portfólió: tabletop miniatűrök, praktikus tartók, pótalkatrészek, háziállat szobrok és személyre szabott FDM nyomtatott tárgyak részletes bemutatása." />
+  <link rel="canonical" href="https://oddfuse.hu/portfolio.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:site_name" content="ODDFUSE" />
+  <meta property="og:title" content="Portfólió – ODDFUSE | Digitális formák, valós tárgyak" />
+  <meta property="og:description" content="ODDFUSE portfólió: tabletop miniatűrök, praktikus tartók, pótalkatrészek, háziállat szobrok és személyre szabott FDM nyomtatott tárgyak." />
+  <meta property="og:url" content="https://oddfuse.hu/portfolio.html" />
+  <meta property="og:image" content="https://oddfuse.hu/assets/web-app-manifest-512x512.png" />
+  <meta name="twitter:card" content="summary" />
   <meta name="theme-color" content="#17191A" />
   <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="shortcut icon" href="assets/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="ODDFUSE" />
@@ -23,10 +32,10 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "ODDFUSE portfólió",
-    "description": "Nyomtatott munkák: tabletop miniatúrák, praktikus kiegészítők, pótalkatrészek, háziállat szobrok, személyre szabott tárgyak.",
+    "description": "Nyomtatott munkák: tabletop miniatűrök, praktikus kiegészítők, pótalkatrészek, háziállat szobrok, személyre szabott tárgyak.",
     "isPartOf": { "@type": "WebSite", "name": "ODDFUSE", "url": "https://oddfuse.hu/" },
     "about": { "@type": "ProfessionalService", "@id": "https://oddfuse.hu/#business", "name": "ODDFUSE" },
-    "mainEntityOfPage": "portfolio.json"
+    "url": "https://oddfuse.hu/portfolio.html"
   }
   </script>
 
@@ -35,6 +44,9 @@
   <!-- Paletta: a váltás helye az assets/config.js → palette -->
   <script src="assets/config.js"></script>
   <script src="assets/palettes.js"></script>
+  <!--a látogató számláló-->
+  <script data-goatcounter="https://oddfuse.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@500&display=swap" rel="stylesheet" />
@@ -109,11 +121,21 @@
     function setMeta(title, desc) {
       document.title = title;
       const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', desc);
+      const ot = document.querySelector('meta[property="og:title"]'); if (ot) ot.setAttribute('content', title);
+      const od = document.querySelector('meta[property="og:description"]'); if (od) od.setAttribute('content', desc);
     }
+    function setCanonical(url) {
+      let l = document.querySelector('link[rel="canonical"]');
+      if (!l) { l = document.createElement('link'); l.rel = 'canonical'; document.head.appendChild(l); }
+      l.href = url;
+      const o = document.querySelector('meta[property="og:url"]'); if (o) o.setAttribute('content', url);
+    }
+    const abs = s => new URL(s, 'https://oddfuse.hu/').href;
 
     /* ===== Lista nézet (nincs ?id) ===== */
     function renderList(projects) {
-      setMeta('Portfólió – ODDFUSE | Digitális formák, valós tárgyak', 'ODDFUSE portfólió: tabletop miniatúrák, praktikus tartók, pótalkatrészek, háziállat szobrok és személyre szabott FDM nyomtatott tárgyak.');
+      setCanonical('https://oddfuse.hu/portfolio.html');
+      setMeta('Portfólió – ODDFUSE | Digitális formák, valós tárgyak', 'ODDFUSE portfólió: tabletop miniatűrök, praktikus tartók, pótalkatrészek, háziállat szobrok és személyre szabott FDM nyomtatott tárgyak.');
       view.innerHTML = `
         <a href="index.html#portfolio" class="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition"><span aria-hidden="true">←</span> Vissza a főoldalra</a>
         <div class="mt-6 max-w-3xl">
@@ -126,6 +148,7 @@
 
     /* ===== Részletes nézet (?id=...) ===== */
     function infoBlock(title, text, icon) {
+      if (!text || !String(text).trim()) return '';
       return `
         <div class="glass rounded-2xl p-6">
           <div class="h-10 w-10 rounded-xl bg-accent/10 text-accent grid place-items-center">${icon}</div>
@@ -142,6 +165,11 @@
 
     function renderProject(p, all) {
       setMeta(`${p.title} – ODDFUSE portfólió`, p.summary);
+      setCanonical(abs('portfolio.html?id=' + encodeURIComponent(p.id)));
+      const fitCls = p.imageFit === 'contain' ? 'object-contain' : 'object-cover';
+      const infoList = [['Mire szolgál?', p.purpose, I.goal], ['Milyen problémát oldott meg?', p.problem, I.fix], ['Nyomtatási részletek', p.printing, I.tech]]
+        .filter(b => b[1] && String(b[1]).trim());
+      const infoCols = infoList.length >= 3 ? 'md:grid-cols-3' : infoList.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-1';
       const items = (p.images && p.images.length)
         ? p.images.map(src => ({ src }))
         : [0, 1, 2].map(v => ({ art: v }));
@@ -162,9 +190,9 @@
 
         <div class="mt-8 grid gap-10 lg:grid-cols-5">
           <div class="lg:col-span-3">
-            <div id="mainShot" class="img-wrap glass relative aspect-[4/3] overflow-hidden rounded-2xl">${tile(items[0], 'h-full w-full object-cover')}</div>
+            <div id="mainShot" class="img-wrap glass relative aspect-[4/3] overflow-hidden rounded-2xl">${tile(items[0], 'h-full w-full ' + fitCls)}</div>
             ${items.length > 1 ? `<div class="mt-3 grid grid-cols-4 sm:grid-cols-5 gap-3" id="thumbs">${items.map((it, i) => `
-              <button type="button" data-i="${i}" class="img-wrap glass aspect-[4/3] overflow-hidden rounded-xl transition hover:border-accent/60 ${i === 0 ? 'border-accent/70' : ''}" aria-label="${i + 1}. kép megtekintése">${tile(it, 'h-full w-full object-cover')}</button>`).join('')}</div>` : ''}
+              <button type="button" data-i="${i}" class="img-wrap glass aspect-[4/3] overflow-hidden rounded-xl transition hover:border-accent/60 ${i === 0 ? 'border-accent/70' : ''}" aria-label="${i + 1}. kép megtekintése">${tile(it, 'h-full w-full ' + fitCls)}</button>`).join('')}</div>` : ''}
             ${hasPhotos ? '' : '<p class="mt-3 text-xs text-muted">A projekt saját fotói hamarosan kerülnek fel. Az illusztráció a nyomtatott rétegeket idézi.</p>'}
           </div>
 
@@ -183,11 +211,7 @@
           </div>
         </div>
 
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
-          ${infoBlock('Mire szolgál?', p.purpose, I.goal)}
-          ${infoBlock('Milyen problémát oldott meg?', p.problem, I.fix)}
-          ${infoBlock('Nyomtatási részletek', p.printing, I.tech)}
-        </div>
+        ${infoList.length ? `<div class="mt-12 grid gap-5 ${infoCols}">${infoList.map(b => infoBlock(b[0], b[1], b[2])).join('')}</div>` : ''}
 
         <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-bone/10 pt-6 text-sm">
           <a href="portfolio.html?id=${encodeURIComponent(prev.id)}" class="text-muted hover:text-accent transition">← ${esc(prev.title)}</a>
@@ -196,7 +220,7 @@
 
       const thumbs = $('#thumbs');
       if (thumbs) thumbs.querySelectorAll('button').forEach(b => b.onclick = () => {
-        $('#mainShot').innerHTML = tile(items[+b.dataset.i], 'h-full w-full object-cover');
+        $('#mainShot').innerHTML = tile(items[+b.dataset.i], 'h-full w-full ' + fitCls);
         thumbs.querySelectorAll('button').forEach(x => x.classList.remove('border-accent/70'));
         b.classList.add('border-accent/70');
       });
@@ -206,15 +230,17 @@
       ld.type = 'application/ld+json';
       ld.textContent = JSON.stringify({
         '@context': 'https://schema.org', '@type': 'CreativeWork',
+        url: abs('portfolio.html?id=' + encodeURIComponent(p.id)),
         name: p.title, description: p.summary, genre: p.category, material: p.material,
-        creator: { '@type': 'ProfessionalService', name: 'ODDFUSE' },
-        ...(hasPhotos ? { image: p.images } : {})
+        creator: { '@type': 'ProfessionalService', '@id': 'https://oddfuse.hu/#business', name: 'ODDFUSE' },
+        ...(hasPhotos ? { image: p.images.map(abs) } : {})
       });
       document.head.appendChild(ld);
     }
 
     function renderMissing() {
       setMeta('A projekt nem található – ODDFUSE', 'A keresett portfólió projekt nem található.');
+      const rb = document.querySelector('meta[name="robots"]'); if (rb) rb.setAttribute('content', 'noindex');
       view.innerHTML = `
         <div class="glass rounded-2xl p-10 text-center max-w-xl mx-auto">
           <h1 class="font-display text-2xl font-bold">A projekt nem található</h1>

@@ -1,9 +1,9 @@
 # ODDFUSE
 
-> Digitális formák, valós tárgyak. Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatúrák, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. Budapest, Vác, Penc és környéke, országos csomagküldéssel.
+> Digitális formák, valós tárgyak. Egyedi FDM 3D nyomtatás: prototípusok, pótalkatrészek, tabletop miniatűrök, háziállat szobrok fényképből, praktikus és személyre szabott tárgyak. Budapest, Vác, Penc és környéke, országos csomagküldéssel.
 
 - Technológia: kizárólag FDM
-- Rétegvastagság: jellemzően 0,2 mm; a 0,04 mm-től induló finom rétegvastagság csak rendkívül részletgazdag figurákhoz, miniatúrákhoz és finom felületi részletekhez való
+- Rétegvastagság: jellemzően 0,2 mm; a 0,04 mm-től induló finom rétegvastagság csak rendkívül részletgazdag figurákhoz, miniatűrökhöz és finom felületi részletekhez való
 - Anyagok: PLA, PETG, TPU, ASA, GLOW (sötétben világító, dekoratív célra)
 - Fájlformátumok: .stl, .step, .stp
 - Átfutás: jellemzően 24–72 óra, a méret, a darabszám és az aktuális terhelés függvényében
@@ -18,11 +18,11 @@
 - Prototípusok nyomtatása
 - Pótalkatrészek készítése az eredeti darab vagy minta alapján
 - Háziállat szobor fényképből
-- Tabletop miniatúrák és terepelemek
+- Tabletop miniatűrök és terepelemek
 - Praktikus és személyre szabott tárgyak, dekorációk
 
 ## Anyagok röviden
-- PLA: merev, részletgazdag, könnyen nyomtatható; miniatúrákhoz, szobrokhoz, dekorációhoz, prototípusokhoz; kb. 55–60 °C felett lágyul
+- PLA: merev, részletgazdag, könnyen nyomtatható; miniatűrökhöz, szobrokhoz, dekorációhoz, prototípusokhoz; kb. 55–60 °C felett lágyul
 - PETG: szívósabb, kissé rugalmas, nedvességnek és sok vegyszernek ellenáll; tartókhoz, pótalkatrészekhez
 - TPU: rugalmas, ütés- és rezgéscsillapító; védőelemekhez, tokokhoz, gumiszerű kiegészítőkhöz
 - ASA: UV- és időjárásálló, hőállóbb; kültéri használatra, nyomtatása igényesebb
@@ -35,14 +35,15 @@
 - Vállalsz Budapesten, Vácon és Penc környékén? Igen, egyeztetés szerint személyes átvétellel vagy szállítással, máshová csomagküldéssel.
 
 ## Gépileg olvasható adatok
-- [Főoldal](index.html): JSON-LD (`#ai-schema`) és összefoglaló (`#ai-data`) a <head>-ben
-- [Termékkatalógus](products.json)
-- [Portfólió projektek](portfolio.json)
+- [Főoldal](https://oddfuse.hu/): JSON-LD (`#ai-schema`) és összefoglaló (`#ai-data`) a <head>-ben
+- [Termékkatalógus](https://oddfuse.hu/products.json)
+- [Portfólió projektek](https://oddfuse.hu/portfolio.json)
 
 ## Oldalak
-- [Portfólió](portfolio.html): részletes projektoldalak (portfolio.html?id=<project-id>)
-- [Kapcsolat / ajánlatkérés](index.html#kapcsolat)
+- [Portfólió](https://oddfuse.hu/portfolio.html): részletes projektoldalak (https://oddfuse.hu/portfolio.html?id=<project-id>)
+- [Kapcsolat / ajánlatkérés](https://oddfuse.hu/#kapcsolat)
 
 ## Elérhetőség
+- Weboldal: https://oddfuse.hu/
 - E-mail: hello@oddfuse.hu
 - Telefon: +36209888098

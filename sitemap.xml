@@ -8,6 +8,38 @@
     <loc>https://oddfuse.hu/portfolio.html</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=tabletop-miniaturok</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=tabletop-kiegeszito</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=kakukkosora-ajto-potlasa</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=mosogatogep-kerek-potlas</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=kulcstarto</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=tolomero-tarto</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=haziallat-szobor</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://oddfuse.hu/portfolio.html?id=halloween-dekoracio</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
   <!-- Új portfólió projekt: másold be ezt a blokkot, az ID legyen a portfolio.json-beli "id"
   <url>
     <loc>https://oddfuse.hu/portfolio.html?id=IDE-AZ-ID</loc>
