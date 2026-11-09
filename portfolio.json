@@ -13,6 +13,18 @@
       "material": "PLA",
       "printing": "Finom részletekhez akár 0,04 mm-es rétegvastagság is választható (a jellemző beállítás 0,2 mm). A támaszok gondos elhelyezése miatt festés előtt csiszolás és alapozás ajánlott."
     },
+     {
+      "id": "tabletop-kiegeszito",
+      "title": "Tabletop kiegészitők",
+      "category": "Tabletop & miniatűrök",
+      "profile": 5,
+      "summary": "Hangulatos kiegészitő tabletop játékhoz.",
+      "images": ["img/portfolio/tt_house1jpg","img/portfolio/tt_house2.jpg", "img/portfolio/tt_house3.jpg"],
+      "purpose": "Alapozás és festés után jóval immerzivebb játékélményt ad.",
+      "problem": "Ha komolyabb kampányról van szó, az ilyen tereptárgyak kiváló kiegészitői a D&D játéknak.",
+      "material": "PLA",
+      "printing": "0.2mm lassú nyomtatással, részletes modelfileból dolgozva látványos eredmény érhető el."
+    },
     {
       "id": "kakukkosora-ajto-potlasa",
       "title": "Régi kakukkosóra ajtajának pótlása",
@@ -25,29 +37,18 @@
       "material": "PLA",
       "printing": "0,04mm vastagsággal nyomtattam a részletek pontossága miatt."
     },
+   
     {
-      "id": "szerszamtarto",
-      "title": "Fali szerszámtartó",
-      "category": "Praktikus kiegészítők",
-      "profile": 5,
-      "summary": "A saját szerszámok méretére szabott, falra szerelhető tartó.",
-      "images": [],
-      "purpose": "Kéziszerszámok rendezett, kéznél lévő tárolása műhelyben, garázsban vagy otthon.",
-      "problem": "A szerszámok szanaszét hevernek a fiókban, és a készen kapható tartók ritkán illenek pontosan az adott szerszámokhoz.",
-      "material": "PETG",
-      "printing": "A falvastagság és a kitöltés a tárolt szerszámok súlyához igazítható. A tartó méretre tervezhető."
-    },
-    {
-      "id": "sutogomb-potlas",
-      "title": "Törött sütőgomb pótlása",
+      "id": "mosogatogep-kerek-potlas",
+      "title": "Törött mosogatógép kerekének pótlása",
       "category": "Pótalkatrészek",
       "profile": 2,
-      "summary": "Törött vagy elveszett kezelőgomb pótlása az eredeti darab vagy minta alapján.",
+      "summary": "Az ügyfél mosogatógépét nem tudta megfelelően használni, a tálca kerekét pótolni kellett.",
       "images": [],
-      "purpose": "Háztartási gép törött vagy elveszett kezelőgombjának pótlása.",
-      "problem": "Régebbi gépek apró műanyag alkatrészei gyakran már nem kaphatók, emiatt egy gomb miatt kell kidobni vagy nélkülözni a gépet.",
-      "material": "PETG vagy ASA, a gomb környezeti hőmérsékletétől függően",
-      "printing": "Méretvétel az eredeti darabról vagy a tengelyről, majd illesztési próba. Hőforrás közelében lévő alkatrésznél az anyagot előre egyeztetjük."
+      "purpose": "Háztartási gép törött tálcakerekének pótlása.",
+      "problem": "A gép nehézkesen volt használható, a tálcát kézzel kellett ki-be emelgetni.",
+      "material": "PETG vagy ASA, környezeti hőmérsékletétől függően",
+      "printing": "Méretvétel az eredeti darabról, a gyenge részek megerősitése,majd illesztési próba. Hőforrás közelében lévő alkatrésznél az anyagot előre egyeztetjük."
     },
     {
       "id": "telefontarto",
@@ -92,7 +93,7 @@
       "category": "Dekoráció",
       "profile": 7,
       "summary": "Különféle halloweeni kellékek, csontváz részek,szellemek, akár sötétben világitó darabok is",
-      "images": ["img/portfolio/halloween1.jpg"],
+      "images": ["img/portfolio/halloween1.jpg","img/portfolio/glow1.jpg","img/portfolio/glow2.jpg"],
       "purpose": "Ajtóra, lakásba, udvarra. Segitenek megteremteni a rémisztő hangulatot",
       "problem": "A boltban kapható tucat díszek nagyon sablonosak és minden háznál megtalálhatóak. Így egyedi, saját stílusban díszithető fel a lakás",
       "material": "PLA",
